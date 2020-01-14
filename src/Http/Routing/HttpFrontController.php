@@ -5,13 +5,13 @@ namespace Anso\Http\Routing;
 use Anso\Contract\Core\Application;
 use Anso\Contract\Http\Request;
 use Anso\Contract\Http\Response;
+use Anso\Contract\Routing\FrontController;
 use Anso\Exception\HttpNotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Throwable;
 
-class FrontController implements \Anso\Contract\Routing\FrontController
+class HttpFrontController implements FrontController
 {
-
     private Application $app;
     private ArrayCollection $routes;
 

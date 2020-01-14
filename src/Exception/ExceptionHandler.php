@@ -29,13 +29,14 @@ class ExceptionHandler implements \Anso\Contract\ExceptionHandler
 
     protected function formatException(Throwable $e): string
     {
-        return $e->getMessage() . ' ' . $e->getTraceAsString() . '\n' . $e->getTraceAsString();
+        return $e->getMessage() . "
+            " . $e->getTraceAsString();
     }
 
     public function render(Request $request, Throwable $e): ResponseContract
     {
         return $e instanceof HttpException
             ? new BaseResponse($e->getMessage(), $e->getCode())
-            : new BaseResponse($e->getMessage(), 500);
+            : new BaseResponse($this->formatException($e), 500);
     }
 }

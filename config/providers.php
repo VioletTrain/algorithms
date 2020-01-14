@@ -1,6 +1,13 @@
 <?php
 
+use Anso\Http\HttpAppProvider;
+
 return [
-    \Anso\Core\Provider\HttpAppProvider::class,
-    \Anso\Core\Provider\AlgorithmsProvider::class,
+    'http' => [
+        HttpAppProvider::class,
+    ],
+
+    'console' => [
+
+    ]
 ];

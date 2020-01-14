@@ -1,17 +1,21 @@
 <?php
 
+use Anso\Config\BaseConfigurator;
+use Anso\Contract\Http\Kernel;
+use Anso\Http\BaseRequest;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 define('BASE_PATH', __DIR__ . '/..');
 
-$request = \Anso\Http\BaseRequest::createFromGlobals();
+$request = BaseRequest::createFromGlobals();
 
-$app = new Anso\Core\HttpApp(new \Anso\Config\Configurator());
+$app = new Anso\Core\HttpApp(new BaseConfigurator());
 
 $exceptionHandler = $app->getExceptionHandler();
 
 try {
-    $kernel = $app->make(\Anso\Contract\Http\Kernel::class);
+    $kernel = $app->make(Kernel::class);
     $response = $kernel->handle($request);
 } catch (Exception $e) {
     $response = $exceptionHandler->handle($request, $e);

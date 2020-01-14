@@ -1,7 +1,8 @@
 <?php
 
-namespace Anso\Core\Provider;
+namespace Anso\Http;
 
+use Anso\Config\BaseConfigurator;
 use Anso\Contract\Config\Configurator;
 use Anso\Contract\Core\Application;
 use Anso\Contract\Core\Container;
@@ -9,6 +10,8 @@ use Anso\Contract\Core\Provider;
 use Anso\Contract\ExceptionHandler;
 use Anso\Contract\Http\Kernel;
 use Anso\Contract\Routing\FrontController;
+use Anso\Core\HttpApp;
+use Anso\Http\Routing\HttpFrontController;
 
 class HttpAppProvider implements Provider
 {
@@ -21,10 +24,10 @@ class HttpAppProvider implements Provider
 
     public function register(): void
     {
-        $this->container->singleton(Application::class, \Anso\Core\HttpApp::class);
-        $this->container->bind(Configurator::class, \Anso\Config\Configurator::class);
+        $this->container->singleton(Application::class, HttpApp::class);
+        $this->container->bind(Configurator::class, BaseConfigurator::class);
         $this->container->bind(Kernel::class, \Anso\Http\Kernel::class);
-        $this->container->bind(FrontController::class, \Anso\Http\Routing\FrontController::class);
+        $this->container->bind(FrontController::class, HttpFrontController::class);
         $this->container->bind(ExceptionHandler::class, \Anso\Exception\ExceptionHandler::class);
     }
 }
