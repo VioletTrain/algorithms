@@ -8,7 +8,7 @@ use Anso\Contract\Core\Container;
 use Anso\Contract\Core\Provider;
 use Anso\Contract\ExceptionHandler;
 use Anso\Contract\Http\Kernel;
-use Anso\Contract\Http\Routing\FrontController;
+use Anso\Contract\Routing\FrontController;
 
 class HttpAppProvider implements Provider
 {

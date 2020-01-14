@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Contract\Http\Routing;
+namespace Anso\Contract\Routing;
 
 interface Router
 {

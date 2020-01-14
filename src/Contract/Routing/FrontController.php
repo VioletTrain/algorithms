@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Contract\Http\Routing;
+namespace Anso\Contract\Routing;
 
 use Anso\Contract\Http\Request;
 use Anso\Contract\Http\Response;

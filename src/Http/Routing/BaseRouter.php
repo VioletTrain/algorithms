@@ -2,7 +2,7 @@
 
 namespace Anso\Http\Routing;
 
-use Anso\Contract\Http\Routing\Router;
+use Anso\Contract\Routing\Router;
 
 abstract class BaseRouter implements Router
 {

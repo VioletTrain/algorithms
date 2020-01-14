@@ -9,7 +9,7 @@ use Anso\Exception\HttpNotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Throwable;
 
-class FrontController implements \Anso\Contract\Http\Routing\FrontController
+class FrontController implements \Anso\Contract\Routing\FrontController
 {
 
     private Application $app;
