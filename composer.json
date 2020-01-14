@@ -1,7 +1,8 @@
 {
     "require": {
         "symfony/http-foundation": "^5.0",
-        "doctrine/orm": "*"
+        "doctrine/orm": "*",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
