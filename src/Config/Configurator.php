@@ -2,7 +2,7 @@
 
 namespace Anso\Config;
 
-use Anso\Core\Provider\AppProvider;
+use Anso\Core\Provider\HttpAppProvider;
 use ErrorException;
 
 class Configurator implements \Anso\Contract\Config\Configurator
@@ -28,8 +28,11 @@ class Configurator implements \Anso\Contract\Config\Configurator
 
     public function providers(): array
     {
-        return [
-            AppProvider::class
-        ];
+        return include(BASE_PATH . '/config/providers.php');
+    }
+
+    public function routes(): array
+    {
+        return include(BASE_PATH . '/config/routes.php');
     }
 }

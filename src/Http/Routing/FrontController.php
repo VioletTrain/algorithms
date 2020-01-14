@@ -2,6 +2,7 @@
 
 namespace Anso\Http\Routing;
 
+use Anso\Contract\Core\Application;
 use Anso\Contract\Http\Request;
 use Anso\Contract\Http\Response;
 use Anso\Exception\HttpNotFoundException;
@@ -11,20 +12,18 @@ use Throwable;
 class FrontController implements \Anso\Contract\Http\Routing\FrontController
 {
 
+    private Application $app;
     private ArrayCollection $routes;
 
-    public function __construct()
+    public function __construct(Application $app)
     {
+        $this->app = $app;
         $this->routes = $this->loadRoutes();
     }
 
     protected function loadRoutes(): ArrayCollection
     {
-        $routes = array_merge(
-            ApiRouter::getRoutes()
-        );
-
-        return new ArrayCollection($routes);
+        return new ArrayCollection($this->app->getRoutes());
     }
 
     /**
@@ -38,10 +37,10 @@ class FrontController implements \Anso\Contract\Http\Routing\FrontController
             throw new HttpNotFoundException($request->getUriWithoutParameters());
         }
 
-        var_dump($route['handler']);die;
+        return $this->executeRouteHandler($route);
     }
 
-    private function findRoute(Request $request)
+    private function findRoute(Request $request): array
     {
         foreach ($this->routes as $route) {
             if ($route['method'] === $request->getMethod() && $route['uri'] === $request->getUriWithoutParameters()) {
@@ -49,11 +48,20 @@ class FrontController implements \Anso\Contract\Http\Routing\FrontController
             }
         }
 
-        return null;
+        return [];
     }
 
-    private function executeHandler()
+    /**
+     * @param array $route
+     * @return Response
+     * @throws Throwable
+     */
+    private function executeRouteHandler(array $route): Response
     {
+        $action = $route['action'];
 
+        $action = $this->app->make($action);
+
+        return $action->execute();
     }
 }

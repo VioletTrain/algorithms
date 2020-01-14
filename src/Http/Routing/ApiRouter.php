@@ -2,16 +2,14 @@
 
 namespace Anso\Http\Routing;
 
-use Anso\Contract\Http\Routing\Router;
-use Anso\Controller\HomeController;
+use Anso\Action\HomeAction;
 
-class ApiRouter extends BaseRouter implements Router
+class ApiRouter extends BaseRouter
 {
     public static function getRoutes(): array
     {
         return [
-            static::get('/home', HomeController::class),
-            static::get('/test', HomeController::class)
+            static::get('/home', HomeAction::class),
         ];
     }
 }

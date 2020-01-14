@@ -2,26 +2,20 @@
 
 namespace Anso\Http;
 
-use Anso\Contract\Http\Request;
+use Anso\Contract\Http\Request as RequestContract;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class SymfonyRequestAdapter implements Request
+class Request extends SymfonyRequest implements RequestContract
 {
-    private SymfonyRequest $request;
-
-    public function __construct(SymfonyRequest $request)
-    {
-        $this->request = $request;
-    }
 
     public function getMethod(): string
     {
-        return $this->request->getMethod();
+        return parent::getMethod();
     }
 
     public function getUri(): string
     {
-        return $this->request->getRequestUri();
+        return parent::getRequestUri();
     }
 
     public function getUriWithoutParameters(): string

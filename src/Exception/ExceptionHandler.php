@@ -3,38 +3,39 @@
 namespace Anso\Exception;
 
 use Anso\Contract\Http\Request;
-use Anso\Contract\Http\Response;
-use Anso\Http\SymfonyResponseAdapter;
-use DateTime;
+use Anso\Contract\HttpException;
+use Anso\Contract\Http\Response as ResponseContract;
+use Anso\Http\Response;
 use Throwable;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class ExceptionHandler implements \Anso\Contract\ExceptionHandler
 {
+    public function handle(Request $request, Throwable $e): ResponseContract
+    {
+        $this->report($e);
+
+        return $this->render($request, $e);
+    }
+
     public function report(Throwable $e): void
     {
         if ($e instanceof HttpNotFoundException) {
             return;
         }
 
-        $currentDateTime = new DateTime();
-        $date = $currentDateTime->format('YYYY-mm-dd');
+        //TODO: log exception
 
-        $logFile = fopen('log-' . $date . '.log', 'w');
-        fwrite($logFile, $this->formatException($e));
-        fclose($logFile);
     }
 
     protected function formatException(Throwable $e): string
     {
-        return $e->getMessage() . '\n' . $e->getTraceAsString();
+        return $e->getMessage() . ' ' . $e->getTraceAsString() . '\n' . $e->getTraceAsString();
     }
 
-    public function render(Request $request, Throwable $e): Response
+    public function render(Request $request, Throwable $e): ResponseContract
     {
-        $symfonyResponse = new SymfonyResponse($e->getMessage(), $e->getCode());
-
-        return new SymfonyResponseAdapter($symfonyResponse);
+        return $e instanceof HttpException
+            ? new Response($e->getMessage(), $e->getCode())
+            : new Response($e->getMessage(), 500);
     }
-
 }

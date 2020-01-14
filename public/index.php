@@ -2,12 +2,19 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new Anso\Core\App(new \Anso\Config\Configurator());
-$kernel = $app->getKernel();
+define('BASE_PATH', __DIR__ . '/..');
 
-$symfonyRequest = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
-$request = new \Anso\Http\SymfonyRequestAdapter($symfonyRequest);
+$request = \Anso\Http\Request::createFromGlobals();
 
-$response = $kernel->handle($request);
+$app = new Anso\Core\HttpApp(new \Anso\Config\Configurator());
+
+$exceptionHandler = $app->getExceptionHandler();
+
+try {
+    $kernel = $app->make(\Anso\Contract\Http\Kernel::class);
+    $response = $kernel->handle($request);
+} catch (Exception $e) {
+    $response = $exceptionHandler->handle($request, $e);
+}
 
 $response->send();

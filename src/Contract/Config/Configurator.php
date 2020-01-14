@@ -6,4 +6,5 @@ interface Configurator
 {
     public function configure(): Configurator;
     public function providers(): array;
+    public function routes(): array;
 }

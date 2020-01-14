@@ -8,15 +8,19 @@ use Anso\Contract\Core\Provider;
 use Anso\Exception\BindingException;
 use ReflectionClass;
 use ReflectionException;
+use ReflectionParameter;
 
 class Container implements ContainerInterface
 {
-    private Configurator $configurator;
-    private array $bindings;
-    private array $providers;
+    protected Configurator $configurator;
+    protected array $bindings;
+    protected array $singletons;
+    protected array $resolved;
+    protected array $providers;
 
     public function __construct(Configurator $configurator)
     {
+        $this->resolved[ContainerInterface::class] = $this;
         $this->configurator = $configurator->configure();
 
         $this->registerBindings($this->createProviders());
@@ -36,9 +40,7 @@ class Container implements ContainerInterface
     protected function registerBindings(array $providers): void
     {
         foreach ($providers as $provider) {
-            if ($provider instanceof Provider) {
-                $provider->register();
-            }
+            $provider->register();
         }
     }
 
@@ -47,43 +49,133 @@ class Container implements ContainerInterface
         $this->bindings[$abstract] = $concrete;
     }
 
-    /**
-     * @param string $class
-     * @param array $parameters
-     * @return mixed
-     * @throws BindingException
-     */
-    public function make(string $class, array $parameters)
+    public function singleton(string $abstract, string $concrete): void
     {
-        if (!$this->hasBindings($class)) {
-            throw new BindingException("Class $class has not been bind.");
+        $this->singletons[$abstract] = $concrete;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function make(string $class, array $parameters = [])
+    {
+        if ($this->isSingleton($class)) {
+            return $this->resolveSingleton($class);
         }
 
+        if (!$this->isBound($class)) {
+            return $this->build($class);
+        }
+
+        return $this->build($this->bindings[$class]);
+    }
+
+    protected function isSingleton(string $class): bool
+    {
+        return isset($this->singletons[$class]);
+    }
+
+    /**
+     * @param string $class
+     * @return mixed
+     * @throws BindingException
+     * @throws ReflectionException
+     */
+    protected function resolveSingleton(string $class)
+    {
+        if (!isset($this->resolved[$class])) {
+            $this->resolved[$class] = $this->build($this->singletons[$class]);
+        }
+
+        return $this->resolved[$class];
+    }
+
+    protected function isBound(string $class): bool
+    {
+        return isset($this->bindings[$class]);
+    }
+
+    /**
+     * @param string $concrete
+     * @return object
+     * @throws BindingException
+     * @throws ReflectionException
+     */
+    protected function build(string $concrete)
+    {
         try {
-            $reflector = new ReflectionClass($class);
+            $reflector = new ReflectionClass($concrete);
         } catch (ReflectionException $e) {
-            throw new BindingException("Target class $class does not exist");
+            throw new BindingException("Target class $concrete does not exist");
         }
 
         if (!$reflector->isInstantiable()) {
-            throw new BindingException("Target class $class can not be instantiated");
+            throw new BindingException("Target class $concrete can not be instantiated");
         }
 
         $constructor = $reflector->getConstructor();
 
         if (is_null($constructor)) {
-            return new $class;
+            return new $concrete;
         }
 
         $dependencies = $constructor->getParameters();
-
         $instances = $this->resolveDependencies($dependencies);
 
-        return $reflector->newInstanceArgs($instances);
+        $instance = $reflector->newInstanceArgs($instances);
+
+        return $instance;
     }
 
-    protected function hasBindings(string $class): bool
+    /**
+     * @param array $dependencies
+     * @return array
+     * @throws BindingException
+     * @throws ReflectionException
+     */
+    protected function resolveDependencies(array $dependencies)
     {
-        return isset($this->bindings[$class]);
+        $results = [];
+
+        foreach ($dependencies as $dependency) {
+            $results[] = is_null($dependency->getClass())
+                ? $this->resolvePrimitive($dependency)
+                : $this->resolveClass($dependency);
+        }
+
+        return $results;
+    }
+
+    /**
+     * @param ReflectionParameter $parameter
+     * @return ReflectionParameter
+     * @throws BindingException
+     */
+    protected function resolvePrimitive(ReflectionParameter $parameter)
+    {
+        if ($parameter->isDefaultValueAvailable()) {
+            return $parameter;
+        }
+
+        throw new BindingException("Can not resolve $parameter of {$parameter->getDeclaringClass()->getName()}");
+    }
+
+    /**
+     * @param ReflectionParameter $parameter
+     * @return mixed
+     * @throws BindingException
+     * @throws ReflectionException
+     */
+    protected function resolveClass(ReflectionParameter $parameter)
+    {
+        try {
+            return $this->make($parameter->getClass()->name);
+        } catch (BindingException $e) {
+            if ($parameter->isOptional()) {
+                return $parameter->getDefaultValue();
+            }
+
+            throw $e;
+        }
     }
 }

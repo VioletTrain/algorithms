@@ -4,8 +4,9 @@ namespace Anso\Core\Provider;
 
 use Anso\Contract\Core\Container;
 use Anso\Contract\Core\Provider;
+use Anso\Contract\Lib\SearchService;
 
-class AppProvider implements Provider
+class AlgorithmsProvider implements Provider
 {
     private Container $container;
 
@@ -16,6 +17,5 @@ class AppProvider implements Provider
 
     public function register(): void
     {
-        $this->container->bind(\Anso\Contract\Http\Kernel::class, \Anso\Http\Kernel::class);
     }
 }

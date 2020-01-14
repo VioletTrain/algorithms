@@ -2,12 +2,12 @@
 
 namespace Anso\Exception;
 
+use Anso\Contract\HttpException;
 use Exception;
 use Throwable;
 
-class HttpNotFoundException extends Exception
+class HttpNotFoundException extends Exception implements HttpException
 {
-    protected $message = 'Page ';
     protected $code = 404;
 
     public function __construct($message = "", $code = 0, Throwable $previous = null)

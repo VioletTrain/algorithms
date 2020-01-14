@@ -11,7 +11,7 @@ abstract class BaseRouter implements Router
         return [
             'method'  => 'GET',
             'uri'     => $uri,
-            'handler' => $class
+            'action' => $class
         ];
     }
 
@@ -20,7 +20,7 @@ abstract class BaseRouter implements Router
         return [
             'method'  => 'POST',
             'uri'     => $uri,
-            'handler' => $class
+            'action' => $class
         ];
     }
 
@@ -29,7 +29,7 @@ abstract class BaseRouter implements Router
         return [
             'method'  => 'PUT',
             'uri'     => $uri,
-            'handler' => $class
+            'action' => $class
         ];
     }
 
@@ -38,7 +38,7 @@ abstract class BaseRouter implements Router
         return [
             'method'  => 'DELETE',
             'uri'     => $uri,
-            'handler' => $class
+            'action' => $class
         ];
     }
 }
