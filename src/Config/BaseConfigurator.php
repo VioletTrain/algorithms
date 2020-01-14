@@ -7,11 +7,10 @@ use ErrorException;
 
 class BaseConfigurator implements Configurator
 {
-    private string $application;
+    protected string $application = 'http';
 
     public function __construct()
     {
-        $this->application = 'http';
         $this->configure();
     }
 

@@ -2,7 +2,7 @@
 
 use Anso\Config\BaseConfigurator;
 use Anso\Contract\Http\Kernel;
-use Anso\Http\BaseRequest;
+use Anso\Base\BaseRequest;
 
 require __DIR__ . '/../vendor/autoload.php';
 

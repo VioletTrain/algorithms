@@ -1,6 +1,6 @@
 <?php
 
-use Anso\Http\Routing\ApiRouter;
+use Anso\Base\Routing\ApiRouter;
 
 return [
     'http' => array_merge(

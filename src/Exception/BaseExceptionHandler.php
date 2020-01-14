@@ -2,13 +2,14 @@
 
 namespace Anso\Exception;
 
+use Anso\Contract\ExceptionHandler;
 use Anso\Contract\Http\Request;
 use Anso\Contract\HttpException;
 use Anso\Contract\Http\Response as ResponseContract;
-use Anso\Http\BaseResponse;
+use Anso\Base\BaseResponse;
 use Throwable;
 
-class ExceptionHandler implements \Anso\Contract\ExceptionHandler
+class BaseExceptionHandler implements ExceptionHandler
 {
     public function handle(Request $request, Throwable $e): ResponseContract
     {
@@ -24,7 +25,6 @@ class ExceptionHandler implements \Anso\Contract\ExceptionHandler
         }
 
         //TODO: log exception
-
     }
 
     protected function formatException(Throwable $e): string

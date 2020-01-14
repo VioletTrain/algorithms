@@ -1,13 +1,14 @@
 <?php
 
-use Anso\Http\HttpAppProvider;
+use Anso\Base\ConsoleAppProvider;
+use Anso\Base\BaseAppProvider;
 
 return [
     'http' => [
-        HttpAppProvider::class,
+        BaseAppProvider::class,
     ],
 
     'console' => [
-
+        ConsoleAppProvider::class
     ]
 ];

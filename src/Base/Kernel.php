@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Http;
+namespace Anso\Base;
 
 use Anso\Contract\ExceptionHandler;
 use Anso\Contract\Routing\FrontController;

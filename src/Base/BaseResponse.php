@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Http;
+namespace Anso\Base;
 
 use Anso\Contract\Http\Response as ResponseContract;
 use ArrayObject;

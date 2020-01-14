@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Http;
+namespace Anso\Base;
 
 use Anso\Contract\Http\Request as RequestContract;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;

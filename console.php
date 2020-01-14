@@ -1,19 +1,19 @@
 <?php
 
-use Anso\Config\BaseConfigurator;
+use Anso\Config\ConsoleConfigurator;
 use Anso\Contract\Http\Kernel;
-
-echo "Hello there \n";
-
-$input = readline("Enter command: \n");
-echo "$input\n";
+use Anso\Core\HttpApp;
+use Anso\Base\ConsoleRequest;
 
 require __DIR__ . '/vendor/autoload.php';
 
 define('BASE_PATH', __DIR__ . '/..');
 
-$app = new Anso\Core\HttpApp(new BaseConfigurator());
+$input = readline("Hello there. Type 'man' to view available commands\n");
 
+$request = new ConsoleRequest($input);
+
+$app = new HttpApp(new ConsoleConfigurator());
 $exceptionHandler = $app->getExceptionHandler();
 
 try {

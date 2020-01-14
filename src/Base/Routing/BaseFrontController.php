@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Http\Routing;
+namespace Anso\Base\Routing;
 
 use Anso\Contract\Core\Application;
 use Anso\Contract\Http\Request;
@@ -10,10 +10,10 @@ use Anso\Exception\HttpNotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Throwable;
 
-class HttpFrontController implements FrontController
+class BaseFrontController implements FrontController
 {
-    private Application $app;
-    private ArrayCollection $routes;
+    protected Application $app;
+    protected ArrayCollection $routes;
 
     public function __construct(Application $app)
     {
@@ -40,7 +40,7 @@ class HttpFrontController implements FrontController
         return $this->executeRouteHandler($route);
     }
 
-    private function findRoute(Request $request): array
+    protected function findRoute(Request $request): array
     {
         foreach ($this->routes as $route) {
             if ($route['method'] === $request->getMethod() && $route['uri'] === $request->getUriWithoutParameters()) {
@@ -56,7 +56,7 @@ class HttpFrontController implements FrontController
      * @return Response
      * @throws Throwable
      */
-    private function executeRouteHandler(array $route): Response
+    protected function executeRouteHandler(array $route): Response
     {
         $action = $route['action'];
 
