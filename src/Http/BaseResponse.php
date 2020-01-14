@@ -7,7 +7,7 @@ use ArrayObject;
 use JsonSerializable;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
-class Response extends SymfonyResponse implements ResponseContract
+class BaseResponse extends SymfonyResponse implements ResponseContract
 {
     public function __construct($content = '', int $status = 200, array $headers = [])
     {

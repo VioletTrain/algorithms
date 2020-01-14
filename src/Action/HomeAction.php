@@ -2,12 +2,14 @@
 
 namespace Anso\Action;
 
-use Anso\Http\Response;
+use Anso\Contract\Http\Routing\Action;
+use Anso\Contract\Http\Response;
+use Anso\Http\BaseResponse;
 
-class HomeAction
+class HomeAction implements Action
 {
-    public function execute()
+    public function execute(): Response
     {
-        return new Response(['test']);
+        return new BaseResponse(['test']);
     }
 }

@@ -4,7 +4,6 @@ namespace Anso\Core\Provider;
 
 use Anso\Contract\Core\Container;
 use Anso\Contract\Core\Provider;
-use Anso\Contract\Lib\SearchService;
 
 class AlgorithmsProvider implements Provider
 {

@@ -26,6 +26,5 @@ class HttpAppProvider implements Provider
         $this->container->bind(Kernel::class, \Anso\Http\Kernel::class);
         $this->container->bind(FrontController::class, \Anso\Http\Routing\FrontController::class);
         $this->container->bind(ExceptionHandler::class, \Anso\Exception\ExceptionHandler::class);
-
     }
 }

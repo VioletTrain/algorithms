@@ -5,7 +5,7 @@ namespace Anso\Http;
 use Anso\Contract\Http\Request as RequestContract;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class Request extends SymfonyRequest implements RequestContract
+class BaseRequest extends SymfonyRequest implements RequestContract
 {
 
     public function getMethod(): string
