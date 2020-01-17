@@ -1,7 +1,6 @@
 <?php
 
-namespace Anso\Contract\Http;
-
+namespace Anso\Framework\Http\Contract;
 
 interface Kernel
 {

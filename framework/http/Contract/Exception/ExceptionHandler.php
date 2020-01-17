@@ -1,9 +1,9 @@
 <?php
 
-namespace Anso\Contract;
+namespace Anso\Framework\Http\Contract\Exception;
 
-use Anso\Contract\Http\Request;
-use Anso\Contract\Http\Response;
+use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Contract\Response;
 use Throwable;
 
 interface ExceptionHandler

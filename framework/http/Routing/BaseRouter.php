@@ -1,8 +1,8 @@
 <?php
 
-namespace Anso\Base\Routing;
+namespace Anso\Framework\Http\Routing;
 
-use Anso\Contract\Routing\Router;
+use Anso\Framework\Http\Contract\Routing\Router;
 
 abstract class BaseRouter implements Router
 {

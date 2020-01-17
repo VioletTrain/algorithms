@@ -1,29 +1,32 @@
 <?php
 
-namespace Anso\Base\Routing;
+namespace Anso\Framework\Http\Routing;
 
-use Anso\Contract\Core\Application;
-use Anso\Contract\Http\Request;
-use Anso\Contract\Http\Response;
-use Anso\Contract\Routing\FrontController;
-use Anso\Exception\HttpNotFoundException;
+use Anso\Framework\Contract\Application;
+use Anso\Framework\Contract\Configuration;
+use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Contract\Response;
+use Anso\Framework\Http\Contract\Routing\FrontController;
+use Anso\Framework\Http\Exception\HttpNotFoundException;
 use Doctrine\Common\Collections\ArrayCollection;
 use Throwable;
 
 class BaseFrontController implements FrontController
 {
     protected Application $app;
+    protected Configuration $configuration;
     protected ArrayCollection $routes;
 
-    public function __construct(Application $app)
+    public function __construct(Application $app, Configuration $configuration)
     {
         $this->app = $app;
+        $this->configuration = $configuration;
         $this->routes = $this->loadRoutes();
     }
 
     protected function loadRoutes(): ArrayCollection
     {
-        return new ArrayCollection($this->app->getRoutes());
+        return new ArrayCollection($this->configuration->routes());
     }
 
     /**

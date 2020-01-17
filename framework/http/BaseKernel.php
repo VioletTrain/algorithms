@@ -1,14 +1,15 @@
 <?php
 
-namespace Anso\Base;
+namespace Anso\Framework\Http;
 
-use Anso\Contract\ExceptionHandler;
-use Anso\Contract\Routing\FrontController;
-use Anso\Contract\Http\Request;
-use Anso\Contract\Http\Response;
+use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
+use Anso\Framework\Http\Contract\Kernel;
+use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Contract\Response;
+use Anso\Framework\Http\Contract\Routing\FrontController;
 use Throwable;
 
-class Kernel implements \Anso\Contract\Http\Kernel
+class BaseKernel implements Kernel
 {
     private FrontController $controller;
     private ExceptionHandler $handler;

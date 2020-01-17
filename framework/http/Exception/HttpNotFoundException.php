@@ -1,8 +1,8 @@
 <?php
 
-namespace Anso\Exception;
+namespace Anso\Framework\Http\Exception;
 
-use Anso\Contract\HttpException;
+use Anso\Framework\Http\Contract\Exception\HttpException;
 use Exception;
 use Throwable;
 

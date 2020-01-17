@@ -1,17 +1,17 @@
 <?php
 
-namespace Anso\Exception;
+namespace Anso\Framework\Http\Exception;
 
-use Anso\Contract\ExceptionHandler;
-use Anso\Contract\Http\Request;
-use Anso\Contract\HttpException;
-use Anso\Contract\Http\Response as ResponseContract;
-use Anso\Base\BaseResponse;
+use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
+use Anso\Framework\Http\Contract\Exception\HttpException;
+use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Contract\Response;
+use Anso\Framework\Http\BaseResponse;
 use Throwable;
 
 class BaseExceptionHandler implements ExceptionHandler
 {
-    public function handle(Request $request, Throwable $e): ResponseContract
+    public function handle(Request $request, Throwable $e): Response
     {
         $this->report($e);
 
@@ -33,7 +33,7 @@ class BaseExceptionHandler implements ExceptionHandler
             " . $e->getTraceAsString();
     }
 
-    public function render(Request $request, Throwable $e): ResponseContract
+    public function render(Request $request, Throwable $e): Response
     {
         return $e instanceof HttpException
             ? new BaseResponse($e->getMessage(), $e->getCode())

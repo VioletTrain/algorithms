@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Contract;
+namespace Anso\Framework\Http\Contract\Exception;
 
 interface HttpException
 {
