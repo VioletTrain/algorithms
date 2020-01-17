@@ -1,8 +1,8 @@
 <?php
 
-namespace Anso\Contract\Core;
+namespace Anso\Framework\Contract;
 
-use Anso\Exception\BindingException;
+use Anso\Framework\Base\BindingException;
 use ReflectionException;
 
 interface Container

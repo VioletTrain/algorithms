@@ -2,10 +2,9 @@
 
 namespace Anso\Core;
 
-use Anso\Contract\Core\Logger;
 use DateTime;
 
-class FileLogger implements Logger
+class FileLogger
 {
     public function log($data): void
     {
@@ -13,7 +12,7 @@ class FileLogger implements Logger
         $date = $currentDateTime->format('YYYY-mm-dd');
 
         $logFile = fopen('log-' . $date . '.log', 'w');
-        fwrite($logFile, $this->formatException($e));
+        fwrite($logFile, $this->formatException());
         fclose($logFile);
     }
 }

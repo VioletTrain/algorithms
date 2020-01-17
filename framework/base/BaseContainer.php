@@ -1,26 +1,24 @@
 <?php
 
-namespace Anso\Core;
+namespace Anso\Framework\Base;
 
-use Anso\Contract\Config\Configurator;
-use Anso\Contract\Core\Container as ContainerInterface;
-use Anso\Contract\Core\Provider;
-use Anso\Exception\BindingException;
+use Anso\Framework\Contract\Configuration;
+use Anso\Framework\Contract\Container;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionParameter;
 
-class Container implements ContainerInterface
+class BaseContainer implements Container
 {
-    protected Configurator $configurator;
+    protected Configuration $configurator;
     protected array $bindings;
     protected array $singletons;
     protected array $resolved;
     protected array $providers;
 
-    public function __construct(Configurator $configurator)
+    public function __construct(Configuration $configurator)
     {
-        $this->resolved[ContainerInterface::class] = $this;
+        $this->resolved[Container::class] = $this;
         $this->configurator = $configurator->configure();
 
         $this->registerBindings($this->createProviders());
@@ -150,11 +148,12 @@ class Container implements ContainerInterface
      * @param ReflectionParameter $parameter
      * @return ReflectionParameter
      * @throws BindingException
+     * @throws ReflectionException
      */
     protected function resolvePrimitive(ReflectionParameter $parameter)
     {
         if ($parameter->isDefaultValueAvailable()) {
-            return $parameter;
+            return $parameter->getDefaultValue();
         }
 
         throw new BindingException("Can not resolve $parameter of {$parameter->getDeclaringClass()->getName()}");

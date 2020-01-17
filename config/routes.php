@@ -1,13 +1,13 @@
 <?php
 
-use Anso\Base\Routing\ApiRouter;
+use Anso\Framework\Http\Routing\ApiRouter;
 
 return [
     'http' => array_merge(
         ApiRouter::getRoutes(),
     ),
 
-    'console' => [
-
-    ],
+//    'console' => array_merge(
+//        ConsoleRouter::getRoutes()
+//    ),
 ];

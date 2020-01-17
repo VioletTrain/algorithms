@@ -1,20 +1,22 @@
 <?php
 
-namespace Anso\Config;
+namespace Anso\Framework\Base;
 
-use Anso\Contract\Config\Configurator;
+use Anso\Framework\Contract\Configuration;
 use ErrorException;
 
-class BaseConfigurator implements Configurator
+class BaseConfiguration implements Configuration
 {
     protected string $application = 'http';
+    protected array $routes = [];
 
-    public function __construct()
+    public function __construct($configPath = '/config')
     {
+        $this->routes = include(BASE_PATH . $configPath . "/routes.php");
         $this->configure();
     }
 
-    public function configure(): Configurator
+    public function configure(): Configuration
     {
         $this->configurePhp();
 
@@ -37,8 +39,6 @@ class BaseConfigurator implements Configurator
 
     public function routes(): array
     {
-        $routes = include(BASE_PATH . '/config/routes.php');
-
-        return $routes[$this->application];
+        return $this->routes[$this->application];
     }
 }

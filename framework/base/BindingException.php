@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Exception;
+namespace Anso\Framework\Base;
 
 use Exception;
 use Throwable;

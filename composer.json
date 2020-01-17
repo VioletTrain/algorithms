@@ -7,7 +7,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Anso\\": "src\\"
+            "Algorithms\\": "src\\",
+            "Anso\\Framework\\Base\\": "framework\\base\\",
+            "Anso\\Framework\\Console\\": "framework\\console\\",
+            "Anso\\Framework\\Contract\\": "framework\\contract\\",
+            "Anso\\Framework\\Http\\": "framework\\http\\"
         }
     },
     "authors": [

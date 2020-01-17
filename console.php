@@ -1,26 +1,14 @@
 <?php
 
-use Anso\Config\ConsoleConfigurator;
-use Anso\Contract\Http\Kernel;
-use Anso\Core\HttpApp;
-use Anso\Base\ConsoleRequest;
-
 require __DIR__ . '/vendor/autoload.php';
 
-define('BASE_PATH', __DIR__ . '/..');
+use Anso\Framework\Console\ConsoleConfiguration;
+use Anso\Framework\Base\BaseContainer;
+use Anso\Framework\Console\ConsoleApp;
 
-$input = readline("Hello there. Type 'man' to view available commands\n");
+define('BASE_PATH', __DIR__);
 
-$request = new ConsoleRequest($input);
+$container = new BaseContainer(new ConsoleConfiguration());
+$app = new ConsoleApp($container);
 
-$app = new HttpApp(new ConsoleConfigurator());
-$exceptionHandler = $app->getExceptionHandler();
-
-try {
-    $kernel = $app->make(Kernel::class);
-    $response = $kernel->handle($request);
-} catch (Exception $e) {
-    $response = $exceptionHandler->handle($request, $e);
-}
-
-$response->send();
+$app->start();

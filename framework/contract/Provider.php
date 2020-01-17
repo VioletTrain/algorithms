@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Contract\Core;
+namespace Anso\Framework\Contract;
 
 interface Provider
 {
