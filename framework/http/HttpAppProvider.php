@@ -26,7 +26,7 @@ class HttpAppProvider implements Provider
     {
         $this->container->singleton(Application::class, HttpApp::class);
         $this->container->singleton(Container::class, HttpApp::class);
-        $this->container->bind(Configuration::class, BaseConfiguration::class);
+        $this->container->singleton(Configuration::class, BaseConfiguration::class);
         $this->container->bind(Kernel::class, BaseKernel::class);
         $this->container->bind(FrontController::class, BaseFrontController::class);
         $this->container->bind(ExceptionHandler::class, BaseExceptionHandler::class);

@@ -6,6 +6,6 @@ class CommandParser
 {
     public function parse(string $input): string
     {
-        return '';
+        return $input;
     }
 }

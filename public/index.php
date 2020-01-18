@@ -8,7 +8,7 @@ use Anso\Framework\Http\HttpApp;
 
 define('BASE_PATH', __DIR__ . '/..');
 
-$container = new BaseContainer(new BaseConfiguration());
+$container = new BaseContainer(new BaseConfiguration('/config/http'));
 $app = new HttpApp($container);
 
 $app->start();

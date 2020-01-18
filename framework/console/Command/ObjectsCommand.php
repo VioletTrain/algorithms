@@ -2,7 +2,7 @@
 
 namespace Anso\Framework\Console\Command;
 
-use Anso\UseCase\DeclaredClassesUseCase;
+use Algorithms\UseCase\DeclaredClassesUseCase;
 
 class ObjectsCommand
 {

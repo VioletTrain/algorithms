@@ -8,11 +8,11 @@ use ErrorException;
 class BaseConfiguration implements Configuration
 {
     protected string $application = 'http';
-    protected array $routes = [];
+    protected string $configPath;
 
-    public function __construct($configPath = '/config')
+    public function __construct($relativeConfigPath = '/config')
     {
-        $this->routes = include(BASE_PATH . $configPath . "/routes.php");
+        $this->configPath = BASE_PATH . $relativeConfigPath;
         $this->configure();
     }
 
@@ -30,15 +30,8 @@ class BaseConfiguration implements Configuration
         });
     }
 
-    public function providers(): array
+    public function configPath(): string
     {
-        $providers = include(BASE_PATH . '/config/providers.php');
-
-        return $providers[$this->application];
-    }
-
-    public function routes(): array
-    {
-        return $this->routes[$this->application];
+        return $this->configPath;
     }
 }

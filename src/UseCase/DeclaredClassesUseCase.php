@@ -1,8 +1,8 @@
 <?php
 
-namespace Anso\UseCase;
+namespace Algorithms\UseCase;
 
-use Anso\SystemInfo;
+use Algorithms\SystemInfo;
 
 class DeclaredClassesUseCase
 {

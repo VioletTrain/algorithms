@@ -2,7 +2,6 @@
 
 namespace Anso\Framework\Console\Command;
 
-use Anso\Console\Routing\ConsoleRouter;
 
 class HelpCommand
 {
@@ -10,13 +9,13 @@ class HelpCommand
 
     public function execute()
     {
-        $commands = ConsoleRouter::getRoutes();
+        $commands = CommandList::getCommands();
         $output = "Available commands: \n\n";
 
-        foreach ($commands as $route) {
-            $output .= $route['uri'] ."\n";
+        foreach ($commands as $name => $command) {
+            $output .= $name ."\n";
         }
 
-        return$output;
+        return $output;
     }
 }

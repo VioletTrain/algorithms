@@ -19,6 +19,7 @@ class BaseContainer implements Container
     public function __construct(Configuration $configurator)
     {
         $this->resolved[Container::class] = $this;
+        $this->resolved[Configuration::class] = $configurator;
         $this->configurator = $configurator->configure();
 
         $this->registerBindings($this->createProviders());
@@ -26,7 +27,7 @@ class BaseContainer implements Container
 
     protected function createProviders(): array
     {
-        $config = $this->configurator->providers();
+        $config = include($this->configurator->configPath() . '/providers.php');
 
         foreach ($config as $item) {
             $this->providers[] = new $item($this);

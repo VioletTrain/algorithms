@@ -2,7 +2,7 @@
 
 namespace Anso\Framework\Console\Command;
 
-use Anso\UseCase\MemoryUsageUseCase;
+use Algorithms\UseCase\MemoryUsageUseCase;
 
 class MemoryCommand
 {

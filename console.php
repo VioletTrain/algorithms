@@ -8,7 +8,7 @@ use Anso\Framework\Console\ConsoleApp;
 
 define('BASE_PATH', __DIR__);
 
-$container = new BaseContainer(new ConsoleConfiguration());
+$container = new BaseContainer(new ConsoleConfiguration('/config/console'));
 $app = new ConsoleApp($container);
 
 $app->start();

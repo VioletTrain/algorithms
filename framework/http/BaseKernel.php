@@ -11,8 +11,8 @@ use Throwable;
 
 class BaseKernel implements Kernel
 {
-    private FrontController $controller;
-    private ExceptionHandler $handler;
+    protected FrontController $controller;
+    protected ExceptionHandler $handler;
 
     public function __construct(FrontController $controller, ExceptionHandler $handler)
     {
@@ -25,20 +25,10 @@ class BaseKernel implements Kernel
         try {
             $response = $this->controller->handle($request);
         } catch (Throwable $e) {
-            $this->reportException($e);
-            $response = $this->renderException($request, $e);
+            $this->handler->report($e);
+            $response = $this->handler->render($request, $e);
         }
 
         return $response;
-    }
-
-    protected function reportException(Throwable $e): void
-    {
-        $this->handler->report($e);
-    }
-
-    protected function renderException(Request $request, Throwable $e): Response
-    {
-        return $this->handler->render($request, $e);
     }
 }

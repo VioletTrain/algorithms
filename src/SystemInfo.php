@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso;
+namespace Algorithms;
 
 class SystemInfo
 {

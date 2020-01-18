@@ -15,18 +15,18 @@ class BaseFrontController implements FrontController
 {
     protected Application $app;
     protected Configuration $configuration;
-    protected ArrayCollection $routes;
+    protected array $routes;
 
     public function __construct(Application $app, Configuration $configuration)
     {
         $this->app = $app;
         $this->configuration = $configuration;
-        $this->routes = $this->loadRoutes();
+        $this->loadRoutes();
     }
 
-    protected function loadRoutes(): ArrayCollection
+    protected function loadRoutes()
     {
-        return new ArrayCollection($this->configuration->routes());
+        $this->routes = include($this->configuration->configPath() . '/routes.php');
     }
 
     /**
@@ -40,29 +40,27 @@ class BaseFrontController implements FrontController
             throw new HttpNotFoundException($request->getUriWithoutParameters());
         }
 
-        return $this->executeRouteHandler($route);
+        return $this->makeAndExecuteRouteHandler($route);
     }
 
-    protected function findRoute(Request $request): array
+    protected function findRoute(Request $request): string
     {
         foreach ($this->routes as $route) {
             if ($route['method'] === $request->getMethod() && $route['uri'] === $request->getUriWithoutParameters()) {
-                return $route;
+                return $route['action'];
             }
         }
 
-        return [];
+        return '';
     }
 
     /**
-     * @param array $route
+     * @param string $action
      * @return Response
      * @throws Throwable
      */
-    protected function executeRouteHandler(array $route): Response
+    protected function makeAndExecuteRouteHandler(string $action): Response
     {
-        $action = $route['action'];
-
         $action = $this->app->make($action);
 
         return $action->execute();
