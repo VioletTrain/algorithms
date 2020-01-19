@@ -7,13 +7,6 @@ use Throwable;
 
 class ConsoleExceptionHandler
 {
-    private IOManager $ioManager;
-
-    public function __construct(IOManager $ioManager)
-    {
-        $this->ioManager = $ioManager;
-    }
-
     public function handle(Throwable $e)
     {
         $this->report($e);
@@ -34,6 +27,6 @@ class ConsoleExceptionHandler
             ? "$border\n" . $e->getMessage() . "\n$border"
             : "$border\n" . $e->getMessage() . $e->getTraceAsString(). "\n$border";
 
-        $this->ioManager->writeOutput($message);
+        IOManager::writeOutput($message);
     }
 }

@@ -9,15 +9,13 @@ use Throwable;
 
 class ConsoleApp extends BaseApp
 {
-    private IOManager $ioManager;
     private ConsoleExceptionHandler $exceptionHandler;
     private InputHandler $inputHandler;
 
 
     public function start(): void
     {
-        $this->ioManager = new IOManager();
-        $this->exceptionHandler = new ConsoleExceptionHandler($this->ioManager);
+        $this->exceptionHandler = new ConsoleExceptionHandler();
 
         try {
             $this->inputHandler = $this->container->make(InputHandler::class);
@@ -25,10 +23,10 @@ class ConsoleApp extends BaseApp
             $this->exceptionHandler->handle($e);
         }
 
-        $this->ioManager->writeOutput("Hello there. Type 'help' to get available commands.\n");
+        IOManager::writeOutput("Hello there. Type 'help' to get available commands.\n");
 
         while (true) {
-            $input = $this->ioManager->readInput();
+            $input = IOManager::readInput();
 
             try {
                 $output = $this->inputHandler->handle($input);
@@ -37,7 +35,7 @@ class ConsoleApp extends BaseApp
                 continue;
             }
 
-            $this->ioManager->writeOutput($output);
+            IOManager::writeOutput($output);
         }
     }
 }

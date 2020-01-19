@@ -12,7 +12,8 @@ class CommandList
             'help'      => HelpCommand::class,
             'memory'    => MemoryCommand::class,
             'objects'   => ObjectsCommand::class,
-            'time'      => TimeElapsedCommand::class
+            'time'      => TimeElapsedCommand::class,
+            'sum'       => SumCommand::class,
         ];
     }
 }
