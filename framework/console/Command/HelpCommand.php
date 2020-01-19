@@ -3,19 +3,24 @@
 namespace Anso\Framework\Console\Command;
 
 
-class HelpCommand
-{
-    public const SIGNATURE = 'help';
+use Anso\Framework\Console\Contract\Command;
 
-    public function execute()
+class HelpCommand implements Command
+{
+    public function execute(): string
     {
         $commands = CommandList::getCommands();
         $output = "Available commands: \n\n";
 
         foreach ($commands as $name => $command) {
-            $output .= $name ."\n";
+            $output .= $name . " - " . $command::description() ."\n";
         }
 
         return $output;
+    }
+
+    public static function description(): string
+    {
+        return 'List all available commands';
     }
 }

@@ -13,4 +13,9 @@ class SystemInfo
     {
         return count(get_declared_classes());
     }
+
+    public function timeElapsed(): int
+    {
+        return microtime(true) - FRAMEWORK_START;
+    }
 }

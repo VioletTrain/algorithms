@@ -3,8 +3,9 @@
 namespace Anso\Framework\Console\Command;
 
 use Algorithms\UseCase\MemoryUsageUseCase;
+use Anso\Framework\Console\Contract\Command;
 
-class MemoryCommand
+class MemoryCommand implements Command
 {
     private MemoryUsageUseCase $memoryUsageUseCase;
 
@@ -13,10 +14,15 @@ class MemoryCommand
         $this->memoryUsageUseCase = $memoryUsageUseCase;
     }
 
-    public function execute()
+    public function execute(): string
     {
         $output = 'Memory usage: ' . $this->memoryUsageUseCase->memoryUsage() . "\n";
 
         return $output;
+    }
+
+    public static function description(): string
+    {
+        return MemoryUsageUseCase::DESCRIPTION;
     }
 }

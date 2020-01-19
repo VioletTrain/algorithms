@@ -23,8 +23,5 @@ class ConsoleAppProvider implements Provider
         $this->container->singleton(Container::class, ConsoleApp::class);
         $this->container->singleton(Configuration::class, ConsoleConfiguration::class);
         $this->container->bind(InputHandler::class, BaseInputHandler::class);
-//        $this->container->bind(Kernel::class, \Anso\Base\HttpKernel::class);
-//        $this->container->bind(FrontController::class, ConsoleFrontController::class);
-//        $this->container->bind(ExceptionHandler::class, ConsoleExceptionHandler::class);
     }
 }

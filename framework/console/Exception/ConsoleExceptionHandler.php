@@ -28,9 +28,12 @@ class ConsoleExceptionHandler
     private function render(Throwable $e)
     {
         $messageLength = strlen($e->getMessage());
-        $topBorder = str_repeat('~', $messageLength);
-        $bottomBorder = str_repeat('~', $messageLength);
+        $border = str_repeat('~', $messageLength);
 
-        $this->ioManager->writeOutput("$topBorder\n" . $e->getMessage() . "\n$bottomBorder");
+        $message = $e instanceof CommandNotFoundException
+            ? "$border\n" . $e->getMessage() . "\n$border"
+            : "$border\n" . $e->getMessage() . $e->getTraceAsString(). "\n$border";
+
+        $this->ioManager->writeOutput($message);
     }
 }

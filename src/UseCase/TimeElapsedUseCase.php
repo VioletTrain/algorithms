@@ -4,19 +4,19 @@ namespace Algorithms\UseCase;
 
 use Algorithms\SystemInfo;
 
-class MemoryUsageUseCase
+class TimeElapsedUseCase
 {
     private SystemInfo $systemInfo;
 
-    public const DESCRIPTION = 'Show current memory usage';
+    public const DESCRIPTION = 'Show time elapsed for current script';
 
     public function __construct(SystemInfo $systemInfo)
     {
         $this->systemInfo = $systemInfo;
     }
 
-    public function memoryUsage(): int
+    public function timeElapsed(): int
     {
-        return $this->systemInfo->memoryUsage();
+        return $this->systemInfo->timeElapsed();
     }
 }

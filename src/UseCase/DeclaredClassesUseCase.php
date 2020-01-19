@@ -8,6 +8,8 @@ class DeclaredClassesUseCase
 {
     private SystemInfo $systemInfo;
 
+    public const DESCRIPTION = 'Show number of declared classes';
+
     public function __construct(SystemInfo $systemInfo)
     {
         $this->systemInfo = $systemInfo;

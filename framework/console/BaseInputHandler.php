@@ -37,6 +37,10 @@ class BaseInputHandler implements InputHandler
     {
         $commandName = $this->commandParser->parse($input);
 
+        if ($commandName == '') {
+            return $commandName;
+        }
+
         if (!$command = $this->findCommand($commandName)) {
             throw new CommandNotFoundException($commandName);
         }
