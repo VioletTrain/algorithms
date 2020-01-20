@@ -6,7 +6,7 @@ use Algorithms\UseCase\SolveMeFirstUseCase;
 use Anso\Framework\Console\Contract\Command;
 use Anso\Framework\Console\IOManager;
 
-class SumCommand implements Command
+class SolveMeFirstCommand implements Command
 {
     private SolveMeFirstUseCase $sumUseCase;
 

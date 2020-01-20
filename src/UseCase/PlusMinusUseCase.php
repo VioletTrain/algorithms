@@ -2,6 +2,8 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Math;
+
 class PlusMinusUseCase
 {
     public const DESCRIPTION = 'Count ratio of positive, negative, and 0 integers in n-array (Plus Minus)';
@@ -23,15 +25,10 @@ class PlusMinusUseCase
             }
         }
 
-        $ratios['positive'] = $this->countRatio($positive, $denominator);
-        $ratios['negative'] = $this->countRatio($negative, $denominator);
-        $ratios['zero'] = $this->countRatio($zero, $denominator);
+        $ratios['positive'] = Math::countRatio($positive, $denominator);
+        $ratios['negative'] = Math::countRatio($negative, $denominator);
+        $ratios['zero'] = Math::countRatio($zero, $denominator);
 
         return $ratios;
-    }
-
-    private function countRatio($integer, $denominator): string
-    {
-        return number_format($integer / $denominator, 6);
     }
 }

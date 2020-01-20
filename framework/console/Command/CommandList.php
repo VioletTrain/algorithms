@@ -13,7 +13,7 @@ class CommandList
             'memory'        => MemoryCommand::class,
             'objects'       => ObjectsCommand::class,
             'time'          => TimeElapsedCommand::class,
-            'sum'           => SumCommand::class,
+            'sum'           => SolveMeFirstCommand::class,
             'pm'            => PlusMinusCommand::class,
         ];
     }
