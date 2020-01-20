@@ -17,6 +17,7 @@ class CommandList
             'pm'            => PlusMinusCommand::class,
             'sc'            => StaircaseCommand::class,
             'mm'            => MiniMaxCommand::class,
+            'bc'            => BirthdayCakeCandlesCommand::class,
         ];
     }
 }

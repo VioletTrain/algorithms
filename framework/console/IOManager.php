@@ -32,7 +32,9 @@ class IOManager
     public static function readIntegersInline(int $numberOfIntegers): array
     {
         $integers = IOManager::readLine("Enter $numberOfIntegers integers separated by space:");
+
         $array = explode(' ', $integers);
+        $array = array_filter($array, fn ($value) => is_numeric($value));
 
         if (count($array) !== $numberOfIntegers) {
             IOManager::writeLine("The number of integers must be $numberOfIntegers. ");
