@@ -3,7 +3,7 @@
 use Algorithms\UseCase\SolveMeFirstUseCase;
 use PHPUnit\Framework\TestCase;
 
-class SolveMeFirstTestCase extends TestCase
+class SolveMeFirstTest extends TestCase
 {
     public function test_Sum_Adds_2Integers()
     {

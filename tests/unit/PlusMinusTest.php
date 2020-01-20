@@ -3,7 +3,7 @@
 use Algorithms\UseCase\PlusMinusUseCase;
 use PHPUnit\Framework\TestCase;
 
-class PlusMinusTestCase extends TestCase
+class PlusMinusTest extends TestCase
 {
     private $plusMinus;
 
@@ -24,7 +24,7 @@ class PlusMinusTestCase extends TestCase
         ], $result);
     }
 
-    public function test_CountRatios_CountsStringsAsZeros_whenArrayOfIntegersAndStringsIsGiven()
+    public function test_CountRatios_CountsStringsAsZeros_WhenArrayOfIntegersAndStringsIsGiven()
     {
         $result = $this->plusMinus->countRatios([1, 3, 'sdfsdf', 0, -5]);
 

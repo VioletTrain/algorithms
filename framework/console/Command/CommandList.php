@@ -16,6 +16,7 @@ class CommandList
             'sum'           => SolveMeFirstCommand::class,
             'pm'            => PlusMinusCommand::class,
             'sc'            => StaircaseCommand::class,
+            'mm'            => MiniMaxCommand::class,
         ];
     }
 }

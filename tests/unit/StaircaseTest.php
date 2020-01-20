@@ -3,7 +3,7 @@
 use Algorithms\UseCase\StaircaseUseCase;
 use PHPUnit\Framework\TestCase;
 
-class StaircaseTestCase extends TestCase
+class StaircaseTest extends TestCase
 {
     private $staircase;
 

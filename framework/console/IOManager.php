@@ -28,4 +28,18 @@ class IOManager
 
         return $integer;
     }
+
+    public static function readIntegersInline(int $numberOfIntegers): array
+    {
+        $integers = IOManager::readLine("Enter $numberOfIntegers integers separated by space:");
+        $array = explode(' ', $integers);
+
+        if (count($array) !== $numberOfIntegers) {
+            IOManager::writeLine("The number of integers must be $numberOfIntegers. ");
+
+            return static::readIntegersInline($numberOfIntegers);
+        }
+
+        return array_map('intval', $array);
+    }
 }

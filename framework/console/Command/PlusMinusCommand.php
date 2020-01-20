@@ -18,25 +18,11 @@ class PlusMinusCommand implements Command
     public function execute(): string
     {
         $arrayLength = IOManager::readInteger("array length");
-        $array = $this->promptAndGetNIntegersArray($arrayLength);
+        $array = IOManager::readIntegersInline($arrayLength);
 
         $ratios = $this->plusMinusUseCase->countRatios($array);
 
         return implode(IOManager::NEW_LINE, $ratios);
-    }
-
-    private function promptAndGetNIntegersArray(int $n): array
-    {
-        $integers = IOManager::readLine("Enter $n integers separated by space:");
-        $array = explode(' ', $integers);
-
-        if (count($array) !== $n) {
-            IOManager::writeLine("The number of integers must be $n. ");
-
-            return $this->promptAndGetNIntegersArray($n);
-        }
-
-        return array_map('intval', $array);
     }
 
     public static function description(): string
