@@ -4,6 +4,7 @@ namespace Anso\Framework\Console\Command;
 
 
 use Anso\Framework\Console\Contract\Command;
+use Anso\Framework\Console\IOManager;
 
 class HelpCommand implements Command
 {
@@ -13,7 +14,7 @@ class HelpCommand implements Command
         $output = "Available commands: \n\n";
 
         foreach ($commands as $name => $command) {
-            $output .= $name . " - " . $command::description() ."\n";
+            $output .= $name . " - " . $command::description() . IOManager::NEW_LINE;
         }
 
         return $output;

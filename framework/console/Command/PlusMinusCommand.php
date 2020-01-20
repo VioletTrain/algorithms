@@ -22,7 +22,7 @@ class PlusMinusCommand implements Command
 
         $ratios = $this->plusMinusUseCase->countRatios($array);
 
-        return implode("\n", $ratios);
+        return implode(IOManager::NEW_LINE, $ratios);
     }
 
     private function promptAndGetNIntegersArray(int $n): array

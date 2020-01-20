@@ -15,6 +15,7 @@ class CommandList
             'time'          => TimeElapsedCommand::class,
             'sum'           => SolveMeFirstCommand::class,
             'pm'            => PlusMinusCommand::class,
+            'sc'            => StaircaseCommand::class,
         ];
     }
 }

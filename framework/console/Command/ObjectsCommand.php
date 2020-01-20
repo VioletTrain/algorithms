@@ -4,6 +4,7 @@ namespace Anso\Framework\Console\Command;
 
 use Algorithms\UseCase\DeclaredClassesUseCase;
 use Anso\Framework\Console\Contract\Command;
+use Anso\Framework\Console\IOManager;
 
 class ObjectsCommand implements Command
 {
@@ -16,7 +17,7 @@ class ObjectsCommand implements Command
 
     public function execute(): string
     {
-        $output = 'Total declared classes: ' . $this->declaredClassesUseCase->totalDeclaredClasses() . "\n";
+        $output = 'Total declared classes: ' . $this->declaredClassesUseCase->totalDeclaredClasses() . IOManager::NEW_LINE;
 
         return $output;
     }
