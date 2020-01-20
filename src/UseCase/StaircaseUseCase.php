@@ -6,7 +6,7 @@ class StaircaseUseCase
 {
     public const DESCRIPTION = 'Build n-sized staircase aligned to right';
 
-    public function staircase(int $size): array
+    public function build(int $size): array
     {
         $staircase = [];
 

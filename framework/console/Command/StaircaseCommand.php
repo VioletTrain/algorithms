@@ -19,7 +19,7 @@ class StaircaseCommand implements Command
     {
         $size = IOManager::readInteger('size');
 
-        return implode(IOManager::NEW_LINE, $this->stairCaseUseCase->staircase($size));
+        return implode(IOManager::NEW_LINE, $this->stairCaseUseCase->build($size));
     }
 
     public static function description(): string
