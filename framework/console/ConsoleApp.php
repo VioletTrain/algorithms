@@ -23,10 +23,10 @@ class ConsoleApp extends BaseApp
             $this->exceptionHandler->handle($e);
         }
 
-        IOManager::writeOutput("Hello there. Type 'help' to get available commands.\n");
+        IOManager::writeLine("Hello there. Type 'help' to get available commands.\n");
 
         while (true) {
-            $input = IOManager::readInput();
+            $input = IOManager::readLine();
 
             try {
                 $output = $this->inputHandler->handle($input);
@@ -35,7 +35,7 @@ class ConsoleApp extends BaseApp
                 continue;
             }
 
-            IOManager::writeOutput($output);
+            IOManager::writeLine($output);
         }
     }
 }

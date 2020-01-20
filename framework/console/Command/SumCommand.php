@@ -17,23 +17,10 @@ class SumCommand implements Command
 
     public function execute(): string
     {
-        $a = $this->readInteger("a");
-        $b = $this->readInteger("b");
+        $a = IOManager::readInteger("a");
+        $b = IOManager::readInteger("b");
 
         return "Sum of $a and $b is " . $this->sumUseCase->sum((int)$a, (int)$b);
-    }
-
-    private function readInteger(string $integerName): int
-    {
-        $integer = IOManager::readInput("Enter $integerName:");
-
-        if (!is_numeric($integer)) {
-            IOManager::writeOutput("Input data must be an integer");
-
-            return $this->readInteger($integerName);
-        }
-
-        return $integer;
     }
 
     public static function description(): string

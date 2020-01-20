@@ -27,6 +27,6 @@ class ConsoleExceptionHandler
             ? "$border\n" . $e->getMessage() . "\n$border"
             : "$border\n" . $e->getMessage() . $e->getTraceAsString(). "\n$border";
 
-        IOManager::writeOutput($message);
+        IOManager::writeLine($message);
     }
 }
