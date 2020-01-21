@@ -4,7 +4,7 @@ namespace Algorithms\UseCase;
 
 class StaircaseUseCase
 {
-    public const DESCRIPTION = 'Build n-sized staircase aligned to right';
+    public const DESCRIPTION = 'Build n-sized staircase aligned to right (Staircase)';
 
     public function build(int $size): array
     {

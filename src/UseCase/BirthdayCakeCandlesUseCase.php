@@ -4,7 +4,7 @@ namespace Algorithms\UseCase;
 
 class BirthdayCakeCandlesUseCase
 {
-    public const DESCRIPTION = 'Return number of max values in array';
+    public const DESCRIPTION = 'Return number of max values in array (Birthday Cake Candles)';
 
     public function countTallestCandles(array $candles): int
     {

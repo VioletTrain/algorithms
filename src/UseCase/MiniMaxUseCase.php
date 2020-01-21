@@ -4,7 +4,7 @@ namespace Algorithms\UseCase;
 
 class MiniMaxUseCase
 {
-    public const DESCRIPTION = 'Return array of min and max sums of 4 integers out of 5';
+    public const DESCRIPTION = 'Return array of min and max sums of 4 integers out of 5 (Mini-Max)';
 
     public function countMiniMaxSums(array $integers): array
     {
