@@ -19,7 +19,7 @@ class CommandList
             'mm'            => MiniMaxCommand::class,
             'bc'            => BirthdayCakeCandlesCommand::class,
             'tc'            => TimeConversionCommand::class,
-            //TODO: make a command to convert integer into roman numerals
+            'itr'           => IntToRomanCommand::class,
         ];
     }
 }
