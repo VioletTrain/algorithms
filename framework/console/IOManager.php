@@ -21,7 +21,7 @@ class IOManager
         $integer = IOManager::readLine("Enter $integerName:");
 
         if (!is_numeric($integer)) {
-            IOManager::writeLine("Input data must be an integer");
+            IOManager::writeLine("Input data must be an integer.");
 
             return static::readInteger($integerName);
         }
@@ -29,11 +29,11 @@ class IOManager
         return $integer;
     }
 
-    public static function readIntegersInline(int $numberOfIntegers): array
+    public static function readIntegersInline(int $numberOfIntegers, string $delimiter = ' '): array
     {
         $integers = IOManager::readLine("Enter $numberOfIntegers integers separated by space:");
 
-        $array = explode(' ', $integers);
+        $array = explode($delimiter, $integers);
         $array = array_filter($array, fn ($value) => is_numeric($value));
 
         if (count($array) !== $numberOfIntegers) {
