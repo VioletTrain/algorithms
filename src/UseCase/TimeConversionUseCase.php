@@ -8,10 +8,8 @@ class TimeConversionUseCase
 {
     public const DESCRIPTION = 'Convert time from 12-hours to 24-hours format';
 
-    public function covertTimeFromRegularToMilitary(string $regularTime)
+    public function covertTimeFromRegularToMilitary(Time $regularTime)
     {
-        $time = new Time($regularTime);
-
-        return $time->military();
+        return $regularTime->military();
     }
 }

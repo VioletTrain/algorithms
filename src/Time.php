@@ -54,11 +54,11 @@ class Time
 
     public function military(): string
     {
-        if (!$this->dayPeriod) {
+        if (!$this->dayPeriod()) {
             return $this;
         }
 
-        if ($this->dayPeriod === 'PM') {
+        if ($this->dayPeriod() === 'PM') {
             $convertedHours = $this->hours() === '12' ? $this->hours : intval($this->hours) + 12;
         } else {
             $convertedHours = $this->hours() === '12' ? '00' : $this->hours();
@@ -90,7 +90,7 @@ class Time
 
     public function dayPeriod():string
     {
-        return $this->dayPeriod;
+        return mb_strtoupper($this->dayPeriod);
     }
 
     public function __toString()
