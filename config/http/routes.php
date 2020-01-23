@@ -1,7 +1,8 @@
 <?php
 
 use Anso\Framework\Http\Routing\ApiRouter;
+use Anso\Framework\Http\Routing\RouteCollection;
 
-return array_merge(
+return new RouteCollection(array_merge(
     ApiRouter::getRoutes(),
-);
+));
