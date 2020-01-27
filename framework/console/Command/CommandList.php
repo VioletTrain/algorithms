@@ -20,6 +20,7 @@ class CommandList
             'bc'            => BirthdayCakeCandlesCommand::class,
             'tc'            => TimeConversionCommand::class,
             'itr'           => IntToRomanCommand::class,
+            'ldn'           => LargestDecentNumberCommand::class,
         ];
     }
 }
