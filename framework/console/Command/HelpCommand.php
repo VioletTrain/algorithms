@@ -14,7 +14,7 @@ class HelpCommand implements Command
         $output = "Available commands: \n\n";
 
         foreach ($commands as $name => $command) {
-            $output .= $name . " - " . $command::description() . IOManager::NEW_LINE;
+            $output .= $name . " - " . $command::description() . IOManager::NEW_LINE . IOManager::NEW_LINE;
         }
 
         return $output;
