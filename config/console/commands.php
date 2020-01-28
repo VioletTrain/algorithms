@@ -1,3 +1,5 @@
 <?php
 
-return \Anso\Framework\Console\Command\CommandList::getCommands();
+use Anso\Framework\Console\Command\CommandList;
+
+return CommandList::getCommands();

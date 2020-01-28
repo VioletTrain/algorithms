@@ -21,6 +21,7 @@ class CommandList
             'tc'            => TimeConversionCommand::class,
             'itr'           => IntToRomanCommand::class,
             'ldn'           => LargestDecentNumberCommand::class,
+            'mcn'           => MinimumContainersCounterCommand::class,
         ];
     }
 }
