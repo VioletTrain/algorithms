@@ -3,6 +3,7 @@
 namespace Anso\Framework\Console;
 
 use Anso\Framework\Base\BaseParameterBag;
+use Anso\Framework\Console\Command\CommandCollection;
 use Anso\Framework\Console\Contract\ConsoleFrontController;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Contract\Configuration;
@@ -14,7 +15,7 @@ class FrontController implements ConsoleFrontController
 {
     protected Container $container;
     protected Configuration $configuration;
-    protected array $commands;
+    protected CommandCollection $commands;
 
     public function __construct(Container $container, Configuration $configuration)
     {
@@ -35,7 +36,7 @@ class FrontController implements ConsoleFrontController
      */
     public function handle(Command $command): string
     {
-        if (!$commandHandler = $this->findCommand($command->name())) {
+        if (!$commandHandler = $this->commands->findCommand($command->name())) {
             throw new CommandNotFoundException($command->name());
         }
 
@@ -46,10 +47,5 @@ class FrontController implements ConsoleFrontController
         $commandHandler = $this->container->make($commandHandler);
 
         return $commandHandler->handle(new BaseParameterBag($command->parameters()));
-    }
-
-    protected function findCommand(string $commandName): string
-    {
-        return isset($this->commands[$commandName]) ? $this->commands[$commandName] : '';
     }
 }
