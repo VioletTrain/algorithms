@@ -1,5 +1,6 @@
 <?php
 
+use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\BirthdayCakeCandlesUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -13,11 +14,14 @@ class BirthdayCakeCandlesTest extends TestCase
         $this->cake = new BirthdayCakeCandlesUseCase();
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_countTallestCandles_ReturnsTallestCandles_WhenArrayOfIntegersIsGiven()
     {
         $candles = [4, 5, 5, 5, 9, 9];
 
-        $result = $this->cake->countTallestCandles($candles);
+        $result = $this->cake->countTallestCandles(new IntArrayBoundary($candles));
 
         $this->assertEquals(2, $result);
     }

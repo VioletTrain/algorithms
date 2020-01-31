@@ -3,10 +3,10 @@
 namespace Anso\Framework\Console\Command;
 
 use Algorithms\UseCase\MemoryUsageUseCase;
-use Anso\Framework\Console\Contract\Command;
 use Anso\Framework\Console\IOManager;
+use Anso\Framework\Contract\ParameterBag;
 
-class MemoryCommand implements Command
+class MemoryHandler extends BaseCommandHandler
 {
     private MemoryUsageUseCase $memoryUsageUseCase;
 
@@ -15,7 +15,7 @@ class MemoryCommand implements Command
         $this->memoryUsageUseCase = $memoryUsageUseCase;
     }
 
-    public function execute(): string
+    public function handle(ParameterBag $parameters): string
     {
         $output = 'Memory usage: ' . $this->memoryUsageUseCase->memoryUsage() . IOManager::NEW_LINE;
 

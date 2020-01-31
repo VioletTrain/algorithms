@@ -2,46 +2,35 @@
 
 namespace Anso\Framework\Console;
 
+use Anso\Framework\Console\Exception\InvalidFormatException;
+
 class IOManager
 {
     public const NEW_LINE = "\n";
 
-    public static function readLine($prompt = null): string
+    public static function readLine($prompt = ''): string
     {
         return readline($prompt . "\n > ");
     }
 
     public static function writeLine(string $output): void
     {
-        echo IOManager::NEW_LINE . $output . IOManager::NEW_LINE;
+        echo IOManager::NEW_LINE . $output . IOManager::NEW_LINE . IOManager::NEW_LINE;
     }
 
+    /**
+     * @param string $integerName
+     * @return int
+     * @throws InvalidFormatException
+     */
     public static function readInteger(string $integerName): int
     {
         $integer = IOManager::readLine("Enter $integerName:");
 
         if (!is_numeric($integer)) {
-            IOManager::writeLine("Input data must be an integer.");
-
-            return static::readInteger($integerName);
+            throw new InvalidFormatException('numeric');
         }
 
         return $integer;
-    }
-
-    public static function readIntegersInline(int $numberOfIntegers, string $delimiter = ' '): array
-    {
-        $integers = IOManager::readLine("Enter $numberOfIntegers integers separated by space:");
-
-        $array = explode($delimiter, $integers);
-        $array = array_filter($array, fn ($value) => is_numeric($value));
-
-        if (count($array) !== $numberOfIntegers) {
-            IOManager::writeLine("The number of integers must be $numberOfIntegers. ");
-
-            return static::readIntegersInline($numberOfIntegers);
-        }
-
-        return array_map('intval', $array);
     }
 }

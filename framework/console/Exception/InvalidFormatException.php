@@ -6,11 +6,11 @@ use Anso\Framework\Contract\ApplicationException;
 use Exception;
 use Throwable;
 
-class CommandNotFoundException extends Exception implements ApplicationException
+class InvalidFormatException extends Exception implements ApplicationException
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
-        $message = "'" . $message . "' command was not found";
+        $message = "Input must be " . $message;
         parent::__construct($message, $code, $previous);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Anso\Framework\Console\Command;
 
-use Anso\Framework\Console\Contract\Command;
+use Anso\Framework\Contract\ParameterBag;
 
-class ExitCommand implements Command
+class ExitHandler extends BaseCommandHandler
 {
-    public function execute(): string
+    public function handle(ParameterBag $parameters): string
     {
         exit;
     }

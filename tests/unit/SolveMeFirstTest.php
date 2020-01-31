@@ -1,10 +1,15 @@
 <?php
 
+use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\SolveMeFirstUseCase;
 use PHPUnit\Framework\TestCase;
 
 class SolveMeFirstTest extends TestCase
 {
+
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_Sum_Adds_2Integers()
     {
         $solveMeFirst = new SolveMeFirstUseCase();
@@ -12,7 +17,7 @@ class SolveMeFirstTest extends TestCase
         $a = mt_rand(0, 100);
         $b = mt_rand(0, 100);
 
-        $result = $solveMeFirst->sum($a, $b);
+        $result = $solveMeFirst->sum(new IntBoundary($a), new IntBoundary($b));
 
         $this->assertEquals($a + $b, $result);
     }

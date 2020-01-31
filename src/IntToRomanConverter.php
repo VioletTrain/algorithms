@@ -2,6 +2,8 @@
 
 namespace Algorithms;
 
+use Algorithms\Boundary\IntBoundary;
+
 class IntToRomanConverter
 {
     private array $romanSymbols = [
@@ -27,8 +29,9 @@ class IntToRomanConverter
         ],
     ];
 
-    public function convert(int $integer)
+    public function convert(IntBoundary $intBoundary)
     {
+        $integer = $intBoundary->integer();
         $roman = '';
 
         if ($integer > 0 && $integer < 10) {

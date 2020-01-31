@@ -3,9 +3,10 @@
 namespace Anso\Framework\Console\Command;
 
 use Algorithms\UseCase\TimeElapsedUseCase;
-use Anso\Framework\Console\Contract\Command;
+use Anso\Framework\Console\Contract\CommandHandler;
+use Anso\Framework\Contract\ParameterBag;
 
-class TimeElapsedCommand implements Command
+class TimeElapsedHandler implements CommandHandler
 {
     private TimeElapsedUseCase $timeElapsedUseCase;
 
@@ -14,7 +15,7 @@ class TimeElapsedCommand implements Command
         $this->timeElapsedUseCase = $timeElapsedUseCase;
     }
 
-    public function execute(): string
+    public function handle(ParameterBag $parameters): string
     {
         return $this->timeElapsedUseCase->timeElapsed();
     }

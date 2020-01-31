@@ -59,14 +59,14 @@ class BaseContainer implements Container
     public function make(string $class, array $parameters = [])
     {
         if ($this->isSingleton($class)) {
-            return $this->resolveSingleton($class);
+            return $this->resolveSingleton($class, $parameters);
         }
 
         if (!$this->isBound($class)) {
-            return $this->build($class);
+            return $this->build($class, $parameters);
         }
 
-        return $this->build($this->bindings[$class]);
+        return $this->build($this->bindings[$class], $parameters);
     }
 
     protected function isSingleton(string $class): bool
@@ -76,6 +76,7 @@ class BaseContainer implements Container
 
     /**
      * @param string $class
+     * @param array $parameters
      * @return mixed
      * @throws BindingException
      * @throws ReflectionException
@@ -96,6 +97,7 @@ class BaseContainer implements Container
 
     /**
      * @param string $concrete
+     * @param array $parameters
      * @return object
      * @throws BindingException
      * @throws ReflectionException

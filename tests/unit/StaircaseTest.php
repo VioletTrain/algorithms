@@ -1,5 +1,6 @@
 <?php
 
+use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\StaircaseUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -13,11 +14,14 @@ class StaircaseTest extends TestCase
         $this->staircase = new StaircaseUseCase();
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_Staircase_ReturnsStaircaseOfNSize_whenNIsPositiveInteger()
     {
         $size = 5;
 
-        $stairCase = $this->staircase->build($size);
+        $stairCase = $this->staircase->build(new IntBoundary($size));
 
         $this->assertEquals([
             '    #',
@@ -28,20 +32,26 @@ class StaircaseTest extends TestCase
         ], $stairCase);
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_Staircase_ReturnsEmptyStair_whenNIsNegativeInteger()
     {
         $size = -5;
 
-        $stairCase = $this->staircase->build($size);
+        $stairCase = $this->staircase->build(new IntBoundary($size));
 
         $this->assertEquals([], $stairCase);
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_Staircase_ReturnsEmptyStair_whenNIsZero()
     {
         $size = 0;
 
-        $stairCase = $this->staircase->build($size);
+        $stairCase = $this->staircase->build(new IntBoundary($size));
 
         $this->assertEquals([], $stairCase);
     }

@@ -3,10 +3,10 @@
 namespace Anso\Framework\Console\Command;
 
 use Algorithms\UseCase\DeclaredClassesUseCase;
-use Anso\Framework\Console\Contract\Command;
 use Anso\Framework\Console\IOManager;
+use Anso\Framework\Contract\ParameterBag;
 
-class ObjectsCommand implements Command
+class ObjectsHandler extends BaseCommandHandler
 {
     private DeclaredClassesUseCase $declaredClassesUseCase;
 
@@ -15,7 +15,7 @@ class ObjectsCommand implements Command
         $this->declaredClassesUseCase = $declaredClassesUseCase;
     }
 
-    public function execute(): string
+    public function handle(ParameterBag $parameters): string
     {
         $output = 'Total declared classes: ' . $this->declaredClassesUseCase->totalDeclaredClasses() . IOManager::NEW_LINE;
 

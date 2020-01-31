@@ -2,16 +2,20 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Boundary\IntBoundary;
+
 class LargestDecentNumberUseCase
 {
-    public const DESCRIPTION = "Count largest decent number that has n digits.A Decent Number has the following properties:
+    public const DESCRIPTION = "Count largest decent number that has n digits. A Decent Number has the following properties:
             Its digits can only be 3's and/or 5's.
             The number of 3's it contains is divisible by 5.
             The number of 5's it contains is divisible by 3.
             It is the largest such number for its length.";
 
-    public function largestDecentNumber(int $length): string
+    public function largestDecentNumber(IntBoundary $intBoundary): string
     {
+        $length = $intBoundary->integer();
+
         if (in_array($length, [1, 2, 4])) {
             return -1;
         }

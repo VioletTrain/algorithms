@@ -1,5 +1,6 @@
 <?php
 
+use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\MiniMaxUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -13,22 +14,28 @@ class MiniMaxTest extends TestCase
         $this->miniMax = new MiniMaxUseCase();
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_CountSums_ReturnsMinAndMaxSums_WhenArrayOfIntegersIsGiven()
     {
         $integers = [1, 3, 5, 7, 9];
 
-        $result = $this->miniMax->countMiniMaxSums($integers);
+        $result = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
 
         $this->assertEquals([
             16, 24
         ], $result);
     }
 
+    /**
+     * @throws \Algorithms\Exception\BoundaryException
+     */
     public function test_CountSums_ReturnsMinAndMaxSums_WhenArrayOfIntegersAndStringsIsGiven()
     {
         $integers = [1, 0, 5, 0, 9];
 
-        $result = $this->miniMax->countMiniMaxSums($integers);
+        $result = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
 
         $this->assertEquals([
             6, 15

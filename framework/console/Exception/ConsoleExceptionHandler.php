@@ -3,6 +3,7 @@
 namespace Anso\Framework\Console\Exception;
 
 use Anso\Framework\Console\IOManager;
+use Anso\Framework\Contract\ApplicationException;
 use Throwable;
 
 class ConsoleExceptionHandler
@@ -23,7 +24,7 @@ class ConsoleExceptionHandler
         $messageLength = strlen($e->getMessage());
         $border = str_repeat('~', $messageLength);
 
-        $message = $e instanceof CommandNotFoundException
+        $message = $e instanceof ApplicationException
             ? "$border\n" . $e->getMessage() . "\n$border"
             : "$border\n" . $e->getMessage() . $e->getTraceAsString(). "\n$border";
 

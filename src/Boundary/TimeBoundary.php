@@ -2,25 +2,30 @@
 
 namespace Algorithms\Boundary;
 
-use Algorithms\Exception\InvalidTimeFormatException;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\Time;
 
 class TimeBoundary
 {
+    private Time $time;
     /**
      * @param string $time
-     * @return Time
-     * @throws InvalidTimeFormatException
+     * @throws BoundaryException
      */
-    public function convert(string $time): Time
+    public function __construct(string $time)
     {
-        $time = new Time($time);
+        $this->time = new Time($time);
 
-        if (!$this->validate($time)) {
-            throw new InvalidTimeFormatException('Invalid time format.');
+        if (!$this->validate($this->time)) {
+            throw new BoundaryException('Invalid time format.');
         }
 
         return $time;
+    }
+
+    public function time(): Time
+    {
+        return $this->time;
     }
 
     private function validate(Time $time): bool

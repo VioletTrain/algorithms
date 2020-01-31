@@ -2,9 +2,11 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Boundary\IntArrayBoundary;
+
 class MinimumContainersCounterUseCase
 {
-    public const DESCRIPTION = "Count minimum number of containers that can contain items that are less or equal than minimum container item + 4";
+    public const DESCRIPTION = "Count minimum number of containers that can contain items that are less or equal than minimum container item + 4 (Minimum containers)";
 
     /**
      * Rules:
@@ -13,11 +15,13 @@ class MinimumContainersCounterUseCase
      *
      * 1 container can fit in only 4 + min item weight items
      *
-     * @param array $items
+     * @param IntArrayBoundary $intArrayBoundary
      * @return int
      */
-    public function countContainers(array $items): int
+    public function countContainers(IntArrayBoundary $intArrayBoundary): int
     {
+        $items = $intArrayBoundary->integers();
+
         sort($items);
         $lowestItem = isset($items[0]) ? $items[0] : 0;
         $count = 0;

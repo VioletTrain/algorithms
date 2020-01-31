@@ -2,17 +2,20 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Boundary\IntArrayBoundary;
+
 class MiniMaxUseCase
 {
-    public const DESCRIPTION = 'Return array of min and max sums of 4 integers out of 5 (Mini-Max)';
+    public const DESCRIPTION = 'Return array of min and max sums of n-1 integers out of n (Mini-Max)';
 
-    public function countMiniMaxSums(array $integers): array
+    public function countMiniMaxSums(IntArrayBoundary $intArrayBoundary): array
     {
-        $sortedIntegers = $integers;
+        $sortedIntegers = $intArrayBoundary->integers();
+        $length = count($sortedIntegers);
         sort($sortedIntegers);
 
         return [
-            array_sum(array_slice($sortedIntegers, 0, 4)),
+            array_sum(array_slice($sortedIntegers, 0, $length - 1)),
             array_sum(array_slice($sortedIntegers, 1))
         ];
     }

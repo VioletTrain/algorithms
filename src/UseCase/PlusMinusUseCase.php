@@ -2,14 +2,17 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\Math;
 
 class PlusMinusUseCase
 {
     public const DESCRIPTION = 'Count ratio of positive, negative, and 0 integers in n-array (Plus Minus)';
 
-    public function countRatios(array $array): array
+    public function countRatios(IntArrayBoundary $intArrayBoundary): array
     {
+        $array = $intArrayBoundary->integers();
+
         $denominator = count($array);
         $positive = 0;
         $negative = 0;

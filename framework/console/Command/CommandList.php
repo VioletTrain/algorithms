@@ -7,21 +7,21 @@ class CommandList
     public static function getCommands(): array
     {
         return [
-            'q'             => ExitCommand::class,
-            'exit'          => ExitCommand::class,
-            'help'          => HelpCommand::class,
-            'memory'        => MemoryCommand::class,
-            'objects'       => ObjectsCommand::class,
-            'time'          => TimeElapsedCommand::class,
-            'sum'           => SolveMeFirstCommand::class,
-            'pm'            => PlusMinusCommand::class,
-            'sc'            => StaircaseCommand::class,
-            'mm'            => MiniMaxCommand::class,
-            'bc'            => BirthdayCakeCandlesCommand::class,
-            'tc'            => TimeConversionCommand::class,
-            'itr'           => IntToRomanCommand::class,
-            'ldn'           => LargestDecentNumberCommand::class,
-            'mcn'           => MinimumContainersCounterCommand::class,
+            'q'             => ExitHandler::class,
+            'exit'          => ExitHandler::class,
+            'help'          => HelpHandler::class,
+            'memory'        => MemoryHandler::class,
+            'objects'       => ObjectsHandler::class,
+            'time'          => TimeElapsedHandler::class,
+            'sum'           => SolveMeFirstHandler::class,
+            'pm'            => PlusMinusHandler::class,
+            'sc'            => StaircaseHandler::class,
+            'mm'            => MiniMaxHandler::class,
+            'bc'            => BirthdayCakeCandlesHandler::class,
+            'tc'            => TimeConversionHandler::class,
+            'itr'           => IntToRomanHandler::class,
+            'ldn'           => LargestDecentNumberHandler::class,
+            'mcn'           => MinimumContainersCounterHandler::class,
         ];
     }
 }
