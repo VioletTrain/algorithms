@@ -2,6 +2,7 @@
 
 namespace Algorithms\UseCase;
 
+use Algorithms\Boundary\IntBoundary;
 use Algorithms\SystemInfo;
 
 class TimeElapsedUseCase
@@ -15,8 +16,10 @@ class TimeElapsedUseCase
         $this->systemInfo = $systemInfo;
     }
 
-    public function timeElapsed(): int
+    public function timeElapsed(IntBoundary $intBoundary): string
     {
-        return $this->systemInfo->timeElapsed();
+        $precision = $intBoundary->integer();
+
+        return number_format($this->systemInfo->timeElapsed(), $precision);
     }
 }

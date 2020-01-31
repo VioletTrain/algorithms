@@ -4,11 +4,10 @@ namespace Anso\Framework\Console\Command;
 
 use Algorithms\Boundary\TimeBoundary;
 use Algorithms\UseCase\TimeConversionUseCase;
-use Anso\Framework\Console\Contract\CommandHandler;
 use Anso\Framework\Console\IOManager;
 use Anso\Framework\Contract\ParameterBag;
 
-class TimeConversionHandler implements CommandHandler
+class TimeConversionHandler extends BaseCommandHandler
 {
     private TimeConversionUseCase $useCase;
 
@@ -19,7 +18,7 @@ class TimeConversionHandler implements CommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        $input = $parameters->get('time') ? $parameters->get('time') : $parameters->first();
+        $input = $parameters->getOrFirst('time');
 
         if (!$input) {
             $input = IOManager::readLine('Enter time in regular 12-hours format:');
@@ -30,6 +29,7 @@ class TimeConversionHandler implements CommandHandler
 
     public static function description(): string
     {
-        return TimeConversionUseCase::DESCRIPTION;
+        return TimeConversionUseCase::DESCRIPTION . parent::description() .
+            "time - time to convert, e.g. --time=10:10PM";
     }
 }

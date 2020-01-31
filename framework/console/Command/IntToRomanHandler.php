@@ -18,7 +18,7 @@ class IntToRomanHandler extends BaseCommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        $integer = $parameters->get('number') ? $parameters->get('number') : $parameters->first();
+        $integer = $parameters->getOrFirst('number');
 
         if (!$integer) {
             $integer = IOManager::readInteger('numeric');
@@ -29,7 +29,7 @@ class IntToRomanHandler extends BaseCommandHandler
 
     public static function description(): string
     {
-        return "Convert arabic number to roman (number < 10000)" . parent::description() .
+        return "Convert arabic number to roman (number < 10000) (Int To Roman)" . parent::description() .
             "number - integer to convert to roman, e.g. --number=20";
     }
 }

@@ -18,7 +18,7 @@ class StaircaseHandler extends BaseCommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        $size = $parameters->get('size') ? $parameters->get('size') : $parameters->first();
+        $size = $parameters->getOrFirst('size');
 
         if (!$size) {
             $size = IOManager::readInteger('size');

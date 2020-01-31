@@ -2,11 +2,11 @@
 
 namespace Anso\Framework\Console\Command;
 
+use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\TimeElapsedUseCase;
-use Anso\Framework\Console\Contract\CommandHandler;
 use Anso\Framework\Contract\ParameterBag;
 
-class TimeElapsedHandler implements CommandHandler
+class TimeElapsedHandler extends BaseCommandHandler
 {
     private TimeElapsedUseCase $timeElapsedUseCase;
 
@@ -17,11 +17,16 @@ class TimeElapsedHandler implements CommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        return $this->timeElapsedUseCase->timeElapsed();
+        if (!$precision = $parameters->getOrFirst('precision')) {
+            $precision = 3;
+        }
+
+        return $this->timeElapsedUseCase->timeElapsed(new IntBoundary($precision));
     }
 
     public static function description(): string
     {
-        return TimeElapsedUseCase::DESCRIPTION;
+        return TimeElapsedUseCase::DESCRIPTION . parent::description() .
+            "precision - amount of digits after coma, e.g. --precision=3";
     }
 }

@@ -18,7 +18,7 @@ class LargestDecentNumberHandler extends BaseCommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        $length = $parameters->get('length') ? $parameters->get('length') : $parameters->first();
+        $length = $parameters->getOrFirst('length');
 
         if ($length) {
             return $this->useCase->largestDecentNumber(new IntBoundary($length));

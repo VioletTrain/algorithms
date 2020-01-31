@@ -13,14 +13,19 @@ class BaseParameterBag implements ParameterBag
         $this->parameters = $parameters;
     }
 
+    public function get(string $parameterName)
+    {
+        return $this->parameters[$parameterName] ??= '';
+    }
+
     public function first()
     {
         return reset($this->parameters);
     }
 
-    public function get(string $parameterName)
+    public function getOrFirst(string $parameterName)
     {
-        return $this->parameters[$parameterName] ??= '';
+        return $this->get($parameterName) ? $this->get($parameterName) : $this->first();
     }
 
     public function getParameters(): array

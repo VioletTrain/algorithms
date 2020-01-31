@@ -11,7 +11,7 @@ class HelpHandler extends BaseCommandHandler
     public function handle(ParameterBag $parameters): string
     {
         $commands = CommandList::getCommands();
-        $commandName = $parameters->get('command-name') ? $parameters->get('command-name') : $parameters->first();
+        $commandName = $parameters->getOrFirst('command-name');
 
         if ($commandName) {
             if (isset($commands[$commandName])) {
