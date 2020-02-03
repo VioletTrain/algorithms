@@ -11,6 +11,6 @@ class HomeAction implements Action
 {
     public function execute(Request $request): Response
     {
-        return new BaseResponse(['Hello there']);
+        return new BaseResponse(['greeting' => 'Hello there']);
     }
 }
