@@ -41,6 +41,6 @@ class BaseFrontController implements FrontController
 
         $action = $this->app->make($route);
 
-        return $action->execute();
+        return $action->execute($request);
     }
 }

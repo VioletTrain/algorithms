@@ -10,6 +10,12 @@ class BirthdayCakeCandlesUseCase
 
     public function countTallestCandles(IntArrayBoundary $intArrayBoundary): int
     {
+        $array = $intArrayBoundary->integers();
+
+        if (empty($array)) {
+            return 0;
+        }
+
         $countedValues = array_count_values($intArrayBoundary->integers());
         $maxKey = max(array_keys($countedValues));
 
