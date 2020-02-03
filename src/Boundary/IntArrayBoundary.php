@@ -7,14 +7,14 @@ use Algorithms\Exception\BoundaryException;
 class IntArrayBoundary
 {
 
-    private array $integers;
+    private $integers;
 
     /**
      * IntArrayBoundary constructor.
      * @param array $intArray
      * @throws BoundaryException
      */
-    public function __construct(array $intArray)
+    public function __construct($intArray)
     {
         $this->integers = $intArray;
         $this->validate($intArray);
@@ -24,8 +24,12 @@ class IntArrayBoundary
      * @param array $intArray
      * @throws BoundaryException
      */
-    private function validate(array $intArray)
+    private function validate($intArray)
     {
+        if (!is_array($intArray)) {
+            throw new BoundaryException('Input must contain only integers');
+        }
+
         foreach ($intArray as $intValue) {
             if (!is_numeric($intValue)) {
                 throw new BoundaryException('Input must contain only integers');

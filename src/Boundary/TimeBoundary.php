@@ -12,12 +12,16 @@ class TimeBoundary
      * @param string $time
      * @throws BoundaryException
      */
-    public function __construct(string $time)
+    public function __construct($time)
     {
+        if (!is_string($time)) {
+            throw new BoundaryException('Invalid time format');
+        }
+
         $this->time = new Time($time);
 
         if (!$this->validate($this->time)) {
-            throw new BoundaryException('Invalid time format.');
+            throw new BoundaryException('Invalid time format');
         }
 
         return $time;

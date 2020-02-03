@@ -6,14 +6,14 @@ use Algorithms\Exception\BoundaryException;
 
 class IntBoundary
 {
-    private string $integer;
+    private $integer;
 
     /**
      * IntBoundary constructor.
      * @param string $integer
      * @throws BoundaryException
      */
-    public function __construct(string $integer)
+    public function __construct($integer)
     {
         $this->integer = $integer;
         $this->validate($integer);
@@ -23,7 +23,7 @@ class IntBoundary
      * @param string $integer
      * @throws BoundaryException
      */
-    private function validate(string $integer)
+    private function validate($integer)
     {
         if ($integer && !is_numeric($integer)) {
             throw new BoundaryException('Input must be numeric');
