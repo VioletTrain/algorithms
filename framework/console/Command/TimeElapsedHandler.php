@@ -18,7 +18,7 @@ class TimeElapsedHandler extends BaseCommandHandler
     public function handle(ParameterBag $parameters): string
     {
         if (!$precision = $parameters->getOrFirst('precision')) {
-            $precision = 3;
+            $precision = TimeElapsedUseCase::DEFAULT_PRECISION;
         }
 
         return $this->timeElapsedUseCase->timeElapsed(new IntBoundary($precision));
@@ -27,6 +27,6 @@ class TimeElapsedHandler extends BaseCommandHandler
     public static function description(): string
     {
         return TimeElapsedUseCase::DESCRIPTION . parent::description() .
-            "precision - amount of digits after coma, e.g. --precision=3";
+            "precision - amount of digits after coma, e.g. --precision=5";
     }
 }

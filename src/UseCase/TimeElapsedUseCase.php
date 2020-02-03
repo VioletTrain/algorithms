@@ -10,6 +10,7 @@ class TimeElapsedUseCase
     private SystemInfo $systemInfo;
 
     public const DESCRIPTION = 'Show time elapsed for current script';
+    public const DEFAULT_PRECISION = 3;
 
     public function __construct(SystemInfo $systemInfo)
     {
