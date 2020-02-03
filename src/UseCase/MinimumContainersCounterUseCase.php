@@ -23,7 +23,7 @@ class MinimumContainersCounterUseCase
         $items = $intArrayBoundary->integers();
 
         sort($items);
-        $lowestItem = isset($items[0]) ? $items[0] : 0;
+        $lowestItem = $items[0] ?? 0;
         $count = 0;
         $containers = [];
 

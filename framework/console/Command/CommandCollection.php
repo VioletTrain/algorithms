@@ -13,6 +13,6 @@ class CommandCollection
 
     public function findCommand(string $name): string
     {
-        return isset($this->commands[$name]) ? $this->commands[$name] : '';
+        return $this->commands[$name] ?? '';
     }
 }

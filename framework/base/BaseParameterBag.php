@@ -15,7 +15,7 @@ class BaseParameterBag implements ParameterBag
 
     public function get(string $parameterName)
     {
-        return $this->parameters[$parameterName] ??= '';
+        return $this->parameters[$parameterName] ?? '';
     }
 
     public function first()
@@ -25,7 +25,7 @@ class BaseParameterBag implements ParameterBag
 
     public function getOrFirst(string $parameterName)
     {
-        return $this->get($parameterName) ? $this->get($parameterName) : $this->first();
+        return $this->get($parameterName) ?? $this->first();
     }
 
     public function getParameters(): array

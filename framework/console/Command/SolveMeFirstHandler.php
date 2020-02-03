@@ -18,8 +18,8 @@ class SolveMeFirstHandler extends BaseCommandHandler
 
     public function handle(ParameterBag $parameters): string
     {
-        $a = $parameters->get('a') ? $parameters->get('a') : IOManager::readInteger("a");
-        $b = $parameters->get('b') ? $parameters->get('b') : IOManager::readInteger("b");
+        $a = $parameters->get('a') ?? IOManager::readInteger("a");
+        $b = $parameters->get('b') ?? IOManager::readInteger("b");
 
         return "Sum of $a and $b is " . $this->sumUseCase->sum(new IntBoundary($a), new IntBoundary($b));
     }
