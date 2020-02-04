@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntArrayBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\BirthdayCakeCandlesUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class BirthdayCakeCandlesTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_countTallestCandles_ReturnsTallestCandles_WhenArrayOfIntegersIsGiven()
     {
