@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\LargestDecentNumberUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class LargestDecentNumberTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Number_IsLargestDecentNumber_WhenSuitableLengthIsGiven()
     {
@@ -27,7 +28,7 @@ class LargestDecentNumberTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Number_IsMinusOne_WhenUnsuitableLengthIsGiven()
     {
@@ -39,7 +40,7 @@ class LargestDecentNumberTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Number_IsLargestDecentNumber_WhenBigSuitableLengthIsGiven()
     {

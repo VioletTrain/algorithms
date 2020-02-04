@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\StaircaseUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class StaircaseTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Staircase_ReturnsStaircaseOfNSize_whenNIsPositiveInteger()
     {
@@ -33,7 +34,7 @@ class StaircaseTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Staircase_ReturnsEmptyStair_whenNIsNegativeInteger()
     {
@@ -45,9 +46,9 @@ class StaircaseTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
-    public function test_Staircase_ReturnsEmptyStair_whenNIsZero()
+    public function test_Staircase_Throws_whenNIsZero()
     {
         $size = 0;
 

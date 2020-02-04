@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntArrayBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\MiniMaxUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class MiniMaxTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_CountSums_ReturnsMinAndMaxSums_WhenArrayOfIntegersIsGiven()
     {
@@ -29,7 +30,7 @@ class MiniMaxTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_CountSums_ReturnsMinAndMaxSums_WhenArrayOfIntegersAndStringsIsGiven()
     {

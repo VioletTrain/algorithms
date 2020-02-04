@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\IntToRomanConverter;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +17,7 @@ class IntToRomanTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Converter_ConvertsIntegerToRoman_WhenLessThan10IsGiven()
     {
@@ -28,7 +29,7 @@ class IntToRomanTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Converter_ConvertsIntegerToRoman_WhenMoreThan10IsGiven()
     {
@@ -40,7 +41,7 @@ class IntToRomanTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Converter_ConvertsIntegerToRoman_WhenMoreThanHundredIsGiven()
     {
@@ -52,7 +53,7 @@ class IntToRomanTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Converter_ConvertsIntegerToRoman_WhenThousandIsGiven()
     {

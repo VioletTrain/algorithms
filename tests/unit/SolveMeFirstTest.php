@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\SolveMeFirstUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -8,7 +9,7 @@ class SolveMeFirstTest extends TestCase
 {
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Sum_Adds_2Integers()
     {

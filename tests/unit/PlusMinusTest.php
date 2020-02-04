@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntArrayBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\PlusMinusUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class PlusMinusTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_CountRatios_CountsRatios_whenArrayOfIntegersIsGiven()
     {

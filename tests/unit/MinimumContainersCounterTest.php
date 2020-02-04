@@ -1,6 +1,7 @@
 <?php
 
 use Algorithms\Boundary\IntArrayBoundary;
+use Algorithms\Exception\BoundaryException;
 use Algorithms\UseCase\MinimumContainersCounterUseCase;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ class MinimumContainersCounterTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Counter_CountsMinimumContainersRequired_WhenUnsortedIntegerArrayIsGiven()
     {
@@ -27,7 +28,7 @@ class MinimumContainersCounterTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Counter_CountsMinimumContainersRequired_WhenSortedIntegerArrayIsGiven()
     {
@@ -39,7 +40,7 @@ class MinimumContainersCounterTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Counter_CountsMinimumContainersRequired_WhenArrayWithOneItegerIsGiven()
     {
