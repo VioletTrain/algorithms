@@ -101,6 +101,6 @@ class Time
             $time[] = $this->seconds();
         }
 
-        return implode(':', $time);
+        return implode(':', $time) . $this->dayPeriod();
     }
 }

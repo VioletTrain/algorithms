@@ -16,7 +16,7 @@ class TimeConversionTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Convert_ConvertsTimeFrom12HFormatTo24H_WhenInputIs12HDateString()
     {
@@ -28,7 +28,7 @@ class TimeConversionTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Convert_ThrowsInvalidTimeException_WhenHoursFormatIsInvalid()
     {
@@ -39,7 +39,7 @@ class TimeConversionTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Convert_ThrowsInvalidTimeException_WhenMinutesFormatIsInvalid()
     {
@@ -50,7 +50,7 @@ class TimeConversionTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Convert_ThrowsInvalidTimeException_WhenSecondsFormatIsInvalid()
     {
@@ -61,7 +61,7 @@ class TimeConversionTest extends TestCase
     }
 
     /**
-     * @throws \Algorithms\Exception\BoundaryException
+     * @throws BoundaryException
      */
     public function test_Convert_ThrowsInvalidTimeException_WhenDayPeriodFormatIsInvalid()
     {

@@ -25,7 +25,7 @@ class IntBoundary
      */
     private function validate($integer)
     {
-        if ($integer && !is_numeric($integer)) {
+        if (!$integer || $integer && !is_numeric($integer)) {
             throw new BoundaryException('Input must be numeric');
         }
     }
