@@ -20,7 +20,7 @@ class MiniMaxAction implements Action
 
     public function execute(Request $request): Response
     {
-        $integers = $request->get('integers') ?? [];
+        $integers = $request->post('integers');
 
         $miniMax = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
 

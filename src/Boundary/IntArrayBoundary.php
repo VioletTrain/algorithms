@@ -27,7 +27,7 @@ class IntArrayBoundary
     private function validate($intArray)
     {
         if (!$intArray || !is_array($intArray)) {
-            throw new BoundaryException('Input must contain only integers');
+            throw new BoundaryException('Input is empty');
         }
 
         foreach ($intArray as $intValue) {

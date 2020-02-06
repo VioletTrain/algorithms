@@ -20,7 +20,7 @@ class BirthdayCakeCandlesAction implements Action
 
     public function execute(Request $request): Response
     {
-        $candles = $request->get('candles');
+        $candles = $request->post('candles');
 
         $tallestCandlesCount = $this->useCase->countTallestCandles(new IntArrayBoundary($candles));
 

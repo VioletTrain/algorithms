@@ -13,4 +13,6 @@ interface Request
     public function getParameters(): array;
 
     public function get(string $key, $default = null);
+
+    public function post(string $key, $default = null);
 }

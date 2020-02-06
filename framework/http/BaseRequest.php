@@ -64,8 +64,13 @@ class BaseRequest extends SymfonyRequest implements Request
         return parent::get($key, $default);
     }
 
-    public function post(string $key)
+    public function post(string $key, $default = null)
     {
-        return $this->request->get($key) ?? json_decode(file_get_contents('php://input'));
+        if (!$result = $this->request->get($key)) {
+            $tempResult = json_decode(file_get_contents('php://input'), true);
+            $result = $tempResult[$key] ?? null;
+        }
+
+        return $result;
     }
 }

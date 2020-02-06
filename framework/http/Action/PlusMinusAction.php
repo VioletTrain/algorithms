@@ -20,7 +20,7 @@ class PlusMinusAction implements Action
 
     public function execute(Request $request): Response
     {
-        $array = $request->get('array') ?? [];
+        $array = $request->post('array');
 
         $ratios = $this->useCase->countRatios(new IntArrayBoundary($array));
 

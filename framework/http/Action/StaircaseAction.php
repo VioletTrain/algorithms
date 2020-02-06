@@ -20,10 +20,10 @@ class StaircaseAction implements Action
 
     public function execute(Request $request): Response
     {
-        $size = $request->get('size') ?? 0;
+        $size = $request->get('size');
 
         $staircase = $this->stairCaseUseCase->build(new IntBoundary($size));
 
-        return new BaseResponse($staircase);
+        return new BaseResponse(['staircase' => $staircase]);
     }
 }

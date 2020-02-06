@@ -20,7 +20,7 @@ class MinimumContainersAction implements Action
 
     public function execute(Request $request): Response
     {
-        $items = $request->get('items') ?? [];
+        $items = $request->post('items');
 
         $containersCount = $this->useCase->countContainers(new IntArrayBoundary($items));
 

@@ -3,7 +3,8 @@
         "symfony/http-foundation": "^5.0",
         "doctrine/orm": "*",
         "ext-json": "*",
-        "ext-readline": "*"
+        "ext-readline": "*",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "autoload": {
         "psr-4": {
@@ -12,6 +13,14 @@
             "Anso\\Framework\\Console\\": "framework\\console\\",
             "Anso\\Framework\\Contract\\": "framework\\contract\\",
             "Anso\\Framework\\Http\\": "framework\\http\\"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests\\",
+            "Tests\\Feature\\Console\\": "tests\\feature\\console\\",
+            "Tests\\Feature\\Http\\": "tests\\feature\\http\\",
+            "Tests\\Unit\\": "tests\\unit\\"
         }
     },
     "authors": [

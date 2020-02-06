@@ -20,8 +20,8 @@ class SumAction implements Action
 
     public function execute(Request $request): Response
     {
-        $a = $request->get('a') ?? 0;
-        $b = $request->get('b') ?? 0;
+        $a = $request->get('a');
+        $b = $request->get('b');
 
         $sum = $this->useCase->sum(new IntBoundary($a), new IntBoundary($b));
 

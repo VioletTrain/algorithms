@@ -20,7 +20,7 @@ class IntToRomanAction implements Action
 
     public function execute(Request $request): Response
     {
-        $int = $request->get('int') ?? 0;
+        $int = $request->get('int');
 
         $roman = $this->converter->convert(new IntBoundary($int));
 

@@ -20,7 +20,7 @@ class LargestDecentNumberAction implements Action
 
     public function execute(Request $request): Response
     {
-        $length = $request->get('length') ?? 0;
+        $length = $request->get('length');
 
         $largestDecentNumber = $this->useCase->largestDecentNumber(new IntBoundary($length));
 
