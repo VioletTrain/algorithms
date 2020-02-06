@@ -30,6 +30,30 @@ class TimeConversionTest extends TestCase
     /**
      * @throws BoundaryException
      */
+    public function test_Convert_Converts12AMTo00h_When12AMIsGiven()
+    {
+        $regularTime = '12:59:59AM';
+
+        $militaryTime = $this->useCase->covertTimeFromRegularToMilitary(new TimeBoundary($regularTime));
+
+        $this->assertEquals('00:59:59', $militaryTime);
+    }
+
+    /**
+     * @throws BoundaryException
+     */
+    public function test_Convert_Converts11PMTo23h_When11PMIsGiven()
+    {
+        $regularTime = '11:59:59PM';
+
+        $militaryTime = $this->useCase->covertTimeFromRegularToMilitary(new TimeBoundary($regularTime));
+
+        $this->assertEquals('23:59:59', $militaryTime);
+    }
+
+    /**
+     * @throws BoundaryException
+     */
     public function test_Convert_ThrowsInvalidTimeException_WhenHoursFormatIsInvalid()
     {
         $this->expectException(BoundaryException::class);

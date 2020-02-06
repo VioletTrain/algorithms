@@ -20,7 +20,7 @@ class TimeConverterAction implements Action
 
     public function execute(Request $request): Response
     {
-        $time = $request->get('time') ?? '';
+        $time = $request->get('time');
 
         $convertedTime = $this->useCase->covertTimeFromRegularToMilitary(new TimeBoundary($time));
 
