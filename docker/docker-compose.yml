@@ -32,3 +32,17 @@ services:
       - ../docker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
     networks:
       - algorithms
+
+  postgres_algorithms:
+    container_name: postgres_algorithms
+    image: postgres:11.1-alpine
+    environment:
+      - POSTGRES_USER=algorithms_user
+      - POSTGRES_PASSWORD=postgres1234
+      - POSTGRES_DB=algorithms_db
+    volumes:
+      - ../docker/postgresql/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+    ports:
+      - 54320:5432
+    networks:
+      - algorithms
