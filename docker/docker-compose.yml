@@ -6,8 +6,8 @@ networks:
 
 services:
 
-  nginx_algorithms1:
-    container_name: algorithms_nginx_backend1
+  nginx_alg:
+    container_name: nginx_alg
     build:
       context: ../
       dockerfile: docker/nginx/Dockerfile
@@ -16,12 +16,12 @@ services:
     ports:
       - 8905:80
     links:
-      - 'php_fpm_algorithms'
+      - 'phpfpm_alg'
     networks:
       - algorithms
 
-  php_fpm_algorithms:
-    container_name: algorithms_php_fpm
+  phpfpm_alg:
+    container_name: phpfpm_alg
     build:
       context: ../
       dockerfile: docker/php-fpm/Dockerfile
@@ -33,8 +33,8 @@ services:
     networks:
       - algorithms
 
-  postgres_algorithms:
-    container_name: postgres_algorithms
+  pgsql_alg:
+    container_name: pgsql_alg
     image: postgres:11.1-alpine
     environment:
       - POSTGRES_USER=algorithms_user
