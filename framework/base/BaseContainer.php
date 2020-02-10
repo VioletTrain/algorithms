@@ -4,6 +4,7 @@ namespace Anso\Framework\Base;
 
 use Anso\Framework\Contract\Configuration;
 use Anso\Framework\Contract\Container;
+use Closure;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionParameter;
@@ -43,12 +44,12 @@ class BaseContainer implements Container
         }
     }
 
-    public function bind(string $abstract, string $concrete): void
+    public function bind(string $abstract, $concrete): void
     {
         $this->bindings[$abstract] = $concrete;
     }
 
-    public function singleton(string $abstract, string $concrete): void
+    public function singleton(string $abstract, $concrete): void
     {
         $this->singletons[$abstract] = $concrete;
     }
@@ -81,10 +82,10 @@ class BaseContainer implements Container
      * @throws BindingException
      * @throws ReflectionException
      */
-    protected function resolveSingleton(string $class)
+    protected function resolveSingleton(string $class, array $parameters = [])
     {
         if (!isset($this->resolved[$class])) {
-            $this->resolved[$class] = $this->build($this->singletons[$class]);
+            $this->resolved[$class] = $this->build($this->singletons[$class], $parameters);
         }
 
         return $this->resolved[$class];
@@ -102,8 +103,12 @@ class BaseContainer implements Container
      * @throws BindingException
      * @throws ReflectionException
      */
-    protected function build(string $concrete)
+    protected function build($concrete, array $parameters = [])
     {
+        if ($concrete instanceof Closure) {
+            return $concrete($parameters);
+        }
+
         try {
             $reflector = new ReflectionClass($concrete);
         } catch (ReflectionException $e) {

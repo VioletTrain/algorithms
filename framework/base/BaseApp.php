@@ -14,12 +14,12 @@ abstract class BaseApp implements Application
         $this->container = $container;
     }
 
-    public function bind(string $abstract, string $concrete): void
+    public function bind(string $abstract, $concrete): void
     {
         $this->container->bind($abstract, $concrete);
     }
 
-    public function singleton(string $abstract, string $concrete): void
+    public function singleton(string $abstract, $concrete): void
     {
         $this->container->singleton($abstract, $concrete);
     }

@@ -7,9 +7,9 @@ use ReflectionException;
 
 interface Container
 {
-    public function bind(string $abstract, string $concrete): void;
+    public function bind(string $abstract, $concrete): void;
 
-    public function singleton(string $abstract, string $concrete): void;
+    public function singleton(string $abstract, $concrete): void;
 
     /**
      * @param string $class
