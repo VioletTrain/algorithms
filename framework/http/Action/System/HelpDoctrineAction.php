@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Anso\Framework\Http\Action\System;
 
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
@@ -12,6 +12,6 @@ class HelpDoctrineAction implements Action
 {
     public function execute(Request $request): Response
     {
-        return new BaseResponse(Type::getTypesMap());
+        return new BaseResponse(['types' => Type::getTypesMap()]);
     }
 }

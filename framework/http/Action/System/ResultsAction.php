@@ -1,12 +1,13 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Anso\Framework\Http\Action\System;
 
 use Algorithms\Entity\Result;
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
 use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
+use Anso\Framework\Http\Resource\ResultResource;
 use Doctrine\ORM\EntityManager;
 
 class ResultsAction implements Action
@@ -31,8 +32,8 @@ class ResultsAction implements Action
                 ->setParameter('name', $useCaseName);
         }
 
-        $results = $queryBuilder->getQuery()->getArrayResult();
+        $results = $queryBuilder->getQuery()->getResult();
 
-        return new BaseResponse(['results' => $results]);
+        return new BaseResponse(['results' => new ResultResource($results)]);
     }
 }

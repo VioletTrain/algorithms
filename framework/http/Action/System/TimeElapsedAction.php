@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Anso\Framework\Http\Action\System;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\TimeElapsedUseCase;

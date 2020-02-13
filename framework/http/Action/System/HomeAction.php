@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Anso\Framework\Http\Action\System;
 
 use Anso\Framework\Http\Contract\Request;
 use Anso\Framework\Http\Contract\Response;
