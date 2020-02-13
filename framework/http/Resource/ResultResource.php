@@ -19,6 +19,7 @@ class ResultResource implements JsonSerializable
 
         foreach ($results as $key => $result) {
             $converted[$key]['name'] = $result->getName();
+            $converted[$key]['input'] = $result->getInput();
             $converted[$key]['result'] = $result->getResult();
             $converted[$key]['created_at'] = $result->getCreatedAt();
         }

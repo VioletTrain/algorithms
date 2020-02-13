@@ -48,6 +48,11 @@ class Result extends BaseEntity
         return $this->useCaseName;
     }
 
+    public function getInput(): string
+    {
+        return $this->input;
+    }
+
     public function getResult(): string
     {
         return $this->result;
