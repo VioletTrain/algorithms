@@ -24,17 +24,22 @@ class Result extends BaseEntity
     private $useCaseName;
 
     /** @Column(type="string") */
+    private $input;
+
+    /** @Column(type="string") */
     private $result;
 
     /**
      * Result constructor.
      * @param string $useCaseName
+     * @param string $input
      * @param string $result
      */
-    public function __construct(string $useCaseName, string $result)
+    public function __construct(string $useCaseName, string $input, string $result)
     {
         parent::__construct();
         $this->useCaseName = $useCaseName;
+        $this->input = $input;
         $this->result = $result;
     }
 

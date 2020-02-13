@@ -6,7 +6,10 @@ use Doctrine\ORM\EntityManager;
 
 class ResultManager
 {
-    private EntityManager $em;
+    /**
+     * @var EntityManager
+     */
+    private $em;
 
     public function __construct(EntityManager $em)
     {
