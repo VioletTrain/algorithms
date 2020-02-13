@@ -3,6 +3,8 @@
 namespace Anso\Framework\Http\Action;
 
 use Algorithms\Boundary\IntArrayBoundary;
+use Algorithms\Entity\Result;
+use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\BirthdayCakeCandlesUseCase;
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
@@ -13,9 +15,12 @@ class BirthdayCakeCandlesAction implements Action
 {
     private BirthdayCakeCandlesUseCase $useCase;
 
-    public function __construct(BirthdayCakeCandlesUseCase $useCase)
+    private ResultManager $rm;
+
+    public function __construct(BirthdayCakeCandlesUseCase $useCase, ResultManager $rm)
     {
         $this->useCase = $useCase;
+        $this->rm = $rm;
     }
 
     public function execute(Request $request): Response
@@ -23,6 +28,8 @@ class BirthdayCakeCandlesAction implements Action
         $candles = $request->post('candles');
 
         $tallestCandlesCount = $this->useCase->countTallestCandles(new IntArrayBoundary($candles));
+
+        $this->rm->saveResult(new Result('birthday-cake-candles', implode(', ', $candles), $tallestCandlesCount));
 
         return new BaseResponse(['tallest_candles_count' => $tallestCandlesCount]);
     }

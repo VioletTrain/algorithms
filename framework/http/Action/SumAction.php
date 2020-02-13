@@ -3,6 +3,8 @@
 namespace Anso\Framework\Http\Action;
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Entity\Result;
+use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\SolveMeFirstUseCase;
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
@@ -13,9 +15,12 @@ class SumAction implements Action
 {
     private SolveMeFirstUseCase $useCase;
 
-    public function __construct(SolveMeFirstUseCase $useCase)
+    private ResultManager $rm;
+
+    public function __construct(SolveMeFirstUseCase $useCase, ResultManager $rm)
     {
         $this->useCase = $useCase;
+        $this->rm = $rm;
     }
 
     public function execute(Request $request): Response
@@ -24,6 +29,8 @@ class SumAction implements Action
         $b = $request->get('b');
 
         $sum = $this->useCase->sum(new IntBoundary($a), new IntBoundary($b));
+
+        $this->rm->saveResult(new Result('sum', $a . ', ' .$b, $sum));
 
         return new BaseResponse(['sum' => $sum]);
     }

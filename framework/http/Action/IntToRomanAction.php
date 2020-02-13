@@ -3,6 +3,8 @@
 namespace Anso\Framework\Http\Action;
 
 use Algorithms\Boundary\IntBoundary;
+use Algorithms\Entity\Result;
+use Algorithms\Entity\ResultManager;
 use Algorithms\IntToRomanConverter;
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
@@ -13,9 +15,12 @@ class IntToRomanAction implements Action
 {
     private IntToRomanConverter $converter;
 
-    public function __construct(IntToRomanConverter $converter)
+    private ResultManager $rm;
+
+    public function __construct(IntToRomanConverter $converter, ResultManager $rm)
     {
         $this->converter = $converter;
+        $this->rm = $rm;
     }
 
     public function execute(Request $request): Response
@@ -23,6 +28,8 @@ class IntToRomanAction implements Action
         $int = $request->get('int');
 
         $roman = $this->converter->convert(new IntBoundary($int));
+
+        $this->rm->saveResult(new Result('int-to-roman', $int, $roman));
 
         return new BaseResponse(['roman' => $roman]);
     }
