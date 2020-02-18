@@ -1,6 +1,6 @@
 <?php
 
-use Anso\Framework\Http\HttpAppProvider;
+use Algorithms\Http\HttpAppProvider;
 
 return [
     HttpAppProvider::class,

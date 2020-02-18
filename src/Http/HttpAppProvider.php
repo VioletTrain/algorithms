@@ -1,12 +1,13 @@
 <?php
 
-namespace Anso\Framework\Http;
+namespace Algorithms\Http;
 
 use Anso\Framework\Contract\Provider;
 use Anso\Framework\Contract\Container;
 use Anso\Framework\Contract\Application;
 use Anso\Framework\Contract\Configuration;
 use Anso\Framework\Base\BaseConfiguration;
+use Anso\Framework\Http\HttpApp;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
