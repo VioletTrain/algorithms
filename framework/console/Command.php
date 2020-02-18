@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Console\Command;
+namespace Anso\Framework\Console;
 
 use Anso\Framework\Console\Contract\Command as CommandContract;
 

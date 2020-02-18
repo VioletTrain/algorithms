@@ -3,7 +3,6 @@
 namespace Anso\Framework\Console;
 
 use Anso\Framework\Base\BaseApp;
-use Anso\Framework\Console\Command\CommandParser;
 use Anso\Framework\Console\Contract\ConsoleFrontController;
 use Anso\Framework\Console\Exception\ConsoleExceptionHandler;
 use Throwable;

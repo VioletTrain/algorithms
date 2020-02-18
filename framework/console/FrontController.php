@@ -3,7 +3,6 @@
 namespace Anso\Framework\Console;
 
 use Anso\Framework\Base\BaseParameterBag;
-use Anso\Framework\Console\Command\CommandCollection;
 use Anso\Framework\Console\Contract\ConsoleFrontController;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Contract\Configuration;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Console\Command;
+namespace Anso\Framework\Console;
 
 class CommandCollection
 {
