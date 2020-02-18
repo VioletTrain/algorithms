@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class PlusMinusHandler extends BaseCommandHandler
 {
-    private PlusMinusUseCase $plusMinusUseCase;
+    private PlusMinusUseCase $useCase;
 
-    public function __construct(PlusMinusUseCase $plusMinusUseCase)
+    public function __construct(PlusMinusUseCase $useCase)
     {
-        $this->plusMinusUseCase = $plusMinusUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -27,7 +27,7 @@ class PlusMinusHandler extends BaseCommandHandler
 
         $array = explode(' ', $array);
 
-        $ratios = $this->plusMinusUseCase->countRatios(new IntArrayBoundary($array));
+        $ratios = $this->useCase->countRatios(new IntArrayBoundary($array));
 
         return implode(IOManager::NEW_LINE, $ratios);
     }

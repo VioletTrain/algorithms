@@ -8,16 +8,16 @@ use Anso\Framework\Contract\ParameterBag;
 
 class MemoryHandler extends BaseCommandHandler
 {
-    private MemoryUsageUseCase $memoryUsageUseCase;
+    private MemoryUsageUseCase $useCase;
 
-    public function __construct(MemoryUsageUseCase $memoryUsageUseCase)
+    public function __construct(MemoryUsageUseCase $useCase)
     {
-        $this->memoryUsageUseCase = $memoryUsageUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
     {
-        $output = 'Memory usage: ' . $this->memoryUsageUseCase->memoryUsage() . IOManager::NEW_LINE;
+        $output = 'Memory usage: ' . $this->useCase->memoryUsage() . IOManager::NEW_LINE;
 
         return $output;
     }

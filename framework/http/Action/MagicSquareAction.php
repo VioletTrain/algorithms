@@ -13,13 +13,13 @@ use Anso\Framework\Http\Contract\Routing\Action;
 
 class MagicSquareAction implements Action
 {
-    private MagicSquareUseCase $magicSquare;
+    private MagicSquareUseCase $useCase;
 
     private ResultManager $rm;
 
-    public function __construct(MagicSquareUseCase $magicSquare, ResultManager $rm)
+    public function __construct(MagicSquareUseCase $useCase, ResultManager $rm)
     {
-        $this->magicSquare = $magicSquare;
+        $this->useCase = $useCase;
         $this->rm = $rm;
     }
 
@@ -27,7 +27,7 @@ class MagicSquareAction implements Action
     {
         $matrix = new IntMatrix3x3Boundary($request->get('matrix'));
 
-        $cost = $this->magicSquare->calcTransformationCost($matrix);
+        $cost = $this->useCase->calcTransformationCost($matrix);
 
         $this->rm->saveResult(new Result('magic-square', $matrix, $cost));
 

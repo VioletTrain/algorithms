@@ -13,13 +13,13 @@ use Anso\Framework\Http\Contract\Routing\Action;
 
 class StaircaseAction implements Action
 {
-    private StaircaseUseCase $stairCaseUseCase;
+    private StaircaseUseCase $useCase;
 
     private ResultManager $rm;
 
-    public function __construct(StaircaseUseCase $stairCaseUseCase, ResultManager $rm)
+    public function __construct(StaircaseUseCase $useCase, ResultManager $rm)
     {
-        $this->stairCaseUseCase = $stairCaseUseCase;
+        $this->useCase = $useCase;
         $this->rm = $rm;
     }
 
@@ -27,7 +27,7 @@ class StaircaseAction implements Action
     {
         $size = $request->get('size');
 
-        $staircase = $this->stairCaseUseCase->build(new IntBoundary($size));
+        $staircase = $this->useCase->build(new IntBoundary($size));
 
         $this->rm->saveResult(new Result('staircase', $size, implode(', ', $staircase)));
 

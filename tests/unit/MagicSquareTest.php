@@ -9,12 +9,12 @@ use PHPUnit\Framework\TestCase;
 
 class MagicSquareTest extends TestCase
 {
-    private $magicSquare;
+    private $useCase;
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->magicSquare = new MagicSquareUseCase();
+        $this->useCase = new MagicSquareUseCase();
     }
 
     /**
@@ -28,7 +28,7 @@ class MagicSquareTest extends TestCase
             [8, 9, 7]
         ];
 
-        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->useCase->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(23, $cost);
     }
@@ -44,7 +44,7 @@ class MagicSquareTest extends TestCase
             [6, 1, 6]
         ];
 
-        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->useCase->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(4, $cost);
     }
@@ -60,7 +60,7 @@ class MagicSquareTest extends TestCase
             [8, 9, 8]
         ];
 
-        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->useCase->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(21, $cost);
     }

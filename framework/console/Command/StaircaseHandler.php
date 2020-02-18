@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class StaircaseHandler extends BaseCommandHandler
 {
-    private StaircaseUseCase $stairCaseUseCase;
+    private StaircaseUseCase $useCase;
 
-    public function __construct(StaircaseUseCase $stairCaseUseCase)
+    public function __construct(StaircaseUseCase $useCase)
     {
-        $this->stairCaseUseCase = $stairCaseUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -24,7 +24,7 @@ class StaircaseHandler extends BaseCommandHandler
             $size = IOManager::readInteger('size');
         }
 
-        return implode(IOManager::NEW_LINE, $this->stairCaseUseCase->build(new IntBoundary($size)));
+        return implode(IOManager::NEW_LINE, $this->useCase->build(new IntBoundary($size)));
     }
 
     public static function description(): string

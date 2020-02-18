@@ -15,7 +15,7 @@ abstract class HttpTestCase extends TestCase
         parent::__construct($name, $data, $dataName);
 
         $this->client = new Client([
-            'base_uri' => 'http://172.23.0.3:80',
+            'base_uri' => 'http://172.23.0.4:80',
         ]);
     }
 

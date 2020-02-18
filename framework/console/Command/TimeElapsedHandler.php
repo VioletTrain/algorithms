@@ -8,11 +8,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class TimeElapsedHandler extends BaseCommandHandler
 {
-    private TimeElapsedUseCase $timeElapsedUseCase;
+    private TimeElapsedUseCase $useCase;
 
-    public function __construct(TimeElapsedUseCase $timeElapsedUseCase)
+    public function __construct(TimeElapsedUseCase $useCase)
     {
-        $this->timeElapsedUseCase = $timeElapsedUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,7 +21,7 @@ class TimeElapsedHandler extends BaseCommandHandler
             $precision = TimeElapsedUseCase::DEFAULT_PRECISION;
         }
 
-        return $this->timeElapsedUseCase->timeElapsed(new IntBoundary($precision));
+        return $this->useCase->timeElapsed(new IntBoundary($precision));
     }
 
     public static function description(): string

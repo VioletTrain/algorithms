@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class MagicSquareHandler extends BaseCommandHandler
 {
-    private MagicSquareUseCase $magicSquare;
+    private MagicSquareUseCase $useCase;
 
-    public function __construct(MagicSquareUseCase $magicSquare)
+    public function __construct(MagicSquareUseCase $useCase)
     {
-        $this->magicSquare = $magicSquare;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -22,7 +22,7 @@ class MagicSquareHandler extends BaseCommandHandler
         $matrix[] = explode(' ', IOManager::readLine('Enter second line of digits:'));
         $matrix[] = explode(' ', IOManager::readLine('Enter third line of digits:'));
 
-        return $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
+        return $this->useCase->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
     }
 
     public static function description(): string

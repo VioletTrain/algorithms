@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class SolveMeFirstHandler extends BaseCommandHandler
 {
-    private SolveMeFirstUseCase $sumUseCase;
+    private SolveMeFirstUseCase $useCase;
 
-    public function __construct(SolveMeFirstUseCase $sumUseCase)
+    public function __construct(SolveMeFirstUseCase $useCase)
     {
-        $this->sumUseCase = $sumUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,7 +21,7 @@ class SolveMeFirstHandler extends BaseCommandHandler
         $a = $parameters->get('a') ?? IOManager::readInteger("a");
         $b = $parameters->get('b') ?? IOManager::readInteger("b");
 
-        return "Sum of $a and $b is " . $this->sumUseCase->sum(new IntBoundary($a), new IntBoundary($b));
+        return "Sum of $a and $b is " . $this->useCase->sum(new IntBoundary($a), new IntBoundary($b));
     }
 
     public static function description(): string

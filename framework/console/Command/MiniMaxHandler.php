@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class MiniMaxHandler extends BaseCommandHandler
 {
-    private MiniMaxUseCase $miniMax;
+    private MiniMaxUseCase $useCase;
 
-    public function __construct(MiniMaxUseCase $miniMax)
+    public function __construct(MiniMaxUseCase $useCase)
     {
-        $this->miniMax = $miniMax;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -26,7 +26,7 @@ class MiniMaxHandler extends BaseCommandHandler
 
         $integers = explode(' ', $integers);
 
-        $miniMax = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
+        $miniMax = $this->useCase->countMiniMaxSums(new IntArrayBoundary($integers));
 
         return implode(" ", $miniMax);
     }

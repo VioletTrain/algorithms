@@ -9,11 +9,11 @@ use Anso\Framework\Contract\ParameterBag;
 
 class BirthdayCakeCandlesHandler extends BaseCommandHandler
 {
-    private BirthdayCakeCandlesUseCase $cake;
+    private BirthdayCakeCandlesUseCase $useCase;
 
-    public function __construct(BirthdayCakeCandlesUseCase $cake)
+    public function __construct(BirthdayCakeCandlesUseCase $useCase)
     {
-        $this->cake = $cake;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -27,7 +27,7 @@ class BirthdayCakeCandlesHandler extends BaseCommandHandler
 
         $candles = explode(' ', $candlesInline);
 
-        return $this->cake->countTallestCandles(new IntArrayBoundary($candles));
+        return $this->useCase->countTallestCandles(new IntArrayBoundary($candles));
     }
 
     public static function description(): string

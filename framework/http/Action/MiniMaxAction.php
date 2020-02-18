@@ -13,13 +13,13 @@ use Anso\Framework\Http\Contract\Routing\Action;
 
 class MiniMaxAction implements Action
 {
-    private MiniMaxUseCase $miniMax;
+    private MiniMaxUseCase $useCase;
 
     private ResultManager $rm;
 
-    public function __construct(MiniMaxUseCase $miniMax, ResultManager $rm)
+    public function __construct(MiniMaxUseCase $useCase, ResultManager $rm)
     {
-        $this->miniMax = $miniMax;
+        $this->useCase = $useCase;
         $this->rm = $rm;
     }
 
@@ -27,7 +27,7 @@ class MiniMaxAction implements Action
     {
         $integers = $request->post('integers');
 
-        $miniMax = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
+        $miniMax = $this->useCase->countMiniMaxSums(new IntArrayBoundary($integers));
 
         $this->rm->saveResult(new Result('mini-max', implode(', ', $integers), implode(', ', $miniMax)));
 

@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 class MiniMaxTest extends TestCase
 {
-    private $miniMax;
+    private $useCase;
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->miniMax = new MiniMaxUseCase();
+        $this->useCase = new MiniMaxUseCase();
     }
 
     /**
@@ -22,7 +22,7 @@ class MiniMaxTest extends TestCase
     {
         $integers = [1, 3, 5, 7, 9];
 
-        $result = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
+        $result = $this->useCase->countMiniMaxSums(new IntArrayBoundary($integers));
 
         $this->assertEquals([
             16, 24
@@ -36,7 +36,7 @@ class MiniMaxTest extends TestCase
     {
         $integers = [1, 0, 5, 0, 9];
 
-        $result = $this->miniMax->countMiniMaxSums(new IntArrayBoundary($integers));
+        $result = $this->useCase->countMiniMaxSums(new IntArrayBoundary($integers));
 
         $this->assertEquals([
             6, 15

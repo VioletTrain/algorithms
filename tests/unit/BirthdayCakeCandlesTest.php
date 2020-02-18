@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 class BirthdayCakeCandlesTest extends TestCase
 {
-    private $cake;
+    private $useCase;
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->cake = new BirthdayCakeCandlesUseCase();
+        $this->useCase = new BirthdayCakeCandlesUseCase();
     }
 
     /**
@@ -22,7 +22,7 @@ class BirthdayCakeCandlesTest extends TestCase
     {
         $candles = [4, 5, 5, 5, 9, 9];
 
-        $result = $this->cake->countTallestCandles(new IntArrayBoundary($candles));
+        $result = $this->useCase->countTallestCandles(new IntArrayBoundary($candles));
 
         $this->assertEquals(2, $result);
     }

@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 class PlusMinusTest extends TestCase
 {
-    private $plusMinus;
+    private $useCase;
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->plusMinus = new PlusMinusUseCase();
+        $this->useCase = new PlusMinusUseCase();
     }
 
     /**
@@ -20,7 +20,7 @@ class PlusMinusTest extends TestCase
      */
     public function test_CountRatios_CountsRatios_whenArrayOfIntegersIsGiven()
     {
-        $result = $this->plusMinus->countRatios(new IntArrayBoundary([1, 3, 3, 0, -5]));
+        $result = $this->useCase->countRatios(new IntArrayBoundary([1, 3, 3, 0, -5]));
 
         $this->assertSame([
             'positive' => "0.600000",

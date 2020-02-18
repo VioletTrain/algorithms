@@ -8,16 +8,16 @@ use Anso\Framework\Contract\ParameterBag;
 
 class ObjectsHandler extends BaseCommandHandler
 {
-    private DeclaredClassesUseCase $declaredClassesUseCase;
+    private DeclaredClassesUseCase $useCase;
 
-    public function __construct(DeclaredClassesUseCase $declaredClassesUseCase)
+    public function __construct(DeclaredClassesUseCase $useCase)
     {
-        $this->declaredClassesUseCase = $declaredClassesUseCase;
+        $this->useCase = $useCase;
     }
 
     public function handle(ParameterBag $parameters): string
     {
-        $output = 'Total declared classes: ' . $this->declaredClassesUseCase->totalDeclaredClasses() . IOManager::NEW_LINE;
+        $output = 'Total declared classes: ' . $this->useCase->totalDeclaredClasses() . IOManager::NEW_LINE;
 
         return $output;
     }
