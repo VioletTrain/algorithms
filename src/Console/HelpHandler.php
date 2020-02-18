@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Console\Command;
+namespace Algorithms\Console;
 
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Console\IOManager;

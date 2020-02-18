@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Console\Command;
+namespace Algorithms\Console;
 
 use Algorithms\UseCase\DeclaredClassesUseCase;
 use Anso\Framework\Console\IOManager;

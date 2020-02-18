@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Console\Command;
+namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\SolveMeFirstUseCase;

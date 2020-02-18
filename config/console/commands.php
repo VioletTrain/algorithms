@@ -1,7 +1,7 @@
 <?php
 
 use Anso\Framework\Console\CommandCollection;
-use Anso\Framework\Console\Command\CommandList;
+use Algorithms\Console\CommandList;
 
 return new CommandCollection(array_merge(
     CommandList::getCommands()
