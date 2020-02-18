@@ -22,6 +22,7 @@ class CommandList
             'itr'           => IntToRomanHandler::class,
             'ldn'           => LargestDecentNumberHandler::class,
             'mcn'           => MinimumContainersCounterHandler::class,
+            'ms'            => MagicSquareHandler::class,
         ];
     }
 }

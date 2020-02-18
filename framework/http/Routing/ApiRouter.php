@@ -25,6 +25,7 @@ class ApiRouter extends BaseRouter
             static::get('/int-to-roman', Action\IntToRomanAction::class),
             static::get('/largest-decent-number', Action\LargestDecentNumberAction::class),
             static::post('/minimum-containers', Action\MinimumContainersAction::class),
+            static::post('/magic-square', Action\MagicSquareAction::class),
         ];
     }
 }
