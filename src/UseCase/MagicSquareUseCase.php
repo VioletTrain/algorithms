@@ -9,7 +9,7 @@ class MagicSquareUseCase
     public const DESCRIPTION = "Calculate cost of transforming a 3x3 matrix to magic square.
      Cost is calculated by summing remainders of numbers that are changed and new numbers";
 
-    public function calc3x3MagicSquareCost(IntMatrix3x3Boundary $boundary)
+    public function calcTransformationCost(IntMatrix3x3Boundary $boundary): int
     {
         $matrixInline = [];
 

@@ -28,7 +28,7 @@ class MagicSquareTest extends TestCase
             [8, 9, 7]
         ];
 
-        $cost = $this->magicSquare->calc3x3MagicSquareCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(23, $cost);
     }
@@ -44,7 +44,7 @@ class MagicSquareTest extends TestCase
             [6, 1, 6]
         ];
 
-        $cost = $this->magicSquare->calc3x3MagicSquareCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(4, $cost);
     }
@@ -60,7 +60,7 @@ class MagicSquareTest extends TestCase
             [8, 9, 8]
         ];
 
-        $cost = $this->magicSquare->calc3x3MagicSquareCost(new IntMatrix3x3Boundary($matrix));
+        $cost = $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
 
         $this->assertEquals(21, $cost);
     }

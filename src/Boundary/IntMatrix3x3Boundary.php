@@ -47,4 +47,15 @@ class IntMatrix3x3Boundary
 
         return true;
     }
+
+    public function __toString(): string
+    {
+        $result = [];
+
+        foreach ($this->matrix as $row) {
+            $result[] = implode(' ', $row);
+        }
+
+        return implode(', ', $result);
+    }
 }

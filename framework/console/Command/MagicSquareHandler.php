@@ -22,7 +22,7 @@ class MagicSquareHandler extends BaseCommandHandler
         $matrix[] = explode(' ', IOManager::readLine('Enter second line of digits:'));
         $matrix[] = explode(' ', IOManager::readLine('Enter third line of digits:'));
 
-        return $this->magicSquare->calc3x3MagicSquareCost(new IntMatrix3x3Boundary($matrix));
+        return $this->magicSquare->calcTransformationCost(new IntMatrix3x3Boundary($matrix));
     }
 
     public static function description(): string
