@@ -18,7 +18,7 @@ class IntMatrix3x3Boundary
         $this->matrix = $matrix;
 
         if (!$this->validate($matrix)) {
-            throw new BoundaryException('Input matrix must be 3x3');
+            throw new BoundaryException('Input matrix size must be 3x3 and contain only integers');
         }
     }
 
