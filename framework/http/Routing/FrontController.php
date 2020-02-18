@@ -4,13 +4,12 @@ namespace Anso\Framework\Http\Routing;
 
 use Anso\Framework\Contract\Application;
 use Anso\Framework\Contract\Configuration;
-use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Contract\Response;
-use Anso\Framework\Http\Contract\Routing\FrontController;
 use Anso\Framework\Http\Exception\HttpNotFoundException;
 use Throwable;
 
-class BaseFrontController implements FrontController
+class FrontController
 {
     protected Application $app;
     protected Configuration $configuration;

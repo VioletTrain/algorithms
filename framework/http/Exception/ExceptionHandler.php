@@ -4,14 +4,13 @@ namespace Anso\Framework\Http\Exception;
 
 use Algorithms\Exception\BoundaryException;
 use Anso\Framework\Contract\ApplicationException;
-use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
 use Anso\Framework\Http\Contract\Exception\HttpException;
-use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\BaseResponse;
 use Throwable;
 
-class BaseExceptionHandler implements ExceptionHandler
+class ExceptionHandler
 {
     public function handle(Request $request, Throwable $e): Response
     {

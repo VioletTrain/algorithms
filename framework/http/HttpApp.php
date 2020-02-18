@@ -3,16 +3,15 @@
 namespace Anso\Framework\Http;
 
 use Anso\Framework\Base\BaseApp;
-use Anso\Framework\Http\Contract\Kernel;
-use Anso\Framework\Http\Exception\BaseExceptionHandler;
+use Anso\Framework\Http\Exception\ExceptionHandler;
 use Exception;
 
 class HttpApp extends BaseApp
 {
     public function start(): void
     {
-        $request = BaseRequest::createFromGlobals();
-        $exceptionHandler = new BaseExceptionHandler();
+        $request = Request::createInstance();
+        $exceptionHandler = new ExceptionHandler();
 
         try {
             $kernel = $this->container->make(Kernel::class);

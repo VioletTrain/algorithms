@@ -5,7 +5,7 @@ namespace Algorithms\Http\System;
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\TimeElapsedUseCase;
 use Anso\Framework\Http\BaseResponse;
-use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 

@@ -2,15 +2,14 @@
 
 namespace Anso\Framework\Http;
 
-use Anso\Framework\Http\Contract\Request;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class BaseRequest extends SymfonyRequest implements Request
+class Request extends SymfonyRequest
 {
 
-    public static function createFromGlobals()
+    public static function createInstance(): self
     {
-        $request = parent::createFromGlobals();
+        $request = self::createFromGlobals();
 
         if (
             0 === strpos($request->headers->get('CONTENT-TYPE'), 'application/json')
@@ -71,6 +70,6 @@ class BaseRequest extends SymfonyRequest implements Request
             $result = $tempResult[$key] ?? null;
         }
 
-        return $result;
+        return $result ?? $default;
     }
 }

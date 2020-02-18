@@ -2,7 +2,7 @@
 
 namespace Algorithms\Http\System;
 
-use Anso\Framework\Http\Contract\Request;
+use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 use Anso\Framework\Http\BaseResponse;
