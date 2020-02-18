@@ -6,8 +6,7 @@ use Algorithms\Exception\BoundaryException;
 
 class IntArrayBoundary
 {
-
-    private $integers;
+    private array $integers;
 
     /**
      * IntArrayBoundary constructor.

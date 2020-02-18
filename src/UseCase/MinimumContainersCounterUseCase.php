@@ -6,7 +6,8 @@ use Algorithms\Boundary\IntArrayBoundary;
 
 class MinimumContainersCounterUseCase
 {
-    public const DESCRIPTION = "Count minimum number of containers that can contain items that are less or equal than minimum container item + 4 (Minimum containers)";
+    public const DESCRIPTION = "Count minimum number of containers that can contain items that are less or equal
+      than minimum container item + 4 (Minimum containers)";
 
     /**
      * Rules:
