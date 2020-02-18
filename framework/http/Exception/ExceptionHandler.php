@@ -6,8 +6,7 @@ use Algorithms\Exception\BoundaryException;
 use Anso\Framework\Contract\ApplicationException;
 use Anso\Framework\Http\Contract\Exception\HttpException;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Throwable;
 
 class ExceptionHandler
@@ -36,11 +35,11 @@ class ExceptionHandler
     public function render(Request $request, Throwable $e): Response
     {
         if ($e instanceof BoundaryException) {
-            return new BaseResponse(['error' => $e->getMessage()], BaseResponse::HTTP_BAD_REQUEST);
+            return new Response(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
 
         return $e instanceof HttpException
-            ? new BaseResponse(['error' => $e->getMessage()], $e->getCode())
-            : new BaseResponse($this->formatException($e), 500);
+            ? new Response(['error' => $e->getMessage()], $e->getCode())
+            : new Response($this->formatException($e), 500);
     }
 }

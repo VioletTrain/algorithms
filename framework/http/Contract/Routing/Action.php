@@ -3,7 +3,7 @@
 namespace Anso\Framework\Http\Contract\Routing;
 
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
+use Anso\Framework\Http\Response;
 
 interface Action
 {

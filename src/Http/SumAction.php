@@ -6,9 +6,8 @@ use Algorithms\Boundary\IntBoundary;
 use Algorithms\Entity\Result;
 use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\SolveMeFirstUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class SumAction implements Action
@@ -32,6 +31,6 @@ class SumAction implements Action
 
         $this->rm->saveResult(new Result('sum', $a . ', ' .$b, $sum));
 
-        return new BaseResponse(['sum' => $sum]);
+        return new Response(['sum' => $sum]);
     }
 }

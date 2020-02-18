@@ -4,9 +4,8 @@ namespace Algorithms\Http\System;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\TimeElapsedUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class TimeElapsedAction implements Action
@@ -24,6 +23,6 @@ class TimeElapsedAction implements Action
             $precision = TimeElapsedUseCase::DEFAULT_PRECISION;
         }
 
-        return new BaseResponse(['time_elapsed' => $this->useCase->timeElapsed(new IntBoundary($precision))]);
+        return new Response(['time_elapsed' => $this->useCase->timeElapsed(new IntBoundary($precision))]);
     }
 }

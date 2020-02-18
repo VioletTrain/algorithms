@@ -3,9 +3,8 @@
 namespace Algorithms\Http\System;
 
 use Algorithms\UseCase\MemoryUsageUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class MemoryAction implements Action
@@ -19,6 +18,6 @@ class MemoryAction implements Action
 
     public function execute(Request $request): Response
     {
-        return new BaseResponse(['memory_usage' => $this->memoryUsageUseCase->memoryUsage()]);
+        return new Response(['memory_usage' => $this->memoryUsageUseCase->memoryUsage()]);
     }
 }

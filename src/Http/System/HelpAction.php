@@ -2,9 +2,8 @@
 
 namespace Algorithms\Http\System;
 
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 use Algorithms\Http\ApiRouter;
 
@@ -16,6 +15,6 @@ class HelpAction implements Action
         $availableRoutes = ApiRouter::getRoutes();
         $availableURIs = array_map(fn ($route) => $route['uri'], $availableRoutes);
 
-        return new BaseResponse(['available_uris' => $availableURIs]);
+        return new Response(['available_uris' => $availableURIs]);
     }
 }

@@ -3,7 +3,6 @@
 namespace Anso\Framework\Http;
 
 use Anso\Framework\Http\Exception\ExceptionHandler;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Routing\FrontController;
 use Throwable;
 

@@ -6,9 +6,8 @@ use Algorithms\Boundary\IntBoundary;
 use Algorithms\Entity\Result;
 use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\LargestDecentNumberUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class LargestDecentNumberAction implements Action
@@ -31,6 +30,6 @@ class LargestDecentNumberAction implements Action
 
         $this->rm->saveResult(new Result('largest-decent-number', $length, $largestDecentNumber));
 
-        return new BaseResponse(['largest_decent_number' => $largestDecentNumber]);
+        return new Response(['largest_decent_number' => $largestDecentNumber]);
     }
 }

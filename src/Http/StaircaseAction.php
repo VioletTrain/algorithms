@@ -6,9 +6,8 @@ use Algorithms\Boundary\IntBoundary;
 use Algorithms\Entity\Result;
 use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\StaircaseUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class StaircaseAction implements Action
@@ -31,6 +30,6 @@ class StaircaseAction implements Action
 
         $this->rm->saveResult(new Result('staircase', $size, implode(', ', $staircase)));
 
-        return new BaseResponse(['staircase' => $staircase]);
+        return new Response(['staircase' => $staircase]);
     }
 }

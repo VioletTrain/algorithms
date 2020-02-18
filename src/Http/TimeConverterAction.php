@@ -6,9 +6,8 @@ use Algorithms\Boundary\TimeBoundary;
 use Algorithms\Entity\Result;
 use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\TimeConversionUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class TimeConverterAction implements Action
@@ -31,6 +30,6 @@ class TimeConverterAction implements Action
 
         $this->rm->saveResult(new Result('time-converter', $time, $convertedTime));
 
-        return new BaseResponse(['converted_time' => $convertedTime]);
+        return new Response(['converted_time' => $convertedTime]);
     }
 }

@@ -6,9 +6,8 @@ use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\Entity\Result;
 use Algorithms\Entity\ResultManager;
 use Algorithms\UseCase\PlusMinusUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class PlusMinusAction implements Action
@@ -31,6 +30,6 @@ class PlusMinusAction implements Action
 
         $this->rm->saveResult(new Result('plus-minus', implode(', ', $array), implode(', ', $ratios)));
 
-        return new BaseResponse(['ratios' => $ratios]);
+        return new Response(['ratios' => $ratios]);
     }
 }

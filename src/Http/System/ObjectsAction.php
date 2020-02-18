@@ -3,9 +3,8 @@
 namespace Algorithms\Http\System;
 
 use Algorithms\UseCase\DeclaredClassesUseCase;
-use Anso\Framework\Http\BaseResponse;
+use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Request;
-use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
 
 class ObjectsAction implements Action
@@ -19,6 +18,6 @@ class ObjectsAction implements Action
 
     public function execute(Request $request): Response
     {
-        return new BaseResponse(['declared_objects' => $this->declaredClassesUseCase->totalDeclaredClasses()]);
+        return new Response(['declared_objects' => $this->declaredClassesUseCase->totalDeclaredClasses()]);
     }
 }
