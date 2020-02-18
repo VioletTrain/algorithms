@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Algorithms\Http;
 
 use Algorithms\Boundary\IntMatrix3x3Boundary;
 use Algorithms\Entity\Result;

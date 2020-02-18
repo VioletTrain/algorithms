@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action\System;
+namespace Algorithms\Http\System;
 
 use Algorithms\Entity\Result;
 use Anso\Framework\Http\BaseResponse;

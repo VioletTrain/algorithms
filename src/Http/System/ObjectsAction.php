@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action\System;
+namespace Algorithms\Http\System;
 
 use Algorithms\UseCase\DeclaredClassesUseCase;
 use Anso\Framework\Http\BaseResponse;

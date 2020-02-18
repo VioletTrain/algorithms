@@ -1,6 +1,6 @@
 <?php
 
-namespace Anso\Framework\Http\Action;
+namespace Algorithms\Http;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\Entity\Result;

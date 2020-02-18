@@ -1,6 +1,6 @@
 <?php
 
-use Anso\Framework\Http\Routing\ApiRouter;
+use Algorithms\Http\ApiRouter;
 use Anso\Framework\Http\Routing\RouteCollection;
 
 return new RouteCollection(array_merge(

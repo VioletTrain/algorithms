@@ -1,12 +1,12 @@
 <?php
 
-namespace Anso\Framework\Http\Action\System;
+namespace Algorithms\Http\System;
 
 use Anso\Framework\Http\BaseResponse;
 use Anso\Framework\Http\Contract\Request;
 use Anso\Framework\Http\Contract\Response;
 use Anso\Framework\Http\Contract\Routing\Action;
-use Anso\Framework\Http\Routing\ApiRouter;
+use Algorithms\Http\ApiRouter;
 
 class HelpAction implements Action
 {
