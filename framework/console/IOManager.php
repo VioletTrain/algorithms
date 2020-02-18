@@ -10,7 +10,7 @@ class IOManager
 
     public static function readLine($prompt = ''): string
     {
-        return readline($prompt . "\n > ");
+        return trim(readline($prompt . "\n > "));
     }
 
     public static function writeLine(string $output): void
