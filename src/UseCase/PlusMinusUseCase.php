@@ -3,7 +3,6 @@
 namespace Algorithms\UseCase;
 
 use Algorithms\Boundary\IntArrayBoundary;
-use Algorithms\Math;
 
 class PlusMinusUseCase
 {
@@ -28,9 +27,9 @@ class PlusMinusUseCase
             }
         }
 
-        $ratios['positive'] = Math::countRatio($positive, $denominator);
-        $ratios['negative'] = Math::countRatio($negative, $denominator);
-        $ratios['zero'] = Math::countRatio($zero, $denominator);
+        $ratios['positive'] = number_format($positive / $denominator, 6);
+        $ratios['negative'] = number_format($negative / $denominator, 6);
+        $ratios['zero'] = number_format($zero / $denominator, 6);
 
         return $ratios;
     }

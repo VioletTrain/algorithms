@@ -3,7 +3,6 @@
 namespace Algorithms\UseCase;
 
 use Algorithms\Boundary\IntBoundary;
-use Algorithms\Math;
 
 class SolveMeFirstUseCase
 {
@@ -11,6 +10,6 @@ class SolveMeFirstUseCase
 
     public function sum(IntBoundary $boundaryA, IntBoundary $boundaryB): int
     {
-        return Math::sum($boundaryA->integer(), $boundaryB->integer());
+        return $boundaryA->integer() + $boundaryB->integer();
     }
 }

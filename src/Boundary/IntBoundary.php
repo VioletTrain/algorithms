@@ -6,7 +6,7 @@ use Algorithms\Exception\BoundaryException;
 
 class IntBoundary
 {
-    private int $integer;
+    private $integer;
 
     /**
      * IntBoundary constructor.
