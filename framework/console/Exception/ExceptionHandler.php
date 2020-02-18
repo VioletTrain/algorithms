@@ -6,7 +6,7 @@ use Anso\Framework\Console\IOManager;
 use Anso\Framework\Contract\ApplicationException;
 use Throwable;
 
-class ConsoleExceptionHandler
+class ExceptionHandler
 {
     public function handle(Throwable $e)
     {

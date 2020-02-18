@@ -1,6 +1,6 @@
 <?php
 
-use Anso\Framework\Console\ConsoleAppProvider;
+use Algorithms\Console\ConsoleAppProvider;
 
 return [
     ConsoleAppProvider::class

@@ -1,8 +1,9 @@
 <?php
 
-namespace Anso\Framework\Console;
+namespace Algorithms\Console;
 
-use Anso\Framework\Console\Contract\ConsoleFrontController;
+use Anso\Framework\Console\ConsoleApp;
+use Anso\Framework\Console\ConsoleConfiguration;
 use Anso\Framework\Contract\Application;
 use Anso\Framework\Contract\Configuration;
 use Anso\Framework\Contract\Container;
@@ -22,6 +23,5 @@ class ConsoleAppProvider implements Provider
         $this->container->singleton(Application::class, ConsoleApp::class);
         $this->container->singleton(Container::class, ConsoleApp::class);
         $this->container->singleton(Configuration::class, ConsoleConfiguration::class);
-        $this->container->bind(ConsoleFrontController::class, FrontController::class);
     }
 }
