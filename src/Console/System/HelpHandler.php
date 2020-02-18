@@ -1,7 +1,9 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\System;
 
+use Algorithms\Console\BaseCommandHandler;
+use Algorithms\Console\CommandList;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Console\IOManager;
 use Anso\Framework\Contract\ParameterBag;

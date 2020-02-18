@@ -7,12 +7,12 @@ class CommandList
     public static function getCommands(): array
     {
         return [
-            'q'             => ExitHandler::class,
-            'exit'          => ExitHandler::class,
-            'help'          => HelpHandler::class,
-            'memory'        => MemoryHandler::class,
-            'objects'       => ObjectsHandler::class,
-            'time'          => TimeElapsedHandler::class,
+            'q'             => System\ExitHandler::class,
+            'exit'          => System\ExitHandler::class,
+            'help'          => System\HelpHandler::class,
+            'memory'        => System\MemoryHandler::class,
+            'objects'       => System\ObjectsHandler::class,
+            'time'          => System\TimeElapsedHandler::class,
             'sum'           => SolveMeFirstHandler::class,
             'pm'            => PlusMinusHandler::class,
             'sc'            => StaircaseHandler::class,

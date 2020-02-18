@@ -1,7 +1,8 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\System;
 
+use Algorithms\Console\BaseCommandHandler;
 use Anso\Framework\Contract\ParameterBag;
 
 class ExitHandler extends BaseCommandHandler
