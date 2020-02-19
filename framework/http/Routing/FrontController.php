@@ -3,7 +3,7 @@
 namespace Anso\Framework\Http\Routing;
 
 use Anso\Framework\Contract\Application;
-use Anso\Framework\Contract\Configuration;
+use Anso\Framework\Base\Configuration;
 use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Response;
 use Anso\Framework\Http\Exception\HttpNotFoundException;
