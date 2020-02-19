@@ -9,7 +9,8 @@ use Anso\Framework\Base\BaseContainer;
 use Anso\Framework\Base\Configuration;
 use Anso\Framework\Console\ConsoleApp;
 
-$container = new BaseContainer(new Configuration('/config/console'));
-$app = new ConsoleApp($container);
+$configuration = new Configuration('/config/console');
+$container = new BaseContainer($configuration);
+$app = new ConsoleApp($container, $configuration);
 
 $app->start();

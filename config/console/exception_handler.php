@@ -1,5 +1,5 @@
 <?php
 
-use Algorithms\Http\HttpExceptionHandler;
+use Algorithms\Console\ConsoleExceptionHandler;
 
-return new HttpExceptionHandler();
+return new ConsoleExceptionHandler();

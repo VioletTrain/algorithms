@@ -2,7 +2,7 @@
 
 namespace Anso\Framework\Base;
 
-use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
+use Anso\Framework\Contract\ExceptionHandler;
 use ErrorException;
 
 class Configuration

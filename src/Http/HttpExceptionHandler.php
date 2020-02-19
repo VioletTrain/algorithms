@@ -4,19 +4,17 @@ namespace Algorithms\Http;
 
 use Algorithms\Exception\BoundaryException;
 use Anso\Framework\Contract\ApplicationException;
-use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
+use Anso\Framework\Contract\ExceptionHandler;
 use Anso\Framework\Http\Contract\Exception\HttpException;
-use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Response;
 use Throwable;
 
 class HttpExceptionHandler implements ExceptionHandler
 {
-    public function handle(Request $request, Throwable $e): Response
+    public function handle(Throwable $e): void
     {
         $this->report($e);
-
-        return $this->render($request, $e);
+        $this->render($e);
     }
 
     public function report(Throwable $e): void
@@ -33,14 +31,16 @@ class HttpExceptionHandler implements ExceptionHandler
             " . $e->getTraceAsString();
     }
 
-    public function render(Request $request, Throwable $e): Response
+    public function render(Throwable $e): void
     {
         if ($e instanceof BoundaryException) {
-            return new Response(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+            $response = new Response(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        } else {
+            $response = $e instanceof HttpException
+                ? new Response(['error' => $e->getMessage()], $e->getCode())
+                : new Response($this->formatException($e), 500);
         }
 
-        return $e instanceof HttpException
-            ? new Response(['error' => $e->getMessage()], $e->getCode())
-            : new Response($this->formatException($e), 500);
+        $response->send();
     }
 }

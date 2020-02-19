@@ -3,7 +3,8 @@
 namespace Anso\Framework\Http;
 
 use Anso\Framework\Base\BaseApp;
-use Exception;
+use Anso\Framework\Http\Routing\FrontController;
+use Throwable;
 
 class HttpApp extends BaseApp
 {
@@ -13,12 +14,11 @@ class HttpApp extends BaseApp
         $exceptionHandler = $this->configuration->exceptionHandler();
 
         try {
-            $kernel = $this->container->make(Kernel::class);
-            $response = $kernel->handle($request);
-        } catch (Exception $e) {
-            $response = $exceptionHandler->handle($request, $e);
+            $controller = $this->container->make(FrontController::class);
+            $response = $controller->handle($request);
+            $response->send();
+        } catch (Throwable $e) {
+            $exceptionHandler->handle($e);
         }
-
-        $response->send();
     }
 }

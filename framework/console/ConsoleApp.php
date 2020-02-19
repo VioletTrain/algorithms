@@ -3,7 +3,7 @@
 namespace Anso\Framework\Console;
 
 use Anso\Framework\Base\BaseApp;
-use Anso\Framework\Console\Exception\ExceptionHandler;
+use Anso\Framework\Contract\ExceptionHandler;
 use Throwable;
 
 class ConsoleApp extends BaseApp
@@ -14,7 +14,7 @@ class ConsoleApp extends BaseApp
 
     public function start(): void
     {
-        $this->exceptionHandler = new ExceptionHandler();
+        $this->exceptionHandler = $this->configuration->exceptionHandler();
 
         try {
             $this->frontController = $this->container->make(FrontController::class);
