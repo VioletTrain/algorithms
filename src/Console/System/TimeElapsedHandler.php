@@ -5,7 +5,7 @@ namespace Algorithms\Console\System;
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\Console\BaseCommandHandler;
 use Algorithms\UseCase\TimeElapsedUseCase;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class TimeElapsedHandler extends BaseCommandHandler
 {

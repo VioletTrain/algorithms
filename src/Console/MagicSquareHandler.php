@@ -5,7 +5,7 @@ namespace Algorithms\Console;
 use Algorithms\Boundary\IntMatrix3x3Boundary;
 use Algorithms\UseCase\MagicSquareUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class MagicSquareHandler extends BaseCommandHandler
 {

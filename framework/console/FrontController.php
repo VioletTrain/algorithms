@@ -2,7 +2,6 @@
 
 namespace Anso\Framework\Console;
 
-use Anso\Framework\Base\BaseParameterBag;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Base\Configuration;
 use Anso\Framework\Contract\Container;
@@ -44,6 +43,6 @@ class FrontController
 
         $commandHandler = $this->container->make($commandHandler);
 
-        return $commandHandler->handle(new BaseParameterBag($command->parameters()));
+        return $commandHandler->handle(new ParameterBag($command->parameters()));
     }
 }

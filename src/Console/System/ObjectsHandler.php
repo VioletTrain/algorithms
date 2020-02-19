@@ -5,7 +5,7 @@ namespace Algorithms\Console\System;
 use Algorithms\Console\BaseCommandHandler;
 use Algorithms\UseCase\DeclaredClassesUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class ObjectsHandler extends BaseCommandHandler
 {

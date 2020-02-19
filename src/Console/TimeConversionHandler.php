@@ -5,7 +5,7 @@ namespace Algorithms\Console;
 use Algorithms\Boundary\TimeBoundary;
 use Algorithms\UseCase\TimeConversionUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class TimeConversionHandler extends BaseCommandHandler
 {
