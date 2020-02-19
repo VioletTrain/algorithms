@@ -2,16 +2,16 @@
 
 namespace Anso\Framework\Http;
 
-use Anso\Framework\Http\Exception\ExceptionHandler;
+use Algorithms\Http\HttpExceptionHandler;
 use Anso\Framework\Http\Routing\FrontController;
 use Throwable;
 
 class Kernel
 {
     protected FrontController $controller;
-    protected ExceptionHandler $handler;
+    protected HttpExceptionHandler $handler;
 
-    public function __construct(FrontController $controller, ExceptionHandler $handler)
+    public function __construct(FrontController $controller, HttpExceptionHandler $handler)
     {
         $this->controller = $controller;
         $this->handler = $handler;

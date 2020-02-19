@@ -2,6 +2,7 @@
 
 namespace Anso\Framework\Base;
 
+use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
 use ErrorException;
 
 class Configuration
@@ -31,5 +32,10 @@ class Configuration
     public function configPath(): string
     {
         return $this->configPath;
+    }
+
+    public function exceptionHandler(): ExceptionHandler
+    {
+        return include($this->configPath . "/exception_handler.php");
     }
 }

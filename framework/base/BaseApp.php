@@ -8,10 +8,12 @@ use Anso\Framework\Contract\Container;
 abstract class BaseApp implements Application
 {
     protected Container $container;
+    protected Configuration $configuration;
 
-    public function __construct(Container $container)
+    public function __construct(Container $container, Configuration $configuration)
     {
         $this->container = $container;
+        $this->configuration = $configuration;
     }
 
     public function bind(string $abstract, $concrete): void

@@ -1,15 +1,16 @@
 <?php
 
-namespace Anso\Framework\Http\Exception;
+namespace Algorithms\Http;
 
 use Algorithms\Exception\BoundaryException;
 use Anso\Framework\Contract\ApplicationException;
+use Anso\Framework\Http\Contract\Exception\ExceptionHandler;
 use Anso\Framework\Http\Contract\Exception\HttpException;
 use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Response;
 use Throwable;
 
-class ExceptionHandler
+class HttpExceptionHandler implements ExceptionHandler
 {
     public function handle(Request $request, Throwable $e): Response
     {
