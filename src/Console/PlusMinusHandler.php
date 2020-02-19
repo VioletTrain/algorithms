@@ -5,7 +5,7 @@ namespace Algorithms\Console;
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\PlusMinusUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class PlusMinusHandler extends BaseCommandHandler
 {

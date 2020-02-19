@@ -3,7 +3,7 @@
 namespace Algorithms\Console\System;
 
 use Algorithms\Console\BaseCommandHandler;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class ExitHandler extends BaseCommandHandler
 {

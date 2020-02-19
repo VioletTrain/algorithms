@@ -2,7 +2,7 @@
 
 namespace Anso\Framework\Console\Contract;
 
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 interface CommandHandler
 {

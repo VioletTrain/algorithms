@@ -2,7 +2,6 @@
 
 namespace Anso\Framework\Base;
 
-use Anso\Framework\Contract\Configuration;
 use Anso\Framework\Contract\Container;
 use Closure;
 use ReflectionClass;

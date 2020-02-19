@@ -5,7 +5,7 @@ namespace Algorithms\Console;
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\MinimumContainersCounterUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class MinimumContainersCounterHandler extends BaseCommandHandler
 {

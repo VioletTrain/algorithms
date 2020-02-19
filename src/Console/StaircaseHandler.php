@@ -5,7 +5,7 @@ namespace Algorithms\Console;
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\StaircaseUseCase;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class StaircaseHandler extends BaseCommandHandler
 {

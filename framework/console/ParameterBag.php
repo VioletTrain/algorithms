@@ -1,10 +1,8 @@
 <?php
 
-namespace Anso\Framework\Base;
+namespace Anso\Framework\Console;
 
-use Anso\Framework\Contract\ParameterBag;
-
-class BaseParameterBag implements ParameterBag
+class ParameterBag
 {
     private array $parameters;
 
@@ -15,7 +13,7 @@ class BaseParameterBag implements ParameterBag
 
     public function get(string $parameterName)
     {
-        return $this->parameters[$parameterName] ?? '';
+        return $this->parameters[$parameterName] ?? null;
     }
 
     public function first()

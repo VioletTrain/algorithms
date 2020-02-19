@@ -2,12 +2,10 @@
 
 namespace Anso\Framework\Base;
 
-use Anso\Framework\Contract\Configuration;
 use ErrorException;
 
-class BaseConfiguration implements Configuration
+class Configuration
 {
-    protected string $application = 'http';
     protected string $configPath;
 
     public function __construct($relativeConfigPath = '/config')

@@ -6,7 +6,7 @@ use Algorithms\Console\BaseCommandHandler;
 use Algorithms\Console\CommandList;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Console\IOManager;
-use Anso\Framework\Contract\ParameterBag;
+use Anso\Framework\Console\ParameterBag;
 
 class HelpHandler extends BaseCommandHandler
 {
