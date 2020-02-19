@@ -13,7 +13,7 @@ class ParameterBag
 
     public function get(string $parameterName)
     {
-        return $this->parameters[$parameterName] ?? '';
+        return $this->parameters[$parameterName] ?? null;
     }
 
     public function first()
