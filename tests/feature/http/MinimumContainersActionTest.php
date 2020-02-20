@@ -5,7 +5,7 @@ namespace Tests\Feature\Http;
 
 class MinimumContainersActionTest extends HttpTestCase
 {
-    public function test_MinimumContainersAction_RespondsWithContainersCount_WhenSuitableItemsRequested()
+    public function test_Action_RespondsWithContainersCount_WhenSuitableItemsRequested()
     {
         $response = $this->post('/minimum-containers', [
             'items' => [

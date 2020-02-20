@@ -5,7 +5,7 @@ namespace Tests\Feature\Http;
 
 class BirthdayCakeCandlesActionTest extends HttpTestCase
 {
-    public function test_BirthdayCakeCandlesAction_RespondsWithTallestCandlesCount_WhenArrayOfIntegersIsRequested()
+    public function test_Action_RespondsWithTallestCandlesCount_WhenArrayOfIntegersIsRequested()
     {
         $response = $this->post('/birthday-cake-candles', [
             'candles' => [

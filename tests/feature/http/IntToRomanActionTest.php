@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class IntToRomanActionTest extends HttpTestCase
 {
-    public function test_IntToRomanAction_RespondsWithRoman_WhenIntIsRequested()
+    public function test_Action_RespondsWithRoman_WhenIntIsRequested()
     {
         $response = $this->get('/int-to-roman?int=102');
 
@@ -15,7 +15,7 @@ class IntToRomanActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_IntToRomanAction_RespondsWithError_WhenEmptyIntIsRequested()
+    public function test_Action_RespondsWithError_WhenEmptyIntIsRequested()
     {
         try {
             $this->get('/int-to-roman?int=');
@@ -29,7 +29,7 @@ class IntToRomanActionTest extends HttpTestCase
         }
     }
 
-    public function test_IntToRomanAction_RespondsWithError_WhenNoIntIsRequested()
+    public function test_Action_RespondsWithError_WhenNoIntIsRequested()
     {
         try {
             $this->get('/int-to-roman');

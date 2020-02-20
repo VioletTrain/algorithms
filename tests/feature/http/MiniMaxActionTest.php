@@ -5,7 +5,7 @@ namespace Tests\Feature\Http;
 
 class MiniMaxActionTest extends HttpTestCase
 {
-    public function test_MiniMaxAction_RespondsWithMiniMax_WhenArrayOfIntegersIsRequested()
+    public function test_Action_RespondsWithMiniMax_WhenArrayOfIntegersIsRequested()
     {
         $response = $this->post('/mini-max', [
             'integers' => [
@@ -18,7 +18,7 @@ class MiniMaxActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_MiniMaxAction_RespondsWithMiniMax_WhenUnsortedArrayOfIntegersIsRequested()
+    public function test_Action_RespondsWithMiniMax_WhenUnsortedArrayOfIntegersIsRequested()
     {
         $response = $this->post('/mini-max', [
             'integers' => [
@@ -31,7 +31,7 @@ class MiniMaxActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_MiniMaxAction_RespondsWithZeros_WhenOneIntegerIsRequested()
+    public function test_Action_RespondsWithZeros_WhenOneIntegerIsRequested()
     {
         $response = $this->post('/mini-max', [
             'integers' => [

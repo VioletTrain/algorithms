@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class StaircaseActionTest extends HttpTestCase
 {
-    public function test_StaircaseAction_RespondsWithStaircase_WhenSizeIsRequested()
+    public function test_Action_RespondsWithStaircase_WhenSizeIsRequested()
     {
         $response = $this->get('/staircase?size=3');
 
@@ -19,7 +19,7 @@ class StaircaseActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_StaircaseAction_RespondsWithError_WhenEmptySizeIsRequested()
+    public function test_Action_RespondsWithError_WhenEmptySizeIsRequested()
     {
         try {
             $this->get('/staircase?size=');
@@ -33,7 +33,7 @@ class StaircaseActionTest extends HttpTestCase
         }
     }
 
-    public function test_StaircaseAction_RespondsWithError_WhenNoSizeIsRequested()
+    public function test_Action_RespondsWithError_WhenNoSizeIsRequested()
     {
         try {
             $this->get('/staircase');

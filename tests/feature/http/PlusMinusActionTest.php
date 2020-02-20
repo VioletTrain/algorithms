@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class PlusMinusActionTest extends HttpTestCase
 {
-    public function test_PlusMinusAction_RespondsWithRatios_WhenArrayIsRequested()
+    public function test_Action_RespondsWithRatios_WhenArrayIsRequested()
     {
         $response = $this->post('/plus-minus', [
             'array' => [1, 2, 3, 0, -1]
@@ -21,7 +21,7 @@ class PlusMinusActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_PlusMinusAction_RespondsWithError_WhenEmptyArrayIsRequested()
+    public function test_Action_RespondsWithError_WhenEmptyArrayIsRequested()
     {
         try {
             $this->post('/plus-minus', [
@@ -37,7 +37,7 @@ class PlusMinusActionTest extends HttpTestCase
         }
     }
 
-    public function test_PlusMinusAction_RespondsWithError_WhenNoArrayIsRequested()
+    public function test_Action_RespondsWithError_WhenNoArrayIsRequested()
     {
         try {
             $this->post('/plus-minus', []);

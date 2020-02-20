@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class TimeConverterActionTest extends HttpTestCase
 {
-    public function test_TimeConverterAction_RespondsWithMilitaryTime_WhenCommonTimeIsRequested()
+    public function test_Action_RespondsWithMilitaryTime_WhenCommonTimeIsRequested()
     {
         $response = $this->get('/time-converter?time=02:03:32PM');
 
@@ -15,7 +15,7 @@ class TimeConverterActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_TimeConverterAction_RespondsWithError_WhenTimeFormatIsInvalid()
+    public function test_Action_RespondsWithError_WhenTimeFormatIsInvalid()
     {
         try {
             $this->get('/time-converter?time=13:03:32PM');

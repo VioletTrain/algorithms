@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class SumActionTest extends HttpTestCase
 {
-    public function test_SumAction_RespondsWithSum_WhenSumOf2IntegersAreRequested()
+    public function test_Action_RespondsWithSum_WhenSumOf2IntegersAreRequested()
     {
         $response = $this->get('/sum?a=3&b=5');
 
@@ -15,7 +15,7 @@ class SumActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_SumAction_RespondsWithError_WhenBIsNull()
+    public function test_Action_RespondsWithError_WhenBIsNull()
     {
         try {
             $this->client->get('/sum?a=3')->getBody();
@@ -29,7 +29,7 @@ class SumActionTest extends HttpTestCase
         }
     }
 
-    public function test_SumAction_RespondsWithError_WhenBIsEmptyString()
+    public function test_Action_RespondsWithError_WhenBIsEmptyString()
     {
         try {
             $this->client->get('/sum?a=3&b=')->getBody();

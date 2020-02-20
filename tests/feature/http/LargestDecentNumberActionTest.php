@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\ClientException;
 
 class LargestDecentNumberActionTest extends HttpTestCase
 {
-    public function test_LargestDecentNumberAction_RespondsWithLargestDecentNumber_WhenSuitableLengthIsRequested()
+    public function test_Action_RespondsWithLargestDecentNumber_WhenSuitableLengthIsRequested()
     {
         $response = $this->get('/largest-decent-number?length=10');
 
@@ -16,7 +16,7 @@ class LargestDecentNumberActionTest extends HttpTestCase
         ], $response);
     }
 
-    public function test_LargestDecentNumberAction_RespondsWithError_WhenEmptyLengthIsRequested()
+    public function test_Action_RespondsWithError_WhenEmptyLengthIsRequested()
     {
         try {
             $this->get('/largest-decent-number?length=');
@@ -30,7 +30,7 @@ class LargestDecentNumberActionTest extends HttpTestCase
         }
     }
 
-    public function test_LargestDecentNumberAction_RespondsWithError_WhenNoLengthIsRequested()
+    public function test_Action_RespondsWithError_WhenNoLengthIsRequested()
     {
         try {
             $this->get('/largest-decent-number');
