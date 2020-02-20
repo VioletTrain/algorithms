@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Http\System;
+namespace Algorithms\Http\Action\System;
 
 use Anso\Framework\Http\Request;
 use Anso\Framework\Http\Response;

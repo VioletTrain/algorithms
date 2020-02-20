@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Http\System;
+namespace Algorithms\Http\Action\System;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\TimeElapsedUseCase;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Http;
+namespace Algorithms\Http\Action;
 
 use Algorithms\Boundary\IntMatrix3x3Boundary;
 use Algorithms\Entity\Result;
