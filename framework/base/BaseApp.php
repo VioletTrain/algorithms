@@ -30,4 +30,14 @@ abstract class BaseApp implements Application
     {
         return $this->container->make($class, $parameters);
     }
+
+    public function addResolved(string $abstract, $instance): Container
+    {
+        return $this->container->addResolved($abstract, $instance);
+    }
+
+    public function stop(): void
+    {
+        return;
+    }
 }

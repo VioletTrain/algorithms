@@ -4,16 +4,18 @@ namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\UseCase\StaircaseUseCase;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class StaircaseHandler extends BaseCommandHandler
 {
     private StaircaseUseCase $useCase;
+    private IOManager $ioManager;
 
-    public function __construct(StaircaseUseCase $useCase)
+    public function __construct(StaircaseUseCase $useCase, IOManager $ioManager)
     {
         $this->useCase = $useCase;
+        $this->ioManager = $ioManager;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,10 +23,10 @@ class StaircaseHandler extends BaseCommandHandler
         $size = $parameters->getOrFirst('size');
 
         if (!$size) {
-            $size = IOManager::readInteger('size');
+            $size = $this->ioManager->readInteger('size');
         }
 
-        return implode(IOManager::NEW_LINE, $this->useCase->build(new IntBoundary($size)));
+        return implode($this->ioManager->newLine(), $this->useCase->build(new IntBoundary($size)));
     }
 
     public static function description(): string

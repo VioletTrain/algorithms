@@ -19,4 +19,6 @@ interface Container
      * @throws ReflectionException
      */
     public function make(string $class, array $parameters = []);
+
+    public function addResolved(string $abstract, $instance): self;
 }

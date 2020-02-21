@@ -5,11 +5,18 @@ namespace Algorithms\Console\System;
 use Algorithms\Console\BaseCommandHandler;
 use Algorithms\Console\CommandList;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class HelpHandler extends BaseCommandHandler
 {
+    private IOManager $ioManager;
+
+    public function __construct(IOManager $ioManager)
+    {
+        $this->ioManager = $ioManager;
+    }
+
     public function handle(ParameterBag $parameters): string
     {
         $commands = CommandList::getCommands();
@@ -24,12 +31,12 @@ class HelpHandler extends BaseCommandHandler
         }
 
         $output = "Commands with 1 (one) non-array argument can accept it without name, e.g.:"
-            . IOManager::NEW_LINE . " > sc --size=5" . IOManager::NEW_LINE . "or" . IOManager::NEW_LINE
-            . " > sc 5" . IOManager::NEW_LINE . IOManager::NEW_LINE;
-        $output .= "Available commands: " . IOManager::NEW_LINE;
+            . $this->ioManager->newLine() . " > sc --size=5" . $this->ioManager->newLine() . "or" . $this->ioManager->newLine()
+            . " > sc 5" . $this->ioManager->newLine() . $this->ioManager->newLine();
+        $output .= "Available commands: " . $this->ioManager->newLine();
 
         foreach ($commands as $name => $command) {
-            $output .= $name . " - " . $command::description() . IOManager::NEW_LINE . IOManager::NEW_LINE;
+            $output .= $name . " - " . $command::description() . $this->ioManager->newLine() . $this->ioManager->newLine();
         }
 
         return $output;

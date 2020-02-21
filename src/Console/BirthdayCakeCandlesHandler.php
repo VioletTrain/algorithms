@@ -4,16 +4,18 @@ namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\BirthdayCakeCandlesUseCase;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class BirthdayCakeCandlesHandler extends BaseCommandHandler
 {
     private BirthdayCakeCandlesUseCase $useCase;
+    private IOManager $ioManager;
 
-    public function __construct(BirthdayCakeCandlesUseCase $useCase)
+    public function __construct(BirthdayCakeCandlesUseCase $useCase, IOManager $ioManager)
     {
         $this->useCase = $useCase;
+        $this->ioManager = $ioManager;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,8 +23,8 @@ class BirthdayCakeCandlesHandler extends BaseCommandHandler
         $candlesInline = $parameters->get('candles');
 
         if (!$candlesInline) {
-            $candlesNumber = IOManager::readInteger("amount of candles");
-            $candlesInline = IOManager::readLine("Enter $candlesNumber candles");
+            $candlesNumber = $this->ioManager->readInteger("amount of candles");
+            $candlesInline = $this->ioManager->readLine("Enter $candlesNumber candles");
         }
 
         $candles = explode(' ', $candlesInline);

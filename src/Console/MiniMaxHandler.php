@@ -4,16 +4,18 @@ namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\MiniMaxUseCase;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class MiniMaxHandler extends BaseCommandHandler
 {
     private MiniMaxUseCase $useCase;
+    private IOManager $ioManager;
 
-    public function __construct(MiniMaxUseCase $useCase)
+    public function __construct(MiniMaxUseCase $useCase, IOManager $ioManager)
     {
         $this->useCase = $useCase;
+        $this->ioManager = $ioManager;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,7 +23,7 @@ class MiniMaxHandler extends BaseCommandHandler
         $integers = $parameters->get('integers');
 
         if (!$integers) {
-            $integers = IOManager::readLine("Enter integers:");
+            $integers = $this->ioManager->readLine("Enter integers:");
         }
 
         $integers = explode(' ', $integers);

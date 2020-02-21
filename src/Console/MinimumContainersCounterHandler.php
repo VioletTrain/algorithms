@@ -4,16 +4,18 @@ namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\MinimumContainersCounterUseCase;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class MinimumContainersCounterHandler extends BaseCommandHandler
 {
     private MinimumContainersCounterUseCase $useCase;
+    private IOManager $ioManager;
 
-    public function __construct(MinimumContainersCounterUseCase $useCase)
+    public function __construct(MinimumContainersCounterUseCase $useCase, IOManager $ioManager)
     {
         $this->useCase = $useCase;
+        $this->ioManager = $ioManager;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,8 +23,8 @@ class MinimumContainersCounterHandler extends BaseCommandHandler
         $items = $parameters->get('items');
 
         if (!$items) {
-            $numberOfItems = IOManager::readInteger('number of items');
-            $items = IOManager::readLine("Enter $numberOfItems items:");
+            $numberOfItems = $this->ioManager->readInteger('number of items');
+            $items = $this->ioManager->readLine("Enter $numberOfItems items:");
         }
 
         $items = explode(' ', $items);

@@ -3,12 +3,19 @@
 namespace Algorithms\Console;
 
 use Anso\Framework\Contract\ExceptionHandler;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Contract\ApplicationException;
 use Throwable;
 
 class ConsoleExceptionHandler implements ExceptionHandler
 {
+    private IOManager $ioManager;
+
+    public function __construct(IOManager $ioManager)
+    {
+        $this->ioManager = $ioManager;
+    }
+
     public function handle(Throwable $e)
     {
         $this->report($e);
@@ -28,6 +35,6 @@ class ConsoleExceptionHandler implements ExceptionHandler
             ? "$border\n" . $e->getMessage() . "\n$border"
             : "$border\n" . $e->getMessage() . "\n" . $e->getTraceAsString(). "\n$border";
 
-        IOManager::writeLine($message);
+        $this->ioManager->writeLine($message);
     }
 }

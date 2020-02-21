@@ -2,13 +2,13 @@
 
 namespace Anso\Framework\Base;
 
-use Anso\Framework\Contract\Container;
+use Anso\Framework\Contract\Container as ContainerContract;
 use Closure;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionParameter;
 
-class BaseContainer implements Container
+class Container implements ContainerContract
 {
     protected Configuration $configurator;
     protected array $bindings;
@@ -18,8 +18,8 @@ class BaseContainer implements Container
 
     public function __construct(Configuration $configurator)
     {
-        $this->resolved[Container::class] = $this;
-        $this->resolved[Configuration::class] = $configurator;
+        $this->addResolved(ContainerContract::class, $this);
+        $this->addResolved(Configuration::class, $configurator);
         $this->configurator = $configurator->configure();
 
         $this->registerBindings($this->createProviders());
@@ -69,6 +69,13 @@ class BaseContainer implements Container
         return $this->build($this->bindings[$class], $parameters);
     }
 
+    public function addResolved(string $abstract, $instance): ContainerContract
+    {
+        $this->resolved[$abstract] = $instance;
+
+        return $this;
+    }
+
     protected function isSingleton(string $class): bool
     {
         return isset($this->singletons[$class]);
@@ -111,7 +118,7 @@ class BaseContainer implements Container
         try {
             $reflector = new ReflectionClass($concrete);
         } catch (ReflectionException $e) {
-            throw new BindingException("Target class $concrete does not exist");
+            throw new BindingException($e->getMessage());
         }
 
         if (!$reflector->isInstantiable()) {

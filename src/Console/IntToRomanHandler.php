@@ -4,16 +4,18 @@ namespace Algorithms\Console;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\IntToRomanConverter;
-use Anso\Framework\Console\IOManager;
+use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;
 
 class IntToRomanHandler extends BaseCommandHandler
 {
     private IntToRomanConverter $converter;
+    private IOManager $ioManager;
 
-    public function __construct(IntToRomanConverter $converter)
+    public function __construct(IntToRomanConverter $converter, IOManager $ioManager)
     {
         $this->converter = $converter;
+        $this->ioManager = $ioManager;
     }
 
     public function handle(ParameterBag $parameters): string
@@ -21,7 +23,7 @@ class IntToRomanHandler extends BaseCommandHandler
         $integer = $parameters->getOrFirst('number');
 
         if (!$integer) {
-            $integer = IOManager::readInteger('numeric');
+            $integer = $this->ioManager->readInteger('numeric');
         }
 
         return $this->converter->convert(new IntBoundary($integer));
