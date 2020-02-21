@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\Handler;
 
 use Anso\Framework\Console\Contract\CommandHandler;
 

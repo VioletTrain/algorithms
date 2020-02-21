@@ -1,8 +1,8 @@
 <?php
 
-namespace Algorithms\Console\System;
+namespace Algorithms\Console\Handler\System;
 
-use Algorithms\Console\BaseCommandHandler;
+use Algorithms\Console\Handler\BaseCommandHandler;
 use Algorithms\UseCase\MemoryUsageUseCase;
 use Anso\Framework\Console\Contract\IOManager;
 use Anso\Framework\Console\ParameterBag;

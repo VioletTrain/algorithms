@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\Handler;
 
 use Algorithms\Boundary\TimeBoundary;
 use Algorithms\UseCase\TimeConversionUseCase;

@@ -7,22 +7,22 @@ class CommandList
     public static function getCommands(): array
     {
         return [
-            'q'             => System\ExitHandler::class,
-            'exit'          => System\ExitHandler::class,
-            'help'          => System\HelpHandler::class,
-            'memory'        => System\MemoryHandler::class,
-            'objects'       => System\ObjectsHandler::class,
-            'time'          => System\TimeElapsedHandler::class,
-            'sum'           => SolveMeFirstHandler::class,
-            'pm'            => PlusMinusHandler::class,
-            'sc'            => StaircaseHandler::class,
-            'mm'            => MiniMaxHandler::class,
-            'bc'            => BirthdayCakeCandlesHandler::class,
-            'tc'            => TimeConversionHandler::class,
-            'itr'           => IntToRomanHandler::class,
-            'ldn'           => LargestDecentNumberHandler::class,
-            'mcn'           => MinimumContainersCounterHandler::class,
-            'ms'            => MagicSquareHandler::class,
+            'q'             => Handler\System\ExitHandler::class,
+            'exit'          => Handler\System\ExitHandler::class,
+            'help'          => Handler\System\HelpHandler::class,
+            'memory'        => Handler\System\MemoryHandler::class,
+            'objects'       => Handler\System\ObjectsHandler::class,
+            'time'          => Handler\System\TimeElapsedHandler::class,
+            'sum'           => Handler\SolveMeFirstHandler::class,
+            'pm'            => Handler\PlusMinusHandler::class,
+            'sc'            => Handler\StaircaseHandler::class,
+            'mm'            => Handler\MiniMaxHandler::class,
+            'bc'            => Handler\BirthdayCakeCandlesHandler::class,
+            'tc'            => Handler\TimeConversionHandler::class,
+            'itr'           => Handler\IntToRomanHandler::class,
+            'ldn'           => Handler\LargestDecentNumberHandler::class,
+            'mcn'           => Handler\MinimumContainersCounterHandler::class,
+            'ms'            => Handler\MagicSquareHandler::class,
         ];
     }
 }

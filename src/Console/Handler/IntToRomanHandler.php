@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\Handler;
 
 use Algorithms\Boundary\IntBoundary;
 use Algorithms\IntToRomanConverter;

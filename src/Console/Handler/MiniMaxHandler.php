@@ -1,6 +1,6 @@
 <?php
 
-namespace Algorithms\Console;
+namespace Algorithms\Console\Handler;
 
 use Algorithms\Boundary\IntArrayBoundary;
 use Algorithms\UseCase\MiniMaxUseCase;

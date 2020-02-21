@@ -1,8 +1,8 @@
 <?php
 
-namespace Algorithms\Console\System;
+namespace Algorithms\Console\Handler\System;
 
-use Algorithms\Console\BaseCommandHandler;
+use Algorithms\Console\Handler\BaseCommandHandler;
 use Anso\Framework\Console\ParameterBag;
 use Anso\Framework\Contract\Application;
 

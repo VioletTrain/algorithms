@@ -1,8 +1,8 @@
 <?php
 
-namespace Algorithms\Console\System;
+namespace Algorithms\Console\Handler\System;
 
-use Algorithms\Console\BaseCommandHandler;
+use Algorithms\Console\Handler\BaseCommandHandler;
 use Algorithms\Console\CommandList;
 use Anso\Framework\Console\Exception\CommandNotFoundException;
 use Anso\Framework\Console\Contract\IOManager;

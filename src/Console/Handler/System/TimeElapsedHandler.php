@@ -1,9 +1,9 @@
 <?php
 
-namespace Algorithms\Console\System;
+namespace Algorithms\Console\Handler\System;
 
 use Algorithms\Boundary\IntBoundary;
-use Algorithms\Console\BaseCommandHandler;
+use Algorithms\Console\Handler\BaseCommandHandler;
 use Algorithms\UseCase\TimeElapsedUseCase;
 use Anso\Framework\Console\ParameterBag;
 
