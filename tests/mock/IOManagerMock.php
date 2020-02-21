@@ -3,6 +3,7 @@
 namespace Tests\Mock;
 
 use Anso\Framework\Console\Contract\IOManager;
+use Anso\Framework\Console\Exception\InvalidFormatException;
 
 class IOManagerMock implements IOManager
 {
@@ -10,7 +11,9 @@ class IOManagerMock implements IOManager
 
     public function readLine($prompt = ''): string
     {
-        return array_shift($this->commands) ?? 'exit';
+        $value = array_shift($this->commands) ?? 'exit';
+
+        return $value;
     }
 
     public function writeLine(string $output): void
@@ -18,9 +21,20 @@ class IOManagerMock implements IOManager
         echo $this->newLine() . $output . $this->newLine() . $this->newLine();
     }
 
+    /**
+     * @param string $integerName
+     * @return int
+     * @throws InvalidFormatException
+     */
     public function readInteger(string $integerName): int
     {
-        return array_shift($this->commands) ?? 1;
+        $integer = array_shift($this->commands) ?? null;
+
+        if (!is_numeric($integer)) {
+            throw new InvalidFormatException('numeric');
+        }
+
+        return $integer;
     }
 
     public function pushCommand(string $command): IOManagerMock

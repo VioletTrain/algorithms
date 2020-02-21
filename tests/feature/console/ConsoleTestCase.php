@@ -33,6 +33,6 @@ abstract class ConsoleTestCase extends TestCase
 
     protected function findExpected(string $expected): string
     {
-        return str_replace("\n", "", strstr($this->getActualOutput(), $expected));
+        return str_replace(["\n", '~'], "", strstr($this->getActualOutput(), $expected));
     }
 }
