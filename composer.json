@@ -21,7 +21,8 @@
             "Tests\\": "tests\\",
             "Tests\\Feature\\Console\\": "tests\\feature\\console\\",
             "Tests\\Feature\\Http\\": "tests\\feature\\http\\",
-            "Tests\\Unit\\": "tests\\unit\\"
+            "Tests\\Unit\\": "tests\\unit\\",
+            "Tests\\Mock\\": "tests\\mock\\"
         }
     },
     "authors": [
