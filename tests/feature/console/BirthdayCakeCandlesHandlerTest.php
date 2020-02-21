@@ -6,8 +6,7 @@ class BirthdayCakeCandlesHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsTallestCandlesCount_WhenInputIsStringOfIntegers()
     {
-        $this->ioManager->pushCommand('bc --candles=3 4 4 5 5 5 5')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('bc --candles=3 4 4 5 5 5 5');
 
         $this->application->start();
 

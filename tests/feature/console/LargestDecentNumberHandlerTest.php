@@ -6,8 +6,7 @@ class LargestDecentNumberHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsLargestDecentNumber_WhenSuitableIntIsGiven()
     {
-        $this->ioManager->pushCommand('ldn 5')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('ldn 5');
 
         $this->application->start();
 

@@ -6,8 +6,7 @@ class PlusMinusHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsRatios_WhenInputIsStringOfIntegers()
     {
-        $this->ioManager->pushCommand('pm --array=1 2 -3 -5 0')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('pm --array=1 2 -3 -5 0');
 
         $this->application->start();
 

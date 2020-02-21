@@ -6,8 +6,7 @@ class IntToRomanHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsRoman_WhenInputIsInteger()
     {
-        $this->ioManager->pushCommand('itr 199')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('itr 199');
 
         $this->application->start();
 

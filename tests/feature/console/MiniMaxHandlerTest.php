@@ -6,8 +6,7 @@ class MiniMaxHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsMiniMax_WhenInputIsStringOfIntegers()
     {
-        $this->ioManager->pushCommand('mm --integers=1 2 4 10 13 25 10')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('mm --integers=1 2 4 10 13 25 10');
 
         $this->application->start();
 

@@ -6,8 +6,7 @@ class TimeConverterHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsTallestCandlesCount_WhenInputIsStringOfIntegers()
     {
-        $this->ioManager->pushCommand('tc --time=12:32:43AM')
-            ->pushCommand('exit');
+        $this->ioManager->pushCommand('tc --time=12:32:43AM');
 
         $this->application->start();
 

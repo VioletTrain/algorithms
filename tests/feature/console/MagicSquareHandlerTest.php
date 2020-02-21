@@ -9,8 +9,7 @@ class MagicSquareHandlerTest extends ConsoleTestCase
         $this->ioManager->pushCommand('ms')
             ->pushCommand('4 8 2')
             ->pushCommand('4 5 7')
-            ->pushCommand('6 1 6')
-            ->pushCommand('exit');
+            ->pushCommand('6 1 6');
 
         $this->application->start();
 
