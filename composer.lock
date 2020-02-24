@@ -4,8 +4,119 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be28846b041b390201319bfd14bade7f",
+    "content-hash": "17eeef8f8b5b099e3d051a94b6c7f3d9",
     "packages": [
+        {
+            "name": "anso/base",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VioletTrain/base.git",
+                "reference": "39c32c7fdd134dca6ef7da1dc7c2d65f03840f00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VioletTrain/base/zipball/39c32c7fdd134dca6ef7da1dc7c2d65f03840f00",
+                "reference": "39c32c7fdd134dca6ef7da1dc7c2d65f03840f00",
+                "shasum": ""
+            },
+            "require": {
+                "anso/contract": "*",
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anso\\Framework\\Base\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrij Kshanovskij",
+                    "email": "andrewafk2000@gmail.com"
+                }
+            ],
+            "description": "Base classes for anso/http and anso/console frameworks.",
+            "time": "2020-02-24T11:49:52+00:00"
+        },
+        {
+            "name": "anso/console",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VioletTrain/console.git",
+                "reference": "f9b93b6bdfe8b39b5473e06db85487eccd01e3b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VioletTrain/console/zipball/f9b93b6bdfe8b39b5473e06db85487eccd01e3b2",
+                "reference": "f9b93b6bdfe8b39b5473e06db85487eccd01e3b2",
+                "shasum": ""
+            },
+            "require": {
+                "anso/base": "*",
+                "anso/contract": "*",
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anso\\Framework\\Console\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrij Kshanovskij",
+                    "email": "andrewafk2000@gmail.com"
+                }
+            ],
+            "description": "Console framework for training project.",
+            "time": "2020-02-24T12:29:31+00:00"
+        },
+        {
+            "name": "anso/contract",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VioletTrain/contract.git",
+                "reference": "55f030c847f2d5a15e8e7f41f808263968cd5a8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VioletTrain/contract/zipball/55f030c847f2d5a15e8e7f41f808263968cd5a8f",
+                "reference": "55f030c847f2d5a15e8e7f41f808263968cd5a8f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anso\\Framework\\Contract\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrij Kshanovskij",
+                    "email": "andrewafk2000@gmail.com"
+                }
+            ],
+            "description": "Contracts for anso/base, anso/http, anso/console packages.",
+            "time": "2020-02-24T10:58:41+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.8.0",
@@ -3550,10 +3661,15 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "anso/contract": 20,
+        "anso/base": 20,
+        "anso/console": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "php": "^7.4",
         "ext-json": "*",
         "ext-readline": "*"
     },

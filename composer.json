@@ -1,18 +1,19 @@
 {
     "require": {
+        "php": "^7.4",
         "symfony/http-foundation": "^5.0",
         "doctrine/orm": "^2.7",
         "ext-json": "*",
         "ext-readline": "*",
         "guzzlehttp/guzzle": "^6.5",
-        "doctrine/migrations": "^2.2"
+        "doctrine/migrations": "^2.2",
+        "anso/contract": "dev-master",
+        "anso/base": "dev-master",
+        "anso/console": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "Algorithms\\": "src\\",
-            "Anso\\Framework\\Base\\": "framework\\base\\",
-            "Anso\\Framework\\Console\\": "framework\\console\\",
-            "Anso\\Framework\\Contract\\": "framework\\contract\\",
             "Anso\\Framework\\Http\\": "framework\\http\\"
         }
     },
