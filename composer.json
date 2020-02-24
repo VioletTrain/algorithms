@@ -9,12 +9,12 @@
         "doctrine/migrations": "^2.2",
         "anso/contract": "dev-master",
         "anso/base": "dev-master",
-        "anso/console": "dev-master"
+        "anso/console": "dev-master",
+        "anso/http": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Algorithms\\": "src\\",
-            "Anso\\Framework\\Http\\": "framework\\http\\"
+            "Algorithms\\": "src\\"
         }
     },
     "autoload-dev": {

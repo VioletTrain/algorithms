@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "17eeef8f8b5b099e3d051a94b6c7f3d9",
+    "content-hash": "356e7327e86204be68d12c67b6232058",
     "packages": [
         {
             "name": "anso/base",
@@ -116,6 +116,44 @@
             ],
             "description": "Contracts for anso/base, anso/http, anso/console packages.",
             "time": "2020-02-24T10:58:41+00:00"
+        },
+        {
+            "name": "anso/http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VioletTrain/http.git",
+                "reference": "566ad2ffeadd81c2e44fdfa05921df48aac33e9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VioletTrain/http/zipball/566ad2ffeadd81c2e44fdfa05921df48aac33e9e",
+                "reference": "566ad2ffeadd81c2e44fdfa05921df48aac33e9e",
+                "shasum": ""
+            },
+            "require": {
+                "anso/base": "*",
+                "anso/contract": "*",
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anso\\Framework\\Http\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrij Kshanovskij",
+                    "email": "andrewafk2000@gmail.com"
+                }
+            ],
+            "description": "Http framework for training project.",
+            "time": "2020-02-24T20:25:02+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3664,7 +3702,8 @@
     "stability-flags": {
         "anso/contract": 20,
         "anso/base": 20,
-        "anso/console": 20
+        "anso/console": 20,
+        "anso/http": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
