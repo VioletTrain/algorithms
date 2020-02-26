@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VioletTrain/base.git",
-                "reference": "39c32c7fdd134dca6ef7da1dc7c2d65f03840f00"
+                "reference": "73268b220fe5b3484baafb24cd53c62ba0f55cba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VioletTrain/base/zipball/39c32c7fdd134dca6ef7da1dc7c2d65f03840f00",
-                "reference": "39c32c7fdd134dca6ef7da1dc7c2d65f03840f00",
+                "url": "https://api.github.com/repos/VioletTrain/base/zipball/73268b220fe5b3484baafb24cd53c62ba0f55cba",
+                "reference": "73268b220fe5b3484baafb24cd53c62ba0f55cba",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Base classes for anso/http and anso/console frameworks.",
-            "time": "2020-02-24T11:49:52+00:00"
+            "time": "2020-02-26T16:25:25+00:00"
         },
         {
             "name": "anso/console",
@@ -87,12 +87,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VioletTrain/contract.git",
-                "reference": "55f030c847f2d5a15e8e7f41f808263968cd5a8f"
+                "reference": "3430b19feb5737aa6f8bbea92d52ca6e48113f04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VioletTrain/contract/zipball/55f030c847f2d5a15e8e7f41f808263968cd5a8f",
-                "reference": "55f030c847f2d5a15e8e7f41f808263968cd5a8f",
+                "url": "https://api.github.com/repos/VioletTrain/contract/zipball/3430b19feb5737aa6f8bbea92d52ca6e48113f04",
+                "reference": "3430b19feb5737aa6f8bbea92d52ca6e48113f04",
                 "shasum": ""
             },
             "require": {
@@ -115,7 +115,7 @@
                 }
             ],
             "description": "Contracts for anso/base, anso/http, anso/console packages.",
-            "time": "2020-02-24T10:58:41+00:00"
+            "time": "2020-02-26T13:49:33+00:00"
         },
         {
             "name": "anso/http",
