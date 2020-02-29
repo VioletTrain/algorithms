@@ -46,3 +46,15 @@ services:
       - 54320:5432
     networks:
       - algorithms
+
+  pgsql_alg_test:
+    container_name: pgsql_alg_test
+    image: postgres:11.1-alpine
+    environment:
+      - POSTGRES_USER=algorithms_user
+      - POSTGRES_PASSWORD=postgres1234
+      - POSTGRES_DB=algorithms_db_test
+    ports:
+      - 54330:5432
+    networks:
+      - algorithms
