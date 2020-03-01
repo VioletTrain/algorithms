@@ -3,6 +3,8 @@
 namespace Tests\Feature\Http;
 
 
+use Algorithms\Entity\Result;
+
 class MinimumContainersActionTest extends HttpTestCase
 {
     public function test_Action_RespondsWithContainersCount_WhenSuitableItemsRequested()
@@ -16,5 +18,14 @@ class MinimumContainersActionTest extends HttpTestCase
         $this->assertEquals([
             'containers_count' => 3
         ], $response);
+
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'minimum-containers',
+            'input' => '1, 2, 5, 10, 46',
+            'result' => '3',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 }

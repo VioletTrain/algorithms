@@ -54,6 +54,8 @@ abstract class HttpTestCase extends TestCase
 
     protected function get(string $uri): array
     {
+        $this->resetGlobals();
+        $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['REQUEST_URI'] = $uri;
         $_SERVER['QUERY_STRING'] = explode('?', $uri)[1] ?? '';
         $parameters = explode('&', $_SERVER['QUERY_STRING']);
@@ -73,11 +75,22 @@ abstract class HttpTestCase extends TestCase
 
     protected function post(string $uri, array $body): array
     {
+        $this->resetGlobals();
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['REQUEST_URI'] = $uri;
         $_POST = $body;
         $this->app->start();
 
         return json_decode(ob_get_contents(), true);
+    }
+
+    protected function resetGlobals(): self
+    {
+        $_SERVER = [];
+        $_GET = [];
+        $_POST = [];
+        $_SERVER['REQUEST_TIME_FLOAT'] = microtime(true);
+
+        return $this;
     }
 }

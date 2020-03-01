@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http;
 
-use GuzzleHttp\Exception\ClientException;
+use Algorithms\Entity\Result;
 
 class TimeConverterActionTest extends HttpTestCase
 {
@@ -13,19 +13,26 @@ class TimeConverterActionTest extends HttpTestCase
         $this->assertEquals([
             'converted_time' => '14:03:32'
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'time-converter',
+            'input' => '02:03:32PM',
+            'result' => '14:03:32',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenTimeFormatIsInvalid()
     {
-        try {
-            $this->get('/time-converter?time=13:03:32PM');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/time-converter?time=13:03:32PM');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Invalid time format'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Invalid time format'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'time-converter'
+        ]);
     }
 }

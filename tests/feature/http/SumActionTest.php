@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http;
 
-use GuzzleHttp\Exception\ClientException;
+use Algorithms\Entity\Result;
 
 class SumActionTest extends HttpTestCase
 {
@@ -13,33 +13,39 @@ class SumActionTest extends HttpTestCase
         $this->assertEquals([
             'sum' => 8
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'sum',
+            'input' => '3, 5',
+            'result' => '8',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenBIsNull()
     {
-        try {
-            $this->client->get('/sum?a=3')->getBody();
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/sum?a=3');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'sum'
+        ]);
     }
 
     public function test_Action_RespondsWithError_WhenBIsEmptyString()
     {
-        try {
-            $this->client->get('/sum?a=3&b=')->getBody();
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/sum?a=3&b=');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'staircase'
+        ]);
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Tests\Feature\Http;
 
-use GuzzleHttp\Exception\ClientException;
+
+use Algorithms\Entity\Result;
 
 class IntToRomanActionTest extends HttpTestCase
 {
@@ -13,33 +14,39 @@ class IntToRomanActionTest extends HttpTestCase
         $this->assertEquals([
             'roman' => 'CII'
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'int-to-roman',
+            'input' => '102',
+            'result' => 'CII',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenEmptyIntIsRequested()
     {
-        try {
-            $this->get('/int-to-roman?int=');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/int-to-roman?int=');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'int-to-roman'
+        ]);
     }
 
     public function test_Action_RespondsWithError_WhenNoIntIsRequested()
     {
-        try {
-            $this->get('/int-to-roman');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/int-to-roman');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'int-to-roman'
+        ]);
     }
 }

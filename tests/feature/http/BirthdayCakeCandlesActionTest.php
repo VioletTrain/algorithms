@@ -3,6 +3,8 @@
 namespace Tests\Feature\Http;
 
 
+use Algorithms\Entity\Result;
+
 class BirthdayCakeCandlesActionTest extends HttpTestCase
 {
     public function test_Action_RespondsWithTallestCandlesCount_WhenArrayOfIntegersIsRequested()
@@ -16,5 +18,13 @@ class BirthdayCakeCandlesActionTest extends HttpTestCase
         $this->assertEquals([
             'tallest_candles_count' => 3
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'birthday-cake-candles',
+            'input' => '1, 2, 3, 3, 3',
+            'result' => '3',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 }

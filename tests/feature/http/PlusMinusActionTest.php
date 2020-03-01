@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http;
 
-use GuzzleHttp\Exception\ClientException;
+use Algorithms\Entity\Result;
 
 class PlusMinusActionTest extends HttpTestCase
 {
@@ -19,35 +19,41 @@ class PlusMinusActionTest extends HttpTestCase
                 "zero"     => "0.200000",
             ]
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'plus-minus',
+            'input' => '1, 2, 3, 0, -1',
+            'result' => '0.600000, 0.200000, 0.200000',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenEmptyArrayIsRequested()
     {
-        try {
-            $this->post('/plus-minus', [
+            $response = $this->post('/plus-minus', [
                 'array' => []
             ]);
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
 
-            $this->assertEquals(400, $e->getCode());
             $this->assertEquals([
                 'error' => 'Input is empty'
             ], $response);
-        }
+
+            $this->db->assertDBDoesNotHave(Result::class, [
+                'useCaseName' => 'plus-minus'
+            ]);
     }
 
     public function test_Action_RespondsWithError_WhenNoArrayIsRequested()
     {
-        try {
-            $this->post('/plus-minus', []);
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->post('/plus-minus', []);
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input is empty'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input is empty'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'plus-minus'
+        ]);
     }
 }

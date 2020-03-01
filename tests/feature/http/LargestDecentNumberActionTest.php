@@ -3,7 +3,7 @@
 namespace Tests\Feature\Http;
 
 
-use GuzzleHttp\Exception\ClientException;
+use Algorithms\Entity\Result;
 
 class LargestDecentNumberActionTest extends HttpTestCase
 {
@@ -14,33 +14,39 @@ class LargestDecentNumberActionTest extends HttpTestCase
         $this->assertEquals([
             'largest_decent_number' => '3333333333'
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'largest-decent-number',
+            'input' => '10',
+            'result' => '3333333333',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenEmptyLengthIsRequested()
     {
-        try {
-            $this->get('/largest-decent-number?length=');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/largest-decent-number?length=');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
-    }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'largest-decent-number'
+        ]);
+}
 
     public function test_Action_RespondsWithError_WhenNoLengthIsRequested()
     {
-        try {
-            $this->get('/largest-decent-number');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/largest-decent-number');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'largest-decent-number'
+        ]);
     }
 }

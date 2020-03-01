@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http;
 
-use GuzzleHttp\Exception\ClientException;
+use Algorithms\Entity\Result;
 
 class StaircaseActionTest extends HttpTestCase
 {
@@ -17,33 +17,39 @@ class StaircaseActionTest extends HttpTestCase
                 '###',
             ]
         ], $response);
+
+        $this->db->assertDBHas(Result::class, [
+            'useCaseName' => 'staircase',
+            'input' => '3',
+            'result' => '  #,  ##, ###',
+        ]);
+
+        $this->db->clearDB(Result::class);
     }
 
     public function test_Action_RespondsWithError_WhenEmptySizeIsRequested()
     {
-        try {
-            $this->get('/staircase?size=');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/staircase?size=');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'staircase'
+        ]);
     }
 
     public function test_Action_RespondsWithError_WhenNoSizeIsRequested()
     {
-        try {
-            $this->get('/staircase');
-        } catch (ClientException $e) {
-            $response = json_decode($e->getResponse()->getBody(), true);
+        $response = $this->get('/staircase');
 
-            $this->assertEquals(400, $e->getCode());
-            $this->assertEquals([
-                'error' => 'Input must be numeric'
-            ], $response);
-        }
+        $this->assertEquals([
+            'error' => 'Input must be numeric'
+        ], $response);
+
+        $this->db->assertDBDoesNotHave(Result::class, [
+            'useCaseName' => 'staircase'
+        ]);
     }
 }
