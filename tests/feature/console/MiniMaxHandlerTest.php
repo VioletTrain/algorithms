@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Console;
 
+use Anso\Framework\Console\Test\ConsoleTestCase;
+
 class MiniMaxHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsMiniMax_WhenInputIsStringOfIntegers()

@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Console;
 
+use Anso\Framework\Console\Test\ConsoleTestCase;
+
 class LargestDecentNumberHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsLargestDecentNumber_WhenSuitableIntIsGiven()

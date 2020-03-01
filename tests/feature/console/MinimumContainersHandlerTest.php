@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Console;
 
+use Anso\Framework\Console\Test\ConsoleTestCase;
+
 class MinimumContainersHandlerTest extends ConsoleTestCase
 {
     public function test_Handler_OutputsMinimumContainersCount_WhenSuitableItemsAreGiven()

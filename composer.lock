@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VioletTrain/console.git",
-                "reference": "f9b93b6bdfe8b39b5473e06db85487eccd01e3b2"
+                "reference": "98d99ddd0d4ee07dda24cb4d12f583f28d21b6e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VioletTrain/console/zipball/f9b93b6bdfe8b39b5473e06db85487eccd01e3b2",
-                "reference": "f9b93b6bdfe8b39b5473e06db85487eccd01e3b2",
+                "url": "https://api.github.com/repos/VioletTrain/console/zipball/98d99ddd0d4ee07dda24cb4d12f583f28d21b6e3",
+                "reference": "98d99ddd0d4ee07dda24cb4d12f583f28d21b6e3",
                 "shasum": ""
             },
             "require": {
@@ -79,7 +79,7 @@
                 }
             ],
             "description": "Console framework for training project.",
-            "time": "2020-02-24T12:29:31+00:00"
+            "time": "2020-03-01T12:52:05+00:00"
         },
         {
             "name": "anso/contract",

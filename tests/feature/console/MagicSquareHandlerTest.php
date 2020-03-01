@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Console;
 
+use Anso\Framework\Console\Test\ConsoleTestCase;
+
 class MagicSquareHandlerTest extends ConsoleTestCase
 {
     public function test_Action_RespondsWithCost_When3x3IntMatrixIsRequested()

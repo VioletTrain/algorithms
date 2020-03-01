@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Console;
 
+use Anso\Framework\Console\Test\ConsoleTestCase;
+
 class ConsoleErrorTest extends ConsoleTestCase
 {
     public function test_Application_OutputsCommandErrorMessage_WhenInvalidCommandIsGiven()
