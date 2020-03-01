@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Http;
 
+use Anso\Framework\Http\Test\HttpTestCase;
+
 class HttpErrorTest extends HttpTestCase
 {
     public function test_Application_RespondsWithError_WhenInvalidPageIsRequested()

@@ -12,17 +12,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VioletTrain/base.git",
-                "reference": "73268b220fe5b3484baafb24cd53c62ba0f55cba"
+                "reference": "dff77ab2a2b291a06c368a190b3e8f5490f5fdde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VioletTrain/base/zipball/73268b220fe5b3484baafb24cd53c62ba0f55cba",
-                "reference": "73268b220fe5b3484baafb24cd53c62ba0f55cba",
+                "url": "https://api.github.com/repos/VioletTrain/base/zipball/dff77ab2a2b291a06c368a190b3e8f5490f5fdde",
+                "reference": "dff77ab2a2b291a06c368a190b3e8f5490f5fdde",
                 "shasum": ""
             },
             "require": {
                 "anso/contract": "*",
                 "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8"
             },
             "type": "library",
             "autoload": {
@@ -41,7 +44,7 @@
                 }
             ],
             "description": "Base classes for anso/http and anso/console frameworks.",
-            "time": "2020-02-26T16:25:25+00:00"
+            "time": "2020-03-01T13:20:23+00:00"
         },
         {
             "name": "anso/console",
@@ -123,18 +126,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/VioletTrain/http.git",
-                "reference": "566ad2ffeadd81c2e44fdfa05921df48aac33e9e"
+                "reference": "8f6b530441625a7c98bfd5893e33665a5ef03f78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VioletTrain/http/zipball/566ad2ffeadd81c2e44fdfa05921df48aac33e9e",
-                "reference": "566ad2ffeadd81c2e44fdfa05921df48aac33e9e",
+                "url": "https://api.github.com/repos/VioletTrain/http/zipball/8f6b530441625a7c98bfd5893e33665a5ef03f78",
+                "reference": "8f6b530441625a7c98bfd5893e33665a5ef03f78",
                 "shasum": ""
             },
             "require": {
                 "anso/base": "*",
                 "anso/contract": "*",
                 "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8"
             },
             "type": "library",
             "autoload": {
@@ -153,7 +159,7 @@
                 }
             ],
             "description": "Http framework for training project.",
-            "time": "2020-02-24T20:25:02+00:00"
+            "time": "2020-03-01T13:36:05+00:00"
         },
         {
             "name": "doctrine/annotations",

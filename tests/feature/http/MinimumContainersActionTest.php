@@ -4,6 +4,7 @@ namespace Tests\Feature\Http;
 
 
 use Algorithms\Entity\Result;
+use Anso\Framework\Http\Test\HttpTestCase;
 
 class MinimumContainersActionTest extends HttpTestCase
 {
